@@ -2,6 +2,8 @@
 #include <string>
 
 using namespace std;
+//TODO виправити при index < 0 та size = 0
+//TODO перевірити find() для різних типів даних
 
 template<class T>
 class List {
@@ -18,9 +20,108 @@ public:
 
     virtual void clear() = 0;
 
-    virtual void sort_by(void (*sort)(T*, int)) = 0;
+    virtual void sort_by(void (*sort)(T *, int)) = 0;
 
     virtual int get_size() = 0;
+};
+
+template<class T>
+class ArrayList : List<T> {
+private:
+    int size = 0;
+    int arr_size = 16;
+    T *arr = new T[16];
+
+    void change_arr_size(int new_size) {
+        if (new_size <= size) new_size *= 2;
+
+        T *temp = new T[new_size];
+        for (int i = 0; i < arr_size; i++) {
+            temp[i] = arr[i];
+        }
+        delete[] arr;
+        arr = temp;
+        arr_size = new_size;
+    }
+
+public:
+    void add(T obj) override {
+        if (size == arr_size)
+            change_arr_size(arr_size / 2 * 3 + 2);
+
+        arr[size] = obj;
+        size++;
+    }
+
+    void add(T obj, int index) override {
+        if (size == arr_size)
+            change_arr_size(arr_size / 2 * 3 + 2);
+
+        if (index > size) index = size;
+        while (index < 0) index += size;
+
+        T temp1 = obj;
+        T temp2;
+        while (index <= size) {
+            temp2 = arr[index];
+            arr[index] = temp1;
+            swap(temp1, temp2);
+            index++;
+        }
+        size++;
+    }
+
+    void remove(int index) override {
+        if (index > size) index = size;
+        while (index < 0) index += size;
+
+        for (int i = index; i < size - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        size--;
+    }
+
+    T &get(int index) override {
+        if (index >= size) index = size - 1;
+        while (index < 0) index += size;
+        return arr[index];
+    }
+
+    int find(T obj) override {
+        int res = -1;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == obj) {
+                res = i;
+                break;
+            }
+        }
+        return res;
+    }
+
+    void clear() override {
+        delete[] arr;
+        size = 0;
+        arr_size = 16;
+        arr = new T[arr_size];
+    }
+
+    void sort_by(void (*sort)(T *, int)) override {
+
+    }
+
+    int get_size() override {
+        return size;
+    }
+
+    void print() {
+        if (size == 0) {
+            cout << "Empty" << endl;
+        } else {
+            for (int i = 0; i < size; i++) {
+                cout << "arr[" << i << "] = " << arr[i] << endl;
+            }
+        }
+    }
 };
 
 template<class T>
@@ -52,6 +153,7 @@ public:
         size++;
     }
 
+//TODO перевірити правильність роботи при index < 0
     void add(T obj, int index) override {
         while (index < 0) {
             index = size + index + 1;
@@ -77,7 +179,7 @@ public:
     }
 
     void remove(int index) override {
-        if(index >= size) index = size - 1;
+        if (index >= size) index = size - 1;
         while (index < 0) index += size;
 
         if (index == 0) {
@@ -95,21 +197,21 @@ public:
         size--;
     }
 
-    T &get(int index) override {
-        if (index >= size) index = size - 1;
-        while (index < 0) index += size;
-
-        if (index == 0) {
-            return head->obj;
-        } else {
-            Node *temp = head;
-            while (index != 0){
-                temp = temp->next;
-                index--;
-            }
-            return temp->obj;
-        }
-    }
+//    T &get(int index) override {
+//        if (index >= size) index = size - 1;
+//        while (index < 0) index += size;
+//
+//        if (index == 0) {
+//            return head->obj;
+//        } else {
+//            Node *temp = head;
+//            while (index != 0) {
+//                temp = temp->next;
+//                index--;
+//            }
+//            return temp->obj;
+//        }
+//    }
 
     int find(T obj) override {
         int res = -1;
@@ -136,11 +238,11 @@ public:
         size = 0;
     }
 
-    void sort_by(void (*sort)(T*, int)) override {
-        T* arr = new T[size];
+    void sort_by(void (*sort)(T *, int)) override {
+        T *arr = new T[size];
 
         ass = head;
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             arr[i] = ass->obj;
             ass = ass->next;
         }
@@ -148,7 +250,7 @@ public:
         sort(arr, size);
 
         ass = head;
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             ass->obj = arr[i];
             ass = ass->next;
         }
@@ -173,11 +275,12 @@ public:
 };
 
 int main() {
-    LinkedList<string> kek;
-    int n = 7;
-    kek.add("aaa");
-    kek.add("bbb");
-    kek.add("ccc", 1);
+    ArrayList<int> kek;
+    kek.add(3);
+    kek.add(2);
+    kek.add(1);
+    kek.add(4, 0);
+    kek.remove(-1);
     kek.print();
 
 
