@@ -29,7 +29,7 @@ template<class T>
 class ArrayList : List<T> {
 private:
     int size = 0;
-    int arr_size = 16;
+    int arr_size = 2;
     T *arr = new T[16];
 
     void change_arr_size(int new_size) {
@@ -197,21 +197,21 @@ public:
         size--;
     }
 
-//    T &get(int index) override {
-//        if (index >= size) index = size - 1;
-//        while (index < 0) index += size;
-//
-//        if (index == 0) {
-//            return head->obj;
-//        } else {
-//            Node *temp = head;
-//            while (index != 0) {
-//                temp = temp->next;
-//                index--;
-//            }
-//            return temp->obj;
-//        }
-//    }
+    T &get(int index) override {
+        if (index >= size) index = size - 1;
+        while (index < 0) index += size;
+
+        if (index == 0) {
+            return head->obj;
+        } else {
+            Node *temp = head;
+            while (index != 0) {
+                temp = temp->next;
+                index--;
+            }
+            return temp->obj;
+        }
+    }
 
     int find(T obj) override {
         int res = -1;
@@ -280,7 +280,7 @@ int main() {
     kek.add(2);
     kek.add(1);
     kek.add(4, 0);
-    kek.remove(-1);
+
     kek.print();
 
 
