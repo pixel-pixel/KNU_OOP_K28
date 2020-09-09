@@ -18,10 +18,12 @@ public:
 
     virtual void clear() = 0;
 
-    virtual void sort_by() = 0;
+    virtual void sort_by(void (*sort)(T*, int)) = 0;
+
+    virtual int get_size() = 0;
 };
 
-template <class T>
+template<class T>
 class LinkedList : List<T> {
 private:
     class Node {
@@ -73,37 +75,48 @@ public:
         }
         size++;
     }
-//TODO зробити якщо index > size або index < 0
+
     void remove(int index) override {
-        if(index == 0){
+        if(index >= size) index = size - 1;
+        while (index < 0) index += size;
+
+        if (index == 0) {
             head = head->next;
-        }else{
-            Node* temp = head;
-            while (index != 1){
+        } else {
+            Node *temp = head;
+            while (index != 1) {
                 temp = head->next;
                 index--;
             }
-            Node* temp2 = temp->next;
+            Node *temp2 = temp->next;
             temp->next = temp2->next;
             delete temp2;
         }
         size--;
     }
-    //TODO доробить
-    T &get(int index) override {
-        if(index == 0){
-            return head->obj;
-        }else{
 
+    T &get(int index) override {
+        if (index >= size) index = size - 1;
+        while (index < 0) index += size;
+
+        if (index == 0) {
+            return head->obj;
+        } else {
+            Node *temp = head;
+            while (index != 0){
+                temp = temp->next;
+                index--;
+            }
+            return temp->obj;
         }
     }
 
     int find(T obj) override {
         int res = -1;
 
-        Node* temp = head;
-        for(int i = 0; i < size; i++){
-            if(temp->obj == obj){
+        Node *temp = head;
+        for (int i = 0; i < size; i++) {
+            if (temp->obj == obj) {
                 res = i;
                 break;
             }
@@ -113,9 +126,9 @@ public:
     }
 
     void clear() override {
-        Node* temp = head;
-        for(int i = 0; i < size; i++){
-            if(head->next != nullptr) temp = head->next;
+        Node *temp = head;
+        for (int i = 0; i < size; i++) {
+            if (head->next != nullptr) temp = head->next;
             delete head;
             head = temp;
         }
@@ -123,31 +136,48 @@ public:
         size = 0;
     }
 
-    void sort_by() override {
+    void sort_by(void (*sort)(T*, int)) override {
+        T* arr = new T[size];
 
+        ass = head;
+        for(int i = 0; i < size; i++){
+            arr[i] = ass->obj;
+            ass = ass->next;
+        }
+
+        sort(arr, size);
+
+        ass = head;
+        for(int i = 0; i < size; i++){
+            ass->obj = arr[i];
+            ass = ass->next;
+        }
     }
 
-    void print(){
-        if(size != 0){
+    int get_size() override {
+        return size;
+    }
+
+    void print() {
+        if (size != 0) {
             ass = head;
             while (ass->next != nullptr) {
                 cout << ass->obj << endl;
                 ass = ass->next;
             }
             cout << ass->obj << endl;
-        }else {
+        } else {
             cout << "Empty" << endl;
         }
     }
 };
 
 int main() {
-    LinkedList<int> kek;
+    LinkedList<string> kek;
     int n = 7;
-    kek.add(n);
-    kek.add(3);
-    kek.add(24, 1);
-    kek.clear();
+    kek.add("aaa");
+    kek.add("bbb");
+    kek.add("ccc", 1);
     kek.print();
 
 
