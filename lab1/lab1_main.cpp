@@ -2,8 +2,6 @@
 #include <string>
 
 using namespace std;
-//TODO виправити при index < 0 та size = 0
-//TODO перевірити find() для різних типів даних
 
 template<class T>
 class List {
@@ -58,7 +56,10 @@ public:
             change_arr_size(arr_size / 2 * 3 + 2);
 
         if (index > size) index = size;
-        while (index < 0) index += size;
+        while (index < 0) {
+            if(size == 0) index += 1;
+            else index += size;
+        }
 
         T temp1 = obj;
         T temp2;
@@ -73,7 +74,10 @@ public:
 
     void remove(int index) override {
         if (index > size) index = size;
-        while (index < 0) index += size;
+        while (index < 0) {
+            if(size == 0) index += 1;
+            else index += size;
+        }
 
         for (int i = index; i < size - 1; i++) {
             arr[i] = arr[i + 1];
@@ -113,14 +117,12 @@ public:
         return size;
     }
 
-    void print() {
-        if (size == 0) {
-            cout << "Empty" << endl;
-        } else {
-            for (int i = 0; i < size; i++) {
-                cout << "arr[" << i << "] = " << arr[i] << endl;
-            }
+    friend std::ostream& operator<< (std::ostream &out, const ArrayList<T> &list){
+        cout << '[';
+        for(int i = 0; i < list.size - 1; i++){
+            cout << list.arr[i] << ", ";
         }
+        cout << list.arr[list.size - 1] << ']';
     }
 };
 
@@ -153,10 +155,10 @@ public:
         size++;
     }
 
-//TODO перевірити правильність роботи при index < 0
     void add(T obj, int index) override {
         while (index < 0) {
-            index = size + index + 1;
+            if(size == 0) index += 1;
+            else index += size;
         }
 
         if (index == 0) {
@@ -180,7 +182,10 @@ public:
 
     void remove(int index) override {
         if (index >= size) index = size - 1;
-        while (index < 0) index += size;
+        while (index < 0) {
+            if(size == 0) index += 1;
+            else index += size;
+        }
 
         if (index == 0) {
             head = head->next;
@@ -260,28 +265,95 @@ public:
         return size;
     }
 
-    void print() {
-        if (size != 0) {
-            ass = head;
-            while (ass->next != nullptr) {
-                cout << ass->obj << endl;
-                ass = ass->next;
-            }
-            cout << ass->obj << endl;
-        } else {
-            cout << "Empty" << endl;
+    friend std::ostream& operator<< (std::ostream &out, LinkedList<T> &list){
+        cout << '[';
+        list.ass = list.head;
+        for(int i = 0; i < list.size - 1; i++){
+            cout << list.ass->obj << ", ";
+            list.ass = list.ass->next;
         }
+        cout << list.ass->obj << ']';
+    }
+};
+
+class Date{
+private:
+    int year;
+    int month;
+    int day;
+public:
+    Date(int year, int month, int day) : year(year), month(month), day(day) {}
+
+    int getYear() const {
+        return year;
+    }
+
+    void setYear(int year) {
+        this->year = year;
+    }
+
+    int getMonth() const {
+        return month;
+    }
+
+    void setMonth(int month) {
+        this->month = month;
+    }
+
+    int getDay() const {
+        return day;
+    }
+
+    void setDay(int day) {
+        this->day = day;
+    }
+};
+
+class Book {
+private:
+    string name;
+    //ArrayList<string> authors;
+    //Date release;
+    int pages;
+    string annotation;
+
+public:
+    Book() {
+        name = "noname";
+        pages = 0;
+        annotation = "nothing";
+    }
+
+    Book(string name, int pages, string annotation)
+            : name(name), pages(pages), annotation(annotation) {
+
+    }
+
+    Book(Book *book) {
+        this->name = book->name;
+        this->pages = book->pages;
+        this->annotation = book->annotation;
+    }
+
+    friend std::ostream& operator<< (std::ostream &out, const Book &book){
+        cout << '{' << book.name << ", " << book.pages << ", " << book.annotation << '}';
+    }
+
+    friend bool operator== (Book &book1, Book &book2){
+        if(book1.name == book2.name &&
+            book1.pages == book2.pages &&
+            book1.annotation == book2.annotation) return true;
+        return false;
     }
 };
 
 int main() {
-    ArrayList<int> kek;
-    kek.add(3);
-    kek.add(2);
-    kek.add(1);
-    kek.add(4, 0);
-
-    kek.print();
+    LinkedList<Book> kek;
+    kek.add(new Book("kek", 15, "huinya"));
+    kek.add(new Book("kel", 15, "huinya"));
+    kek.add(new Book("lol", 15, "huinya"));
+    kek.remove(-1);
+    cout << kek;
 
 
     return 0;
