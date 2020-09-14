@@ -47,7 +47,7 @@ public:
         while (index <= size) {
             temp2 = arr[index];
             arr[index] = temp1;
-            swap(temp1, temp2);
+            std::swap(temp1, temp2);
             index++;
         }
         size++;
@@ -91,7 +91,7 @@ public:
     }
 
     void sort_by(void (*sort)(T *, int)) override {
-
+        sort(arr, size);
     }
 
     int get_size() override {

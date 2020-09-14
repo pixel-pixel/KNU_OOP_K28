@@ -45,6 +45,22 @@ public:
             return true;
         return false;
     }
+
+    friend bool operator>(Book &book1, Book &book2) {
+        return book1.pages > book2.pages;
+    }
+
+    friend bool operator>=(Book &book1, Book &book2) {
+        return book1.pages >= book2.pages;
+    }
+
+    friend bool operator<(Book &book1, Book &book2) {
+        return book1.pages < book2.pages;
+    }
+
+    friend bool operator<=(Book &book1, Book &book2) {
+        return book1.pages <= book2.pages;
+    }
 };
 
 
