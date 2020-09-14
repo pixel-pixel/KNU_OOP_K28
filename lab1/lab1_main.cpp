@@ -9,12 +9,12 @@ using namespace std;
 
 int main() {
     LinkedList<Book> kek;
-    kek.add(new Book("kek", 16, "wf"));
-    kek.add(new Book("lol", 12, "wf"));
-    kek.add(new Book("lyk", 1, "wf"));
-    kek.add(new Book("lyl", 17, "wf"));
-    kek.add(new Book("kyk", 4, "wf"));
-    kek.sort_by(quick_sort);
+    kek.add(new Book("e", 16, "wf"));
+    kek.add(new Book("c", 12, "wf"));
+    kek.add(new Book("a", 1, "wf"));
+    kek.add(new Book("b", 17, "wf"));
+    kek.add(new Book("d", 4, "wf"));
+    kek.sort(quick_sort, compare_book_by_name);
     cout << kek;
 
     return 0;

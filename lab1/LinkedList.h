@@ -125,7 +125,11 @@ public:
         size = 0;
     }
 
-    void sort_by(void (*sort)(T *, int)) override {
+//    void sort(void (*sort_func)(T *, int, int(*compare_func)(T &obj1, T &obj2))) override {
+//
+//    }
+
+    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)), int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
         T *arr = new T[size];
 
         ass = head;
@@ -134,7 +138,7 @@ public:
             ass = ass->next;
         }
 
-        sort(arr, size);
+        sort_func(arr, size, compare_func);
 
         ass = head;
         for (int i = 0; i < size; i++) {

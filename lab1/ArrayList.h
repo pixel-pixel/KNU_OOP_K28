@@ -90,8 +90,12 @@ public:
         arr = new T[arr_size];
     }
 
-    void sort_by(void (*sort)(T *, int)) override {
-        sort(arr, size);
+//    void sort(void (*sort_func)(T *, int, int(*compare_func)(T &obj1, T &obj2))) override {
+//        sort_func(arr, size);
+//    }
+
+    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)), int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
+        sort_func(arr, size, compare_func);
     }
 
     int get_size() override {

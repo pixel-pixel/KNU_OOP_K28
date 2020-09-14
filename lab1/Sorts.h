@@ -6,36 +6,63 @@
 #define KNU_OOP_K28_SORTS_H
 
 template<class T>
-void bubble_sort(T *arr, int size) {
+void bubble_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2)) {
     T temp;
-    for (int i = 1; i < size; i++) {
-        for (int j = 0; j < size - i; j++) {
-            if (arr[j] > arr[j + 1]) {
-                temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
+
+    if (compare_func == nullptr) {
+        for (int i = 1; i < size; i++) {
+            for (int j = 0; j < size - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    } else {
+        for (int i = 1; i < size; i++) {
+            for (int j = 0; j < size - i; j++) {
+                if (compare_func(arr[j], arr[j + 1]) == 1) {
+                    temp = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = temp;
+                }
             }
         }
     }
 }
 
 template<class T>
-void insertion_sort(T *arr, int size) {
+void insertion_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2)) {
     T key;
     int j;
-    for (int i = 1; i < size; i++) {
-        key = arr[i];
-        j = i;
-        while (j > 0 && arr[j - 1] > key) {
-            arr[j] = arr[j - 1];
-            j--;
+
+    if(compare_func == nullptr){
+        for (int i = 1; i < size; i++) {
+            key = arr[i];
+            j = i;
+            while (j > 0 && arr[j - 1] > key) {
+                arr[j] = arr[j - 1];
+                j--;
+            }
+            arr[j] = key;
         }
-        arr[j] = key;
+    } else{
+        for (int i = 1; i < size; i++) {
+            key = arr[i];
+            j = i;
+            while (j > 0 && compare_func(arr[j - 1], key) == 1) {
+                arr[j] = arr[j - 1];
+                j--;
+            }
+            arr[j] = key;
+        }
     }
+
 }
 
 template<class T>
-void merge(T *arr, int l, int m, int r) {
+void merge(T *arr, int l, int m, int r, int(*compare_func)(T &obj1, T &obj2)) {
     int i, j, k;
     int n1 = m - l + 1;
     int n2 = r - m;
@@ -50,16 +77,31 @@ void merge(T *arr, int l, int m, int r) {
     i = 0;
     j = 0;
     k = l;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            arr[k] = L[i];
-            i++;
-        } else {
-            arr[k] = R[j];
-            j++;
+
+    if(compare_func == nullptr){
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
         }
-        k++;
+    }else{
+        while (i < n1 && j < n2) {
+            if (compare_func(L[i], R[j]) <= 0) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
     }
+
 
     while (i < n1) {
         arr[k] = L[i];
@@ -75,50 +117,60 @@ void merge(T *arr, int l, int m, int r) {
 }
 
 template<class T>
-void merge_sort_temp(T *arr, int l, int r) {
+void merge_sort_temp(T *arr, int l, int r, int(*compare_func)(T &obj1, T &obj2)) {
     if (l < r) {
         int m = l + (r - l) / 2;
 
-        merge_sort_temp(arr, l, m);
-        merge_sort_temp(arr, m + 1, r);
+        merge_sort_temp(arr, l, m, compare_func);
+        merge_sort_temp(arr, m + 1, r, compare_func);
 
-        merge(arr, l, m, r);
+        merge(arr, l, m, r, compare_func);
     }
 }
 
 template<class T>
-void merge_sort(T *arr, int size) {
-    merge_sort_temp(arr, 0, size - 1);
+void merge_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2)) {
+    merge_sort_temp(arr, 0, size - 1, compare_func);
 }
 
 template<class T>
-int partition(T *arr, int low, int high) {
+int partition(T *arr, int low, int high, int(*compare_func)(T &obj1, T &obj2)) {
     T pivot = arr[high];
     int i = (low - 1);
 
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] < pivot) {
-            i++;
-            std::swap(arr[i], arr[j]);
+    if(compare_func == nullptr){
+        for (int j = low; j <= high - 1; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                std::swap(arr[i], arr[j]);
+            }
+        }
+    }else{
+        for (int j = low; j <= high - 1; j++) {
+            if (compare_func(pivot, arr[j]) == 1) {
+                i++;
+                std::swap(arr[i], arr[j]);
+            }
         }
     }
+
     std::swap(arr[i + 1], arr[high]);
     return (i + 1);
 }
 
 template<class T>
-void quick_sort_temp(T *arr, int low, int high) {
+void quick_sort_temp(T *arr, int low, int high, int(*compare_func)(T &obj1, T &obj2)) {
     if (low < high) {
-        int pi = partition(arr, low, high);
+        int pi = partition(arr, low, high, compare_func);
 
-        quick_sort_temp(arr, low, pi - 1);
-        quick_sort_temp(arr, pi + 1, high);
+        quick_sort_temp(arr, low, pi - 1, compare_func);
+        quick_sort_temp(arr, pi + 1, high, compare_func);
     }
 }
 
 template<class T>
-void quick_sort(T *arr, int size) {
-    quick_sort_temp(arr, 0, size - 1);
+void quick_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2)) {
+    quick_sort_temp(arr, 0, size - 1, compare_func);
 }
 
 #endif //KNU_OOP_K28_SORTS_H

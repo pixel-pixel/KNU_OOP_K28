@@ -61,7 +61,24 @@ public:
     friend bool operator<=(Book &book1, Book &book2) {
         return book1.pages <= book2.pages;
     }
+
+    const string &getName() const {
+        return name;
+    }
+
+    int getPages() const {
+        return pages;
+    }
+
+    const string &getAnnotation() const {
+        return annotation;
+    }
 };
+
+int compare_book_by_name(Book &obj1, Book &obj2){
+    if(obj1.getName() == obj2.getName()) return 0;
+    else return obj1.getName() > obj2.getName();
+}
 
 
 #endif //KNU_OOP_K28_BOOK_H

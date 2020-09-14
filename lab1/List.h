@@ -17,7 +17,9 @@ public:
 
     virtual void clear() = 0;
 
-    virtual void sort_by(void (*sort)(T *, int)) = 0;
+    //virtual void sort(void (*sort_func)(T *, int, int(*compare_func)(T &obj1, T &obj2))) = 0;
+
+    virtual void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)), int(*compare_func)(T &obj1, T &obj2) = nullptr) = 0;
 
     virtual int get_size() = 0;
 };
