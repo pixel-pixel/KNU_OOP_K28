@@ -2,22 +2,27 @@
 #define KNU_OOP_K28_DATE_H
 
 #include <iostream>
+#include <string>
 
-class Date{
+class Date {
 private:
-    int year;
-    int month;
     int day;
+    int month;
+    int year;
+
 public:
     Date(Date *date) {
         this->day = date->day;
         this->month = date->month;
         this->year = date->year;
     }
+
     Date(int year, int month, int day) : year(year), month(month), day(day) {}
 
-    friend std::ostream& operator<< (std::ostream &out, const Date &date){
-        std::cout << date.year << '.' << date.month << '.' << date.day;
+    Date(std::string str) {
+        day = (str[0] - 48) * 10 + (str[1] - 48);
+        month = (str[3] - 48) * 10 + (str[4] - 48);
+        year = (str[6] - 48) * 1000 + (str[7] - 48) * 100 + (str[8] - 48) * 10 + (str[9] - 48);
     }
 
     int getYear() const {
@@ -43,7 +48,11 @@ public:
     void setDay(int day) {
         this->day = day;
     }
+
+    friend std::ostream &operator<<(std::ostream &out, const Date &date) {
+        std::cout << date.year << '.' << date.month << '.' << date.day;
+    }
 };
 
 
-#endif //KNU_OOP_K28_DATE_H
+#endif

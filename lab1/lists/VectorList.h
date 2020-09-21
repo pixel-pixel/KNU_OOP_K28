@@ -1,16 +1,18 @@
-//
-// Created by andrew on 20.09.20.
-//
-
 #ifndef KNU_OOP_K28_VECTORLIST_H
 #define KNU_OOP_K28_VECTORLIST_H
 
 #include "List.h"
 #include <vector>
+#include <iostream>
 
 template<class T>
-class VectorList:List<T> {
+class VectorList : List<T> {
     std::vector<T> vect;
+
+    ~VectorList(){
+       clear();
+        delete vect;
+    }
 
 public:
     void add(T obj) override {
@@ -23,7 +25,7 @@ public:
             else index += vect.size();
         }
 
-        if(index >= vect.size()) vect.push_back(obj);
+        if (index >= vect.size()) vect.push_back(obj);
         else vect.insert(vect.begin() + index, obj);
     }
 
@@ -47,8 +49,8 @@ public:
     int find(T obj) override {
         int res = -1;
 
-        for(int i = 0; i < vect.size(); i++){
-            if(vect[i] == obj){
+        for (int i = 0; i < vect.size(); i++) {
+            if (vect[i] == obj) {
                 res = i;
                 break;
             }
@@ -58,6 +60,10 @@ public:
 
     void clear() override {
         vect.clear();
+    }
+
+    void sort(void (*sort_func)(T *, int)){
+        sort_func(&vect[0], vect.size());
     }
 
     void sort(void (*sort_func)(T *, int, int (*)(T &, T &)), int (*compare_func)(T &, T &) = nullptr) override {
@@ -79,4 +85,4 @@ public:
 };
 
 
-#endif //KNU_OOP_K28_VECTORLIST_H
+#endif

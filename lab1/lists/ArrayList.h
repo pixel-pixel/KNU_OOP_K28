@@ -11,6 +11,10 @@ private:
     int arr_size = 2;
     T *arr = new T[16];
 
+    ~ArrayList(){
+        delete [] arr;
+    }
+
     void change_arr_size(int new_size) {
         if (new_size <= size) new_size *= 2;
 
@@ -90,11 +94,12 @@ public:
         arr = new T[arr_size];
     }
 
-//    void sort(void (*sort_func)(T *, int, int(*compare_func)(T &obj1, T &obj2))) override {
-//        sort_func(arr, size);
-//    }
+    void sort(void (*sort_func)(T *, int)){
+        sort_func(arr, size);
+    }
 
-    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)), int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
+    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
+              int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
         sort_func(arr, size, compare_func);
     }
 
@@ -112,4 +117,4 @@ public:
 };
 
 
-#endif //KNU_OOP_K28_ARRAYLIST_H
+#endif

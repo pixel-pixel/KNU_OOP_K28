@@ -1,7 +1,3 @@
-//
-// Created by andrew on 10.09.20.
-//
-
 #ifndef KNU_OOP_K28_LINKEDLIST_H
 #define KNU_OOP_K28_LINKEDLIST_H
 
@@ -19,11 +15,25 @@ private:
         Node(T &obj) {
             this->obj = obj;
         }
+
+        ~Node(){
+            delete next;
+        }
     };
 
     int size = 0;
     Node *head = nullptr;
     Node *ass = nullptr;
+
+    ~LinkedList(){
+        ass = head->next;
+        for(int i = 0; i < size; i++){
+            delete head;
+            head = ass;
+            ass = ass->next;
+        }
+
+    }
 
 public:
     void add(T obj) override {
@@ -125,11 +135,26 @@ public:
         size = 0;
     }
 
-//    void sort(void (*sort_func)(T *, int, int(*compare_func)(T &obj1, T &obj2))) override {
-//
-//    }
+    void sort(void (*sort_func)(T *, int)){
+        T *arr = new T[size];
 
-    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)), int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
+        ass = head;
+        for (int i = 0; i < size; i++) {
+            arr[i] = ass->obj;
+            ass = ass->next;
+        }
+
+        sort_func(arr, size);
+
+        ass = head;
+        for (int i = 0; i < size; i++) {
+            ass->obj = arr[i];
+            ass = ass->next;
+        }
+    }
+
+    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
+              int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
         T *arr = new T[size];
 
         ass = head;
@@ -163,4 +188,4 @@ public:
 };
 
 
-#endif //KNU_OOP_K28_LINKEDLIST_H
+#endif

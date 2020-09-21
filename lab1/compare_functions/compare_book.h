@@ -5,4 +5,4 @@
 
 int compare_book_by_name(Book &, Book &);
 
-#endif //KNU_OOP_K28_COMPARE_BOOK_H
+#endif
