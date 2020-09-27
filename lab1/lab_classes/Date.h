@@ -52,6 +52,17 @@ public:
     friend std::ostream &operator<<(std::ostream &out, const Date &date) {
         std::cout << date.year << '.' << date.month << '.' << date.day;
     }
+
+    friend bool operator==(Date &date1, Date &date2) {
+        if (date1.year == date2.year && date1.month == date2.month && date1.day == date2.day)
+            return true;
+        return false;
+    }
+
+    friend bool operator>(Date &date1, Date &date2){
+        if(date1.year != date2.year) return date1.year > date2.year;
+        //else if()
+    }
 };
 
 

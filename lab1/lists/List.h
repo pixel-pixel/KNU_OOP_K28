@@ -4,9 +4,7 @@
 template<class T>
 class List {
 public:
-    virtual void add(T obj) = 0;
-
-    virtual void add(T obj, int index) = 0;
+    virtual void add(T obj, int index = -1) = 0;
 
     virtual void remove(int index) = 0;
 

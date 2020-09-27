@@ -25,6 +25,7 @@ private:
     Node *head = nullptr;
     Node *ass = nullptr;
 
+public:
     ~LinkedList(){
         ass = head->next;
         for(int i = 0; i < size; i++){
@@ -35,19 +36,10 @@ private:
 
     }
 
-public:
-    void add(T obj) override {
-        if (size == 0) {
-            head = new Node(obj);
-            ass = head;
-        } else {
-            ass->next = new Node(obj);
-            ass = ass->next;
-        }
-        size++;
-    }
+    void add(T obj, int index = NAN) override {
+        if(index == NAN)
+            index = size;
 
-    void add(T obj, int index) override {
         while (index < 0) {
             if (size == 0) index += 1;
             else index += size;
@@ -57,10 +49,7 @@ public:
             Node *n = new Node(obj);
             n->next = head;
             head = n;
-        } else if (index >= size) {
-            ass->next = new Node(obj);
-            ass = ass->next;
-        } else {
+        } else if (index < size) {
             Node *temp = head;
             for (int i = 1; i < index; i++) {
                 temp = temp->next;
@@ -68,6 +57,11 @@ public:
             Node *new_node = new Node(obj);
             new_node->next = temp->next;
             temp->next = new_node;
+        } else if(index == size){
+            ass->next = new Node(obj);
+            ass = ass->next;
+        } else{
+            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
         }
         size++;
     }
@@ -177,13 +171,13 @@ public:
     }
 
     friend std::ostream &operator<<(std::ostream &out, LinkedList<T> &list) {
-        std::cout << '[';
+        out << '[';
         list.ass = list.head;
         for (int i = 0; i < list.size - 1; i++) {
-            std::cout << list.ass->obj << ", ";
+            out << list.ass->obj << ", ";
             list.ass = list.ass->next;
         }
-        std::cout << list.ass->obj << ']';
+        out << list.ass->obj << ']';
     }
 };
 

@@ -9,24 +9,23 @@ template<class T>
 class VectorList : List<T> {
     std::vector<T> vect;
 
-    ~VectorList(){
-       clear();
-        delete vect;
-    }
-
 public:
-    void add(T obj) override {
-        vect.push_back(obj);
+    ~VectorList(){
+        clear();
     }
 
-    void add(T obj, int index) override {
+    void add(T obj, int index = NAN) override {
+        if(index == NAN)
+            index = vect.size();
+
         while (index < 0) {
             if (vect.size() == 0) index += 1;
             else index += vect.size();
         }
 
-        if (index >= vect.size()) vect.push_back(obj);
-        else vect.insert(vect.begin() + index, obj);
+        if (index == vect.size()) vect.push_back(obj);
+        else if(index < vect.size()) vect.insert(vect.begin() + index, obj);
+        else throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
     }
 
     void remove(int index) override {
@@ -75,11 +74,11 @@ public:
     }
 
     friend std::ostream &operator<<(std::ostream &out, VectorList<T> &list) {
-        std::cout << '[';
+        out << '[';
         for (int i = 0; i < list.get_size() - 1; i++) {
-            std::cout << list.get(i) << ", ";
+            out << list.get(i) << ", ";
         }
-        std::cout << list.get(list.get_size() - 1) << ']';
+        out << list.get(list.get_size() - 1) << ']';
     }
 
 };
