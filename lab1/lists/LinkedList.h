@@ -16,7 +16,7 @@ private:
             this->obj = obj;
         }
 
-        ~Node(){
+        ~Node() {
             delete next;
         }
     };
@@ -26,9 +26,9 @@ private:
     Node *ass = nullptr;
 
 public:
-    ~LinkedList(){
+    ~LinkedList() {
         ass = head->next;
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             delete head;
             head = ass;
             ass = ass->next;
@@ -36,14 +36,12 @@ public:
 
     }
 
-    void add(T obj, int index = NAN) override {
-        if(index == NAN)
+    void add(T obj, int index = -1) override {
+        if (index < 0)
             index = size;
 
-        while (index < 0) {
-            if (size == 0) index += 1;
-            else index += size;
-        }
+        if (index > size)
+            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
 
         if (index == 0) {
             Node *n = new Node(obj);
@@ -57,21 +55,19 @@ public:
             Node *new_node = new Node(obj);
             new_node->next = temp->next;
             temp->next = new_node;
-        } else if(index == size){
+        } else if (index == size) {
             ass->next = new Node(obj);
             ass = ass->next;
-        } else{
-            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
         }
         size++;
     }
 
     void remove(int index) override {
-        if (index >= size) index = size - 1;
-        while (index < 0) {
-            if (size == 0) index += 1;
-            else index += size;
-        }
+        if (index >= size)
+            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
+
+        while (index < 0)
+            index = size - 1;
 
         if (index == 0) {
             head = head->next;
@@ -89,8 +85,11 @@ public:
     }
 
     T &get(int index) override {
-        if (index >= size) index = size - 1;
-        while (index < 0) index += size;
+        if (index >= size)
+            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
+
+        if(index < 0)
+            index = size - 1;
 
         if (index == 0) {
             return head->obj;
@@ -129,7 +128,7 @@ public:
         size = 0;
     }
 
-    void sort(void (*sort_func)(T *, int)){
+    void sort(void (*sort_func)(T *, int)) {
         T *arr = new T[size];
 
         ass = head;
@@ -177,7 +176,9 @@ public:
             out << list.ass->obj << ", ";
             list.ass = list.ass->next;
         }
-        out << list.ass->obj << ']';
+        if(list.size != 0)
+            out << list.ass->obj;
+        out << '[';
     }
 };
 

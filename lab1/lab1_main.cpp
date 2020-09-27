@@ -1,7 +1,11 @@
-namespace lab1{
-    int main() {
+#include "lists/ArrayList.h"
+#include "lab_classes/Character.h"
 
-        return 0;
-    }
+
+int main() {
+
+    return 0;
+
 }
+
 

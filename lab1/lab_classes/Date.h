@@ -17,7 +17,11 @@ public:
         this->year = date->year;
     }
 
-    Date(int year, int month, int day) : year(year), month(month), day(day) {}
+    Date(int year = 0, int month = 0, int day = 0){
+        this->year = year;
+        this->month = month;
+        this->day = day;
+    }
 
     Date(std::string str) {
         day = (str[0] - 48) * 10 + (str[1] - 48);
