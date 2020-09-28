@@ -4,7 +4,7 @@
 #include <algorithm>
 
 template<class T>
-void bubble_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2)) {
+void bubble_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2) = nullptr) {
     T temp;
 
     if (compare_func == nullptr) {
@@ -31,7 +31,7 @@ void bubble_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2)) {
 }
 
 template<class T>
-void insertion_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2)) {
+void insertion_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2) = nullptr) {
     T key;
     int j;
 
@@ -127,7 +127,7 @@ void __merge_sort_temp(T *arr, int l, int r, int(*compare_func)(T &obj1, T &obj2
 }
 
 template<class T>
-void merge_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2)) {
+void merge_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2) = nullptr) {
     __merge_sort_temp(arr, 0, size - 1, compare_func);
 }
 
@@ -167,7 +167,7 @@ void __quick_sort_temp(T *arr, int low, int high, int(*compare_func)(T &obj1, T 
 }
 
 template<class T>
-void quick_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2)) {
+void quick_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2) = nullptr) {
     __quick_sort_temp(arr, 0, size - 1, compare_func);
 }
 

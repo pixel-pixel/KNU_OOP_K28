@@ -1,76 +1,83 @@
 #ifndef KNU_OOP_K28_CHARACTER_H
 #define KNU_OOP_K28_CHARACTER_H
 
-#include <vector>
+#include <ostream>
 #include "Book.h"
 
 class Character {
-    class Role {
-        enum Part {
-            main,
-            minor,
-            episodic
+public:
+    class Role{
+    public:
+        enum Part{
+            MAIN,
+            MINOR,
+            EPISODIC,
+            NONE
         };
-        Book *book;
+    private:
+        Book* book;
         Part part;
 
     public:
-        Role(Book *book = new Book,
-             Part part = Part::main){
-            this->book = book;
-            this->part = part;
-        }
+        Role(Book *book, Part part);
 
-        Book *getBook() const {
-            return book;
-        }
+        Book *getBook() const;
 
-        void setBook(Book *book) {
-            this->book = book;
-        }
+        void setBook(Book *book);
 
-        Part getPart() const {
-            return part;
-        }
+        Part getPart() const;
 
-        void setPart(Part part) {
-            this->part = part;
-        }
+        void setPart(Part part);
+
+        bool operator<(const Role &rhs) const;
+
+        bool operator>(const Role &rhs) const;
+
+        bool operator<=(const Role &rhs) const;
+
+        bool operator>=(const Role &rhs) const;
+
+        bool operator==(const Role &rhs) const;
+
+        bool operator!=(const Role &rhs) const;
+
+        friend std::ostream &operator<<(std::ostream &os, const Role &role);
     };
 
-    vector<string> *names;
-    vector<Role> *roles;
+private:
+    std::vector<std::string> *names;
+    std::vector<Role> *roles;
 
 public:
-    Character(vector<string> *names = new vector<string>,
-            vector<Role> *roles = new vector<Role>){
-        this->names = names;
-        this->roles = roles;
-    }
+    Character(std::vector<std::string> *names, std::vector<Role> *roles);
 
-    void add_name(string new_name){
-        names->push_back(new_name);
-    }
+    Character(std::string name1, std::string name2 = "", std::string name3 = "");
 
-    void add_role(Role new_role){
-        roles->push_back(new_role);
-    }
+    void add_name(const std::string& name);
 
-    vector<string> &getNames() const {
-        return *names;
-    }
+    void add_role(Role role);
 
-    void setNames(vector<string> *names) {
-        this->names = names;
-    }
+    std::vector<std::string> *getNames() const;
 
-    vector<Role> &getRoles() const {
-        return *roles;
-    }
+    void setNames(std::vector<std::string> *names);
 
-    void setRoles(vector<Role> *roles) {
-        this->roles = roles;
-    }
+    std::vector<Role> *getRoles() const;
+
+    void setRoles(std::vector<Role> *roles);
+
+    friend std::ostream &operator<<(std::ostream &os, const Character &character);
+
+    bool operator==(const Character &rhs) const;
+
+    bool operator!=(const Character &rhs) const;
+
+    bool operator<(const Character &rhs) const;
+
+    bool operator>(const Character &rhs) const;
+
+    bool operator<=(const Character &rhs) const;
+
+    bool operator>=(const Character &rhs) const;
 };
 
 

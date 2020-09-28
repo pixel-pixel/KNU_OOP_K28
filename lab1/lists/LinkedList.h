@@ -1,7 +1,6 @@
 #ifndef KNU_OOP_K28_LINKEDLIST_H
 #define KNU_OOP_K28_LINKEDLIST_H
 
-#include <iostream>
 #include "List.h"
 
 template<class T>
@@ -27,21 +26,21 @@ private:
 
 public:
     ~LinkedList() {
-        ass = head->next;
-        for (int i = 0; i < size; i++) {
-            delete head;
-            head = ass;
-            ass = ass->next;
+        if (size > 0) {
+            ass = head->next;
+            for (int i = 0; i < size; i++) {
+                delete head;
+                head = ass;
+                ass = ass->next;
+            }
         }
-
     }
 
     void add(T obj, int index = -1) override {
         if (index < 0)
             index = size;
-
-        if (index > size)
-            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
+        else if (index > size)
+            throw std::out_of_range("your index " + std::to_string(index) + " is greater then the size");
 
         if (index == 0) {
             Node *n = new Node(obj);
@@ -81,14 +80,14 @@ public:
             temp->next = temp2->next;
             delete temp2;
         }
-        size--;
+        size++;
     }
 
     T &get(int index) override {
         if (index >= size)
             throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
 
-        if(index < 0)
+        if (index < 0)
             index = size - 1;
 
         if (index == 0) {
@@ -128,7 +127,7 @@ public:
         size = 0;
     }
 
-    void sort(void (*sort_func)(T *, int)) {
+    void sort(void (*sort_func)(T *, int) = nullptr) {
         T *arr = new T[size];
 
         ass = head;
@@ -137,7 +136,10 @@ public:
             ass = ass->next;
         }
 
-        sort_func(arr, size);
+        if(!sort_func)
+            quick_sort(arr, size);
+        else
+            sort_func(arr, size);
 
         ass = head;
         for (int i = 0; i < size; i++) {
@@ -176,9 +178,41 @@ public:
             out << list.ass->obj << ", ";
             list.ass = list.ass->next;
         }
-        if(list.size != 0)
+        if (list.size != 0)
             out << list.ass->obj;
-        out << '[';
+        out << ']';
+    }
+
+    bool operator==(LinkedList &rhs) {
+        if(get_size() != rhs.get_size()) return false;
+        for(int i = 0; i < get_size(); i++){
+            if(get(i) != rhs.get(i)) return false;
+        }
+        return true;
+    }
+
+    bool operator!=(LinkedList &rhs){
+        return !(rhs == *this);
+    }
+
+    bool operator<(LinkedList &rhs){
+        if(get_size() < rhs.get_size()) return true;
+        for(int i = 0; i < get_size(); i++){
+            if(get(i) < rhs.get(i)) return true;
+        }
+        return false;
+    }
+
+    bool operator>(LinkedList &rhs){
+        return rhs < *this;
+    }
+
+    bool operator<=(LinkedList &rhs){
+        return !(rhs < *this);
+    }
+
+    bool operator>=(LinkedList &rhs){
+        return !(*this < rhs);
     }
 };
 

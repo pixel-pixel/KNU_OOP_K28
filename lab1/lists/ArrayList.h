@@ -31,10 +31,8 @@ public:
     void add(T obj, int index = -1) override {
         if (index < 0)
             index = size;
-
-        if (index > size)
+        else if (index > size)
             throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
-
 
         if (size == arr_size)
             change_arr_size(arr_size / 2 * 3 + 2);
@@ -51,11 +49,10 @@ public:
     }
 
     void remove(int index) override {
-        if (index > size)
-            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
-
-        if(index < 0)
+        if (index < 0)
             index = size - 1;
+        else if (index >= size)
+            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size-1");
 
         for (int i = index; i < size - 1; i++) {
             arr[i] = arr[i + 1];
@@ -64,11 +61,10 @@ public:
     }
 
     T &get(int index) override {
-        if (index >= size)
-            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
-
-        if(index < 0)
+        if (index < 0)
             index = size - 1;
+        else if (index >= size)
+            throw std::out_of_range("index " + std::to_string(index) + " is greater then the size-1");
 
         return arr[index];
     }
@@ -91,13 +87,21 @@ public:
         arr = new T[arr_size];
     }
 
-    void sort(void (*sort_func)(T *, int)) {
-        sort_func(arr, size);
+    void sort(void (*sort_func)(T *, int) = nullptr) {
+        if (!sort_func)
+            quick_sort(arr, size);
+        else
+            sort_func(arr, size);
     }
 
     void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
               int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
         sort_func(arr, size, compare_func);
+    }
+
+    static void sort(T *global_arr, int global_size, void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
+                     int(*compare_func)(T &obj1, T &obj2) = nullptr) {
+        sort_func(global_arr, global_size, compare_func);
     }
 
     int get_size() override {
@@ -109,10 +113,42 @@ public:
         for (int i = 0; i < list.size - 1; i++) {
             out << list.arr[i] << ", ";
         }
-        if(list.size != 0)
+        if (list.size != 0)
             out << list.arr[list.size - 1];
 
-        out << ']';
+        out << "]";
+    }
+
+    bool operator==(ArrayList &rhs) {
+        if (get_size() != rhs.get_size()) return false;
+        for (int i = 0; i < get_size(); i++) {
+            if (get(i) != rhs.get(i)) return false;
+        }
+        return true;
+    }
+
+    bool operator!=(ArrayList &rhs) {
+        return !(rhs == *this);
+    }
+
+    bool operator<(ArrayList &rhs) {
+        if (get_size() < rhs.get_size()) return true;
+        for (int i = 0; i < get_size(); i++) {
+            if (get(i) < rhs.get(i)) return true;
+        }
+        return false;
+    }
+
+    bool operator>(ArrayList &rhs) {
+        return rhs < *this;
+    }
+
+    bool operator<=(ArrayList &rhs) {
+        return !(rhs < *this);
+    }
+
+    bool operator>=(ArrayList &rhs) {
+        return !(*this < rhs);
     }
 };
 

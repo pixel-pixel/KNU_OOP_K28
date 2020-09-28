@@ -1,84 +1,71 @@
 #ifndef KNU_OOP_K28_BOOK_H
 #define KNU_OOP_K28_BOOK_H
 
-#include <string>
-#include <iostream>
+
 #include <vector>
-
-#include "Date.h"
-
-using namespace std;
+#include <string>
+#include <ostream>
 
 
 class Book {
-    string name;
+private:
+    std::string name;
     int pages;
-    string annotation;
-    Date *pRelease;
-    vector<string> *pAuthors;
+    std::string annotation;
+    std::string date;
+    std::vector<std::string> *authors;
 
 public:
-    Book(string name = "noname",
+
+    Book();
+
+    Book(std::string name,
+         int pages,
+         std::string annotation,
+         std::string date,
+         std::vector<std::string> *authors);
+
+    Book(std::string name,
          int pages = 0,
-         string annotation = "without annotation",
-         Date *release = new Date(),
-         vector<string> *authors = new vector<string>) {
-        this->name = name;
-        this->pages = pages;
-        this->annotation = annotation;
-        this->pRelease = release;
-        this->pAuthors = authors;
-    }
+         std::string annotation = "no annotation",
+         std::string date = "0000.00.00",
+         const std::string& author1 = "noname author",
+         const std::string& author2 = "",
+         const std::string& author3 = "");
 
-    Book(Book *book) {
-        this->name = book->name;
-        this->pAuthors = book->pAuthors;
-        this->pages = book->pages;
-        this->pages = book->pages;
-        this->annotation = book->annotation;
-    }
+    const std::string &getName() const;
 
-    const string &getName() const {
-        return name;
-    }
+    void setName(const std::string &name);
 
-    int getPages() const {
-        return pages;
-    }
+    int getPages() const;
 
-    const string &getAnnotation() const {
-        return annotation;
-    }
+    void setPages(int pages);
 
-    friend std::ostream &operator<<(std::ostream &out, const Book &book) {
-        cout << '{' << book.name << ", " << book.pages << ", " << book.annotation << '}';
-    }
+    const std::string &getAnnotation() const;
 
-    friend bool operator==(Book &book1, Book &book2) {
-        if (book1.name == book2.name &&
-            *(book1.pAuthors) == *(book2.pAuthors) &&
-            *(book1.pRelease) == *(book2.pRelease) &&
-            book1.pages == book2.pages &&
-            book1.annotation == book2.annotation)
-            return true;
-        return false;
-    }
+    void setAnnotation(const std::string &annotation);
 
-    friend bool operator>(Book &book1, Book &book2) {
-        return book1.pages > book2.pages;
-    }
+    const std::string &getDate() const;
 
-    friend bool operator>=(Book &book1, Book &book2) {
-        return book1.pages >= book2.pages;
-    }
+    void setDate(const std::string &date);
 
-    friend bool operator<(Book &book1, Book &book2) {
-        return book1.pages < book2.pages;
-    }
+    const std::vector<std::string> &getAuthors() const;
 
-    friend bool operator<=(Book &book1, Book &book2) {
-        return book1.pages <= book2.pages;
-    }
+    void setAuthors(std::vector<std::string> *authors);
+
+    friend std::ostream &operator<<(std::ostream &os, const Book &book);
+
+    bool operator==(const Book &rhs) const;
+
+    bool operator!=(const Book &rhs) const;
+
+    bool operator<(const Book &rhs) const;
+
+    bool operator>(const Book &rhs) const;
+
+    bool operator<=(const Book &rhs) const;
+
+    bool operator>=(const Book &rhs) const;
 };
 
 

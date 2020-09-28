@@ -1,6 +1,8 @@
 #ifndef KNU_OOP_K28_LIST_H
 #define KNU_OOP_K28_LIST_H
 
+#include "../sorts/sorts.h"
+
 template<class T>
 class List {
 public:
@@ -14,7 +16,7 @@ public:
 
     virtual void clear() = 0;
 
-    virtual void sort(void (*sort_func)(T *, int)) = 0;
+    virtual void sort(void (*sort_func)(T *, int) = nullptr) = 0;
 
     virtual void sort(void (*)(T *, int, int(*)(T &obj1, T &obj2)),
                       int(*)(T &obj1, T &obj2) = nullptr) = 0;
