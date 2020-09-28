@@ -49,10 +49,10 @@ public:
     }
 
     void remove(int index) override {
-        if (index < 0)
-            index = size - 1;
-        else if (index >= size)
+        if (index >= size || (index < 0 && size == 0))
             throw std::out_of_range("index " + std::to_string(index) + " is greater then the size-1");
+        else if (index < 0)
+            index = size - 1;
 
         for (int i = index; i < size - 1; i++) {
             arr[i] = arr[i + 1];
@@ -61,10 +61,10 @@ public:
     }
 
     T &get(int index) override {
-        if (index < 0)
-            index = size - 1;
-        else if (index >= size)
+        if (index >= size || (index < 0 && size == 0))
             throw std::out_of_range("index " + std::to_string(index) + " is greater then the size-1");
+        else if (index < 0)
+            index = size - 1;
 
         return arr[index];
     }

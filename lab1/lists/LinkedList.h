@@ -15,9 +15,6 @@ private:
             this->obj = obj;
         }
 
-        ~Node() {
-            delete next;
-        }
     };
 
     int size = 0;
@@ -25,16 +22,18 @@ private:
     Node *ass = nullptr;
 
 public:
-    ~LinkedList() {
-        if (size > 0) {
-            ass = head->next;
-            for (int i = 0; i < size; i++) {
-                delete head;
-                head = ass;
-                ass = ass->next;
-            }
-        }
-    }
+//    ~LinkedList() {
+//        if (size > 0) {
+//            ass = head->next;
+//            for (int i = 0; i < size - 1; i++) {
+//                delete head;
+//                head = ass;
+//                ass = ass->next;
+//            }
+//            delete head;
+//            delete ass;
+//        }
+//    }
 
     void add(T obj, int index = -1) override {
         if (index < 0)
@@ -43,9 +42,14 @@ public:
             throw std::out_of_range("your index " + std::to_string(index) + " is greater then the size");
 
         if (index == 0) {
-            Node *n = new Node(obj);
-            n->next = head;
-            head = n;
+            if (size == 0) {
+                head = new Node(obj);
+                ass = head;
+            } else {
+                Node *n = new Node(obj);
+                n->next = head;
+                head = n;
+            }
         } else if (index < size) {
             Node *temp = head;
             for (int i = 1; i < index; i++) {
@@ -62,32 +66,32 @@ public:
     }
 
     void remove(int index) override {
-        if (index >= size)
+        if (index >= size || (index < 0 && size == 0))
             throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
-
-        while (index < 0)
+        else if (index < 0)
             index = size - 1;
 
         if (index == 0) {
+            Node *temp = head;
             head = head->next;
+            delete temp;
         } else {
             Node *temp = head;
             while (index != 1) {
-                temp = head->next;
+                temp = temp->next;
                 index--;
             }
             Node *temp2 = temp->next;
             temp->next = temp2->next;
             delete temp2;
         }
-        size++;
+        size--;
     }
 
     T &get(int index) override {
-        if (index >= size)
+        if (index >= size || (index < 0 && size == 0))
             throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
-
-        if (index < 0)
+        else if (index < 0)
             index = size - 1;
 
         if (index == 0) {
@@ -136,7 +140,7 @@ public:
             ass = ass->next;
         }
 
-        if(!sort_func)
+        if (!sort_func)
             quick_sort(arr, size);
         else
             sort_func(arr, size);
@@ -184,34 +188,34 @@ public:
     }
 
     bool operator==(LinkedList &rhs) {
-        if(get_size() != rhs.get_size()) return false;
-        for(int i = 0; i < get_size(); i++){
-            if(get(i) != rhs.get(i)) return false;
+        if (get_size() != rhs.get_size()) return false;
+        for (int i = 0; i < get_size(); i++) {
+            if (get(i) != rhs.get(i)) return false;
         }
         return true;
     }
 
-    bool operator!=(LinkedList &rhs){
+    bool operator!=(LinkedList &rhs) {
         return !(rhs == *this);
     }
 
-    bool operator<(LinkedList &rhs){
-        if(get_size() < rhs.get_size()) return true;
-        for(int i = 0; i < get_size(); i++){
-            if(get(i) < rhs.get(i)) return true;
+    bool operator<(LinkedList &rhs) {
+        if (get_size() < rhs.get_size()) return true;
+        for (int i = 0; i < get_size(); i++) {
+            if (get(i) < rhs.get(i)) return true;
         }
         return false;
     }
 
-    bool operator>(LinkedList &rhs){
+    bool operator>(LinkedList &rhs) {
         return rhs < *this;
     }
 
-    bool operator<=(LinkedList &rhs){
+    bool operator<=(LinkedList &rhs) {
         return !(rhs < *this);
     }
 
-    bool operator>=(LinkedList &rhs){
+    bool operator>=(LinkedList &rhs) {
         return !(*this < rhs);
     }
 };

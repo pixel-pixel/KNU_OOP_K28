@@ -4,13 +4,13 @@
 #include "lists/ArrayList.h"
 
 namespace lab1 {
-    int doctest(){
+    int doctest() {
         doctest::Context context;
         return context.run();
     }
 
     int main() {
-        //doctest();
+        doctest();
 
         Book a("War and God", 2000, "about war and Gods", "1995.11.07", "lev Tolstoi");
         Book b("Kozaki", 129, "about us", "2020", "Sergii", "Andrii");

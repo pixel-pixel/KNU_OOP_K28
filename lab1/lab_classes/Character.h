@@ -6,16 +6,16 @@
 
 class Character {
 public:
-    class Role{
+    class Role {
     public:
-        enum Part{
+        enum Part {
             MAIN,
             MINOR,
             EPISODIC,
             NONE
         };
     private:
-        Book* book;
+        Book *book;
         Part part;
 
     public:
@@ -53,7 +53,7 @@ public:
 
     Character(std::string name1, std::string name2 = "", std::string name3 = "");
 
-    void add_name(const std::string& name);
+    void add_name(const std::string &name);
 
     void add_role(Role role);
 

@@ -29,9 +29,9 @@ public:
          int pages = 0,
          std::string annotation = "no annotation",
          std::string date = "0000.00.00",
-         const std::string& author1 = "noname author",
-         const std::string& author2 = "",
-         const std::string& author3 = "");
+         const std::string &author1 = "noname author",
+         const std::string &author2 = "",
+         const std::string &author3 = "");
 
     const std::string &getName() const;
 

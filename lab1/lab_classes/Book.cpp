@@ -25,18 +25,18 @@ Book::Book(std::string name,
            int pages,
            std::string annotation,
            std::string date,
-           const std::string& author1,
-           const std::string& author2,
-           const std::string& author3)  :
+           const std::string &author1,
+           const std::string &author2,
+           const std::string &author3) :
         name(std::move(name)),
         pages(pages),
         annotation(std::move(annotation)),
         date(std::move(date)) {
     Book::authors = new std::vector<std::string>;
     Book::authors->push_back(author1);
-    if(!author2.empty())
+    if (!author2.empty())
         Book::authors->push_back(author2);
-    if(!author3.empty())
+    if (!author3.empty())
         Book::authors->push_back(author3);
 }
 
@@ -84,7 +84,7 @@ std::ostream &operator<<(std::ostream &os, const Book &book) {
     os << '(' << book.name << ", " << book.pages << ", " << book.annotation << ", "
        << book.date << ", " << '{';
 
-    for(int i = 0; i < book.authors->size(); i++){
+    for (int i = 0; i < book.authors->size(); i++) {
         os << book.authors->operator[](i) << ' ';
     }
     os << '}' << ')';
