@@ -6,11 +6,18 @@
 #include "lists/VectorList.h"
 #include "sorts/sorts.h"
 #include "compare_functions/compare.h"
+#include "create_functions/create.h"
 
 TEST_CASE ("[Integer] ArrayList") {
     std::stringstream ss;
 
-    ArrayList<int> list;
+    ArrayList<int> list(10, create_int_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
             CHECK(list.get_size() == 0);
 
             CHECK_THROWS_AS(list.get(0), std::out_of_range);
@@ -73,7 +80,7 @@ TEST_CASE ("[Integer] ArrayList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(bubble_sort, compare_int_reverse);
+        list.sort(bubble_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -85,7 +92,7 @@ TEST_CASE ("[Integer] ArrayList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(insertion_sort, compare_int_reverse);
+        list.sort(insertion_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -97,7 +104,7 @@ TEST_CASE ("[Integer] ArrayList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(merge_sort, compare_int_reverse);
+        list.sort(merge_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -109,7 +116,7 @@ TEST_CASE ("[Integer] ArrayList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(quick_sort, compare_int_reverse);
+        list.sort(quick_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -124,7 +131,13 @@ TEST_CASE ("[Integer] ArrayList") {
 TEST_CASE ("[Integer] LinkedList") {
     std::stringstream ss;
 
-    LinkedList<int> list;
+    LinkedList<int> list(10, create_int_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
             CHECK(list.get_size() == 0);
 
             CHECK_THROWS_AS(list.get(0), std::out_of_range);
@@ -187,7 +200,7 @@ TEST_CASE ("[Integer] LinkedList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(bubble_sort, compare_int_reverse);
+        list.sort(bubble_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -199,7 +212,7 @@ TEST_CASE ("[Integer] LinkedList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(insertion_sort, compare_int_reverse);
+        list.sort(insertion_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -211,7 +224,7 @@ TEST_CASE ("[Integer] LinkedList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(merge_sort, compare_int_reverse);
+        list.sort(merge_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -223,7 +236,7 @@ TEST_CASE ("[Integer] LinkedList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(quick_sort, compare_int_reverse);
+        list.sort(quick_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -239,7 +252,13 @@ TEST_CASE ("[Integer] LinkedList") {
 TEST_CASE ("[Integer] VectorList") {
     std::stringstream ss;
 
-    VectorList<int> list;
+    VectorList<int> list(10, create_int_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
             CHECK(list.get_size() == 0);
 
             CHECK_THROWS_AS(list.get(0), std::out_of_range);
@@ -302,7 +321,7 @@ TEST_CASE ("[Integer] VectorList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(bubble_sort, compare_int_reverse);
+        list.sort(bubble_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -314,7 +333,7 @@ TEST_CASE ("[Integer] VectorList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(insertion_sort, compare_int_reverse);
+        list.sort(insertion_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -326,7 +345,7 @@ TEST_CASE ("[Integer] VectorList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(merge_sort, compare_int_reverse);
+        list.sort(merge_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -338,7 +357,7 @@ TEST_CASE ("[Integer] VectorList") {
                 CHECK(ss.str() == "[1, 2, 3, 4, 5]");
         ss.str("");
 
-        list.sort(quick_sort, compare_int_reverse);
+        list.sort(quick_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5, 4, 3, 2, 1]");
         ss.str("");
@@ -355,7 +374,13 @@ TEST_CASE ("[Integer] VectorList") {
 TEST_CASE ("[Double] ArrayList") {
     std::stringstream ss;
 
-    ArrayList<double> list;
+    ArrayList<double> list(10, create_double_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
             CHECK(list.get_size() == 0);
 
             CHECK_THROWS_AS(list.get(0), std::out_of_range);
@@ -418,7 +443,7 @@ TEST_CASE ("[Double] ArrayList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(bubble_sort, compare_double_reverse);
+        list.sort(bubble_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -430,7 +455,7 @@ TEST_CASE ("[Double] ArrayList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(insertion_sort, compare_double_reverse);
+        list.sort(insertion_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -442,7 +467,7 @@ TEST_CASE ("[Double] ArrayList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(merge_sort, compare_double_reverse);
+        list.sort(merge_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -454,7 +479,7 @@ TEST_CASE ("[Double] ArrayList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(quick_sort, compare_double_reverse);
+        list.sort(quick_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -469,7 +494,13 @@ TEST_CASE ("[Double] ArrayList") {
 TEST_CASE ("[Double] LinkedList") {
     std::stringstream ss;
 
-    LinkedList<double> list;
+    LinkedList<double> list(10, create_double_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
             CHECK(list.get_size() == 0);
 
             CHECK_THROWS_AS(list.get(0), std::out_of_range);
@@ -532,7 +563,7 @@ TEST_CASE ("[Double] LinkedList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(bubble_sort, compare_double_reverse);
+        list.sort(bubble_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -544,7 +575,7 @@ TEST_CASE ("[Double] LinkedList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(insertion_sort, compare_double_reverse);
+        list.sort(insertion_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -556,7 +587,7 @@ TEST_CASE ("[Double] LinkedList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(merge_sort, compare_double_reverse);
+        list.sort(merge_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -568,7 +599,7 @@ TEST_CASE ("[Double] LinkedList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(quick_sort, compare_double_reverse);
+        list.sort(quick_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -583,7 +614,13 @@ TEST_CASE ("[Double] LinkedList") {
 TEST_CASE ("[Double] VectorList") {
     std::stringstream ss;
 
-    VectorList<double> list;
+    VectorList<double> list(10, create_double_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
             CHECK(list.get_size() == 0);
 
             CHECK_THROWS_AS(list.get(0), std::out_of_range);
@@ -646,7 +683,7 @@ TEST_CASE ("[Double] VectorList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(bubble_sort, compare_double_reverse);
+        list.sort(bubble_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -658,7 +695,7 @@ TEST_CASE ("[Double] VectorList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(insertion_sort, compare_double_reverse);
+        list.sort(insertion_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -670,7 +707,7 @@ TEST_CASE ("[Double] VectorList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(merge_sort, compare_double_reverse);
+        list.sort(merge_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -682,7 +719,7 @@ TEST_CASE ("[Double] VectorList") {
                 CHECK(ss.str() == "[1.1, 2.2, 3.3, 4.4, 5.5]");
         ss.str("");
 
-        list.sort(quick_sort, compare_double_reverse);
+        list.sort(quick_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[5.5, 4.4, 3.3, 2.2, 1.1]");
         ss.str("");
@@ -697,7 +734,13 @@ TEST_CASE ("[Double] VectorList") {
 TEST_CASE ("[String] ArrayList") {
     std::stringstream ss;
 
-    ArrayList<std::string> list;
+    ArrayList<std::string> list(10, create_string_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
             CHECK(list.get_size() == 0);
 
             CHECK_THROWS_AS(list.get(0), std::out_of_range);
@@ -760,7 +803,7 @@ TEST_CASE ("[String] ArrayList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(bubble_sort, compare_string_reverse);
+        list.sort(bubble_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -772,7 +815,7 @@ TEST_CASE ("[String] ArrayList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(insertion_sort, compare_string_reverse);
+        list.sort(insertion_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -784,7 +827,7 @@ TEST_CASE ("[String] ArrayList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(merge_sort, compare_string_reverse);
+        list.sort(merge_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -796,7 +839,7 @@ TEST_CASE ("[String] ArrayList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(quick_sort, compare_string_reverse);
+        list.sort(quick_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -811,7 +854,13 @@ TEST_CASE ("[String] ArrayList") {
 TEST_CASE ("[String] LinkedList") {
     std::stringstream ss;
 
-    LinkedList<std::string> list;
+    LinkedList<std::string> list(10, create_string_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
             CHECK(list.get_size() == 0);
 
             CHECK_THROWS_AS(list.get(0), std::out_of_range);
@@ -874,7 +923,7 @@ TEST_CASE ("[String] LinkedList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(bubble_sort, compare_string_reverse);
+        list.sort(bubble_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -886,7 +935,7 @@ TEST_CASE ("[String] LinkedList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(insertion_sort, compare_string_reverse);
+        list.sort(insertion_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -898,7 +947,7 @@ TEST_CASE ("[String] LinkedList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(merge_sort, compare_string_reverse);
+        list.sort(merge_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -910,7 +959,7 @@ TEST_CASE ("[String] LinkedList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(quick_sort, compare_string_reverse);
+        list.sort(quick_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -925,7 +974,13 @@ TEST_CASE ("[String] LinkedList") {
 TEST_CASE ("[String] VectorList") {
     std::stringstream ss;
 
-    VectorList<std::string> list;
+    VectorList<std::string> list(10, create_string_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
             CHECK(list.get_size() == 0);
 
             CHECK_THROWS_AS(list.get(0), std::out_of_range);
@@ -988,7 +1043,7 @@ TEST_CASE ("[String] VectorList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(bubble_sort, compare_string_reverse);
+        list.sort(bubble_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -1000,7 +1055,7 @@ TEST_CASE ("[String] VectorList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(insertion_sort, compare_string_reverse);
+        list.sort(insertion_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -1012,7 +1067,7 @@ TEST_CASE ("[String] VectorList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(merge_sort, compare_string_reverse);
+        list.sort(merge_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");
@@ -1024,7 +1079,7 @@ TEST_CASE ("[String] VectorList") {
                 CHECK(ss.str() == "[a, b, c, d, e]");
         ss.str("");
 
-        list.sort(quick_sort, compare_string_reverse);
+        list.sort(quick_sort, compare_reverse);
         ss << list;
                 CHECK(ss.str() == "[e, d, c, b, a]");
         ss.str("");

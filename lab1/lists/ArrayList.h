@@ -24,6 +24,16 @@ private:
     }
 
 public:
+    ArrayList(int count, T(*create_func)(int)){
+        for(int i = 0; i < count; i++){
+            ArrayList::add(create_func(i));
+        }
+    }
+
+    ArrayList(){
+
+    }
+
     ~ArrayList() {
         delete[] arr;
     }

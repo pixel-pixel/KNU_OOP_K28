@@ -22,18 +22,26 @@ private:
     Node *ass = nullptr;
 
 public:
-//    ~LinkedList() {
-//        if (size > 0) {
-//            ass = head->next;
-//            for (int i = 0; i < size - 1; i++) {
-//                delete head;
-//                head = ass;
-//                ass = ass->next;
-//            }
-//            delete head;
-//            delete ass;
-//        }
-//    }
+    LinkedList(int count, T(*create_func)(int)){
+        for(int i = 0; i < count; i++){
+            LinkedList::add(create_func(i));
+        }
+    }
+
+    LinkedList(){}
+
+    ~LinkedList() {
+        if (size > 0) {
+            ass = head->next;
+            for (int i = 0; i < size - 1; i++) {
+                delete head;
+                head = ass;
+                ass = ass->next;
+            }
+            delete head;
+            delete ass;
+        }
+    }
 
     void add(T obj, int index = -1) override {
         if (index < 0)

@@ -10,6 +10,14 @@ class VectorList : List<T> {
     std::vector<T> vect;
 
 public:
+    VectorList(int count, T(*create_func)(int)){
+        for(int i = 0; i < count; i++){
+            VectorList::add(create_func(i));
+        }
+    }
+
+    VectorList(){}
+
     ~VectorList() {
         clear();
     }
