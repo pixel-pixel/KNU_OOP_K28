@@ -1,13 +1,13 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 
-#include "libs/doctest.h"
+#include "../libs/doctest.h"
 #include "lists/ArrayList.h"
 #include "lists/LinkedList.h"
 #include "lists/VectorList.h"
 #include "sorts/sorts.h"
 #include "compare_functions/compare.h"
 #include "create_functions/create.h"
-#include "libs/utils.h"
+#include "../libs/utils.h"
 
 TEST_CASE ("[Integer] ArrayList") {
     std::stringstream ss;

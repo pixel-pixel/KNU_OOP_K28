@@ -3,13 +3,23 @@
 
 #include "List.h"
 
+/**
+ * @brief
+ * Class of dynamic array(list) based on linked nodes.
+ * @tparam  T   Class or primitive with override operators: std::ostream<<, >, <, ==, !=, >=, <=.
+ */
 template<class T>
 class LinkedList : List<T> {
 private:
+
+    /**
+     * @brief
+     * Inner class which contains pointer on next Node. They contain our objects.
+     */
     class Node {
     public:
-        T obj;
-        Node *next = nullptr;
+        T obj;                  ///< Object which we add, remove, find...
+        Node *next = nullptr;   ///< Pointer on next Node.
 
         Node(T &obj) {
             this->obj = obj;
@@ -17,32 +27,49 @@ private:
 
     };
 
-    int size = 0;
-    Node *head = nullptr;
-    Node *ass = nullptr;
+    int size = 0;               ///< Value for saving count of elements.
+    Node *head = nullptr;       ///< Pointer on first Node in LinkedList.
+    Node *tail = nullptr;       ///< Pointer on last Node in LinkedList
 
 public:
-    LinkedList(int count, T(*create_func)(int)){
-        for(int i = 0; i < count; i++){
+    LinkedList() = default;
+
+    /**
+     * @brief
+     * Constructor which generate some elements by functions and add to LinkedList.
+     * @param   count       Count of elements we want to generate.
+     * @param   create_func Function which generate new element by index.
+     */
+    LinkedList(int count, T(*create_func)(int)) {
+        for (int i = 0; i < count; i++) {
             LinkedList::add(create_func(i));
         }
     }
 
-    LinkedList(){}
-
     ~LinkedList() {
         if (size > 0) {
-            ass = head->next;
+            tail = head->next;
             for (int i = 0; i < size - 1; i++) {
                 delete head;
-                head = ass;
-                ass = ass->next;
+                head = tail;
+                tail = tail->next;
             }
             delete head;
-            delete ass;
+            delete tail;
         }
     }
 
+    /**
+     * @brief
+     * Add element to LinkedList.
+     * @details
+     * Adds an element and puts it in a certain position.
+     * If the index is not specified or less than zero - adds an item to the end of the LinkedList.
+     * If an item is not added to the end of the LinkedList, the item that belonged to that index(and all after it) moves forward.
+     * @throw   std::out_of_range If index is bigger than size.
+     * @param   obj     The element which we want to add to LinkedList.
+     * @param   index   The index on which we want to place the element.
+     */
     void add(T obj, int index = -1) override {
         if (index < 0)
             index = size;
@@ -52,7 +79,7 @@ public:
         if (index == 0) {
             if (size == 0) {
                 head = new Node(obj);
-                ass = head;
+                tail = head;
             } else {
                 Node *n = new Node(obj);
                 n->next = head;
@@ -67,12 +94,24 @@ public:
             new_node->next = temp->next;
             temp->next = new_node;
         } else if (index == size) {
-            ass->next = new Node(obj);
-            ass = ass->next;
+            tail->next = new Node(obj);
+            tail = tail->next;
         }
         size++;
     }
 
+    /**
+     * @brief
+     * Remove element by index from LinkedList.
+     * @details
+     * If we remove element by index, all elements with bigger index moved:
+     * index+1 -> index, index+2 -> index+1;
+     * But:
+     * index-1 -> index-1, index-2 -> index-2;
+     * If index is less than 0, than index = size - 1 (remove last element in LinkedList).
+     * @throw   std::out_of_range If index is bigger than size - 1.
+     * @param   index   The index by which we want to delete the item.
+     */
     void remove(int index) override {
         if (index >= size || (index < 0 && size == 0))
             throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
@@ -96,6 +135,16 @@ public:
         size--;
     }
 
+    /**
+     * @brief
+     * Get element by index from LinkedList.
+     * @details
+     * Method returns reference not an element.
+     * If index is less than 0, than index = size - 1 (remove last element from the LinkedList).
+     * If index is bigger or equals to the size, than method must throw std::out_of_range.
+     * @param   index   The index of the element in the LinkedList we want to get.
+     * @return          Element from the LinkedList by index.
+     */
     T &get(int index) override {
         if (index >= size || (index < 0 && size == 0))
             throw std::out_of_range("index " + std::to_string(index) + " is greater then the size");
@@ -114,6 +163,15 @@ public:
         }
     }
 
+    /**
+     * @brief
+     * Find the index of an element in the LinkedList.
+     * @details
+     * If the element is not contained in the list, method return -1.
+     * If the LinkedList contains great than 1 such element, method return tne first index.
+     * @param   obj     The element which index we want to know.
+     * @return          The index of the element in the LinkedList or -1 if element is not contained.
+     */
     int find(T obj) override {
         int res = -1;
 
@@ -128,6 +186,11 @@ public:
         return res;
     }
 
+    /**
+     * @brief
+     * Remove all elements of the LinkedList.
+     * Now size = 0;
+     */
     void clear() override {
         Node *temp = head;
         for (int i = 0; i < size; i++) {
@@ -139,13 +202,22 @@ public:
         size = 0;
     }
 
+    /**
+     * @brief
+     * Method for sort the LinkedList.
+     * @details
+     * If the sort function is not specified or equals 'nullptr', the LinkedList will be sorted by quick sort function.
+     * Method creates array of elements in the LinkedList for pass to sort function.
+     * Then the method clears the list and add all elements from array to LinkedList.
+     * @param   sort_func   The function for sort which takes the array of elements from the LinkedList and size of the LinkedList.
+     */
     void sort(void (*sort_func)(T *, int) = nullptr) {
         T *arr = new T[size];
 
-        ass = head;
+        tail = head;
         for (int i = 0; i < size; i++) {
-            arr[i] = ass->obj;
-            ass = ass->next;
+            arr[i] = tail->obj;
+            tail = tail->next;
         }
 
         if (!sort_func)
@@ -153,45 +225,68 @@ public:
         else
             sort_func(arr, size);
 
-        ass = head;
+        tail = head;
         for (int i = 0; i < size; i++) {
-            ass->obj = arr[i];
-            ass = ass->next;
+            tail->obj = arr[i];
+            tail = tail->next;
         }
     }
 
+    /**
+     * @brief
+     * Override method for sort the LinkedList by compare function.
+     * @details
+     * If the compare function is not specified or equals 'nullptr', the LinkedList will be sorted by default operators(>, <, ==, !=, >=, <=).
+     * Method also creates array of elements from the Linked for pass to sort function.
+     * Then the method clears the LinkedList and add all elements from array to LinkedList.
+     * @param   sort_func       The function for sort which takes the array of elements from the LinkedList, size of the list and compare function.
+     * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
+     */
     void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
               int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
         T *arr = new T[size];
 
-        ass = head;
+        tail = head;
         for (int i = 0; i < size; i++) {
-            arr[i] = ass->obj;
-            ass = ass->next;
+            arr[i] = tail->obj;
+            tail = tail->next;
         }
 
         sort_func(arr, size, compare_func);
 
-        ass = head;
+        tail = head;
         for (int i = 0; i < size; i++) {
-            ass->obj = arr[i];
-            ass = ass->next;
+            tail->obj = arr[i];
+            tail = tail->next;
         }
     }
 
+    /**
+     * @brief
+     * Return the size of LinkedList.
+     * @return  size of LinkedList.
+     */
     int get_size() override {
         return size;
     }
 
+    /**
+     * @brief
+     * Override operator<< of ostream.
+     * Out look like:
+     * @code
+     * [T, T, T, T, T]
+     * @endcode
+     */
     friend std::ostream &operator<<(std::ostream &out, LinkedList<T> &list) {
         out << '[';
-        list.ass = list.head;
+        list.tail = list.head;
         for (int i = 0; i < list.size - 1; i++) {
-            out << list.ass->obj << ", ";
-            list.ass = list.ass->next;
+            out << list.tail->obj << ", ";
+            list.tail = list.tail->next;
         }
         if (list.size != 0)
-            out << list.ass->obj;
+            out << list.tail->obj;
         out << ']';
     }
 

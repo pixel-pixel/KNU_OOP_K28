@@ -1,9 +1,9 @@
-#include "libs/doctest.h"
+#include "../libs/doctest.h"
 
 #include "lab_classes/Series.h"
 #include "lists/ArrayList.h"
 #include "create_functions/create.h"
-#include "libs/utils.h"
+#include "../libs/utils.h"
 
 namespace lab1 {
     int doctest() {
