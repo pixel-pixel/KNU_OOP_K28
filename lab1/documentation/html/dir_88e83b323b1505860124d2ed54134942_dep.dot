@@ -1,0 +1,8 @@
+digraph "lists" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_88e83b323b1505860124d2ed54134942 [shape=box, label="lists", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_88e83b323b1505860124d2ed54134942.html"];
+  dir_fa753ffa6e3c9acb810fc37ee5c68b6e [shape=box label="sorts" URL="dir_fa753ffa6e3c9acb810fc37ee5c68b6e.html"];
+  dir_88e83b323b1505860124d2ed54134942->dir_fa753ffa6e3c9acb810fc37ee5c68b6e [headlabel="1", labeldistance=1.5 headhref="dir_000003_000004.html"];
+}

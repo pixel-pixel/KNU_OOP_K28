@@ -1,16 +1,27 @@
-#include "libs/doctest.h"
+#include "../libs/doctest.h"
 
 #include "lab_classes/Series.h"
 #include "lists/ArrayList.h"
+#include "create_functions/create.h"
+#include "../libs/utils.h"
 
 namespace lab1 {
+    /**
+     * @brief
+     * Function which run unit tests.
+     */
     int doctest() {
         doctest::Context context;
         return context.run();
     }
 
+    /**
+     * @brief
+     * Lab1 main function.
+     */
     int main() {
         doctest();
+
 
         Book a("War and God", 2000, "about war and Gods", "1995.11.07", "lev Tolstoi");
         Book b("Kozaki", 129, "about us", "2020", "Sergii", "Andrii");
@@ -21,6 +32,12 @@ namespace lab1 {
         andrii.add_role(Character::Role(&a, Character::Role::MAIN));
         andrii.add_role(Character::Role(&c, Character::Role::MINOR));
         andrii.add_role(Character::Role(&d, Character::Role::EPISODIC));
+
+        Series ser0(&andrii);
+        ser0.add_book(d);
+        ser0.add_book(b);
+        ser0.add_book(c);
+        std::cout << ser0 << std::endl;
 
         Series ser;
         ser.add_book(a);
@@ -40,7 +57,7 @@ namespace lab1 {
         list.add(ser3, 0);
 
         list.sort();
-        std::cout << list;
+        std::cout << list << std::endl;
         return 0;
     }
 }

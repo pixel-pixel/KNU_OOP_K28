@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Character::Role",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCharacter_1_1Role.html",tooltip="Inner class for saving books where character play with part which character play in book to vector &#39;r..."];
+}

@@ -3,18 +3,30 @@
 
 #include "../lab_classes/Book.h"
 
-int compare_int_reverse(int &, int &);
+/**
+ * @brief
+ * Function for compare elements reverse.
+ * @tparam  T   Class or primitive with override at least operator <.
+ * @return      If a < b -> 1, else -> 0.
+ */
+template <class T>
+int compare_reverse(T &a, T &b){
+    if(a == b) return 0;
+    else return a < b;
+};
 
-int compare_double_reverse(double &, double &);
+/**
+ * @brief
+ * Function for compare Books by name.
+ * @return      If a.name > b.name -> 1, else -> 0.
+ */
+int compare_book_by_name(Book &a, Book &b);
 
-int compare_string_reverse(std::string &, std::string &);
-
-int compare_vector_reverse(std::vector<int> &, std::vector<int> &);
-
-int compare_book_by_name(Book &, Book &);
-
-int compare_book_by_date(Book &, Book &);
-
-
+/**
+ * @brief
+ * Function for compare Books by date.
+ * @return      If a.date > b.date -> 1, else -> 0.
+ */
+int compare_book_by_date(Book &a, Book &b);
 
 #endif
