@@ -1,13 +1,6 @@
 var searchData=
 [
-  ['relationalcomparator',['RelationalComparator',['../structdoctest_1_1detail_1_1RelationalComparator.html',1,'doctest::detail']]],
   ['remove',['remove',['../classArrayList.html#a77f2faaacda526a5b93f308796360fc7',1,'ArrayList::remove()'],['../classLinkedList.html#a229cb3654719b0cee079a5f26a0a3230',1,'LinkedList::remove()'],['../classList.html#ac3b4b83b3ec104acff3321d6ba4b2bde',1,'List::remove()'],['../classVectorList.html#a55cc82f3086ba60575febfadff518807',1,'VectorList::remove()']]],
-  ['remove_5fconst',['remove_const',['../structdoctest_1_1detail_1_1remove__const.html',1,'doctest::detail']]],
-  ['remove_5fconst_3c_20const_20t_20_3e',['remove_const&lt; const T &gt;',['../structdoctest_1_1detail_1_1remove__const_3_01const_01T_01_4.html',1,'doctest::detail']]],
-  ['remove_5freference',['remove_reference',['../structdoctest_1_1detail_1_1remove__reference.html',1,'doctest::detail']]],
-  ['remove_5freference_3c_20t_20_26_20_3e',['remove_reference&lt; T &amp; &gt;',['../structdoctest_1_1detail_1_1remove__reference_3_01T_01_6_01_4.html',1,'doctest::detail']]],
-  ['remove_5freference_3c_20t_20_26_26_20_3e',['remove_reference&lt; T &amp;&amp; &gt;',['../structdoctest_1_1detail_1_1remove__reference_3_01T_01_6_6_01_4.html',1,'doctest::detail']]],
-  ['result',['Result',['../structdoctest_1_1detail_1_1Result.html',1,'doctest::detail']]],
-  ['resultbuilder',['ResultBuilder',['../structdoctest_1_1detail_1_1ResultBuilder.html',1,'doctest::detail']]],
-  ['role',['Role',['../classCharacter_1_1Role.html',1,'Character']]]
+  ['remove_5fbook',['remove_book',['../classSeries.html#a40ab00b8d68f79648b114908725e993a',1,'Series']]],
+  ['role',['Role',['../classCharacter_1_1Role.html',1,'Character::Role'],['../classCharacter_1_1Role.html#a659b8edda659dbd1d0f982d35195981a',1,'Character::Role::Role()']]]
 ];

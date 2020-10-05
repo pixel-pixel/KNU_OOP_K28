@@ -3,16 +3,33 @@
 #include "../sorts/sorts.h"
 #include "../compare_functions/compare.h"
 
-
-void Series::add_book(Book &book) {
-    books.push_back(book);
+Series::Series(Character *main_character) {
+    Series::main_character = main_character;
 }
 
-void Series::remove_book(Book &book) {
-    for (int i = 0; i < books.size(); i++) {
-        if (books[i] == book) return;
+int Series::add_book(Book &book) {
+    if(Series::main_character){
+        for(int i = 0; i < Series::main_character->getRoles()->size(); i++){
+            if(Series::main_character->getRoles()->operator[](i).getBook() == book){
+                books.push_back(book);
+                break;
+            }
+        }
+        return -1;
+    } else{
+        books.push_back(book);
     }
-    books.push_back(book);
+    return 0;
+}
+
+int Series::remove_book(Book &book) {
+    for (int i = 0; i < books.size(); i++) {
+        if (books[i] == book){
+            books.erase(books.begin() + i);
+            return 0;
+        };
+    }
+    return -1;
 }
 
 

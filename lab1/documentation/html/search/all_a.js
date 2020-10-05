@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['Лабораторна_20робота_20№1',['Лабораторна робота №1',['../md_README.html',1,'']]]
+  ['part',['Part',['../classCharacter_1_1Role.html#affefe026f97608eac7a98cc7c70556d4',1,'Character::Role']]]
 ];

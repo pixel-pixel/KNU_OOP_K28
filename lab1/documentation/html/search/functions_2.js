@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['find',['find',['../classArrayList.html#a9051c8b11431f13165ea796fc02176ec',1,'ArrayList::find()'],['../classLinkedList.html#af37bb04dae2415e26e6f6a0d40210b00',1,'LinkedList::find()'],['../classList.html#ab89abe7a19e1cd161f6bf0a1b41cf1a9',1,'List::find()'],['../classVectorList.html#a2046cbf55997ced7038f01d4cf5e3db4',1,'VectorList::find()']]]
+  ['character',['Character',['../classCharacter.html#ae68feedc72ec846c036787a78a8ef97e',1,'Character::Character(std::vector&lt; std::string &gt; *names, std::vector&lt; Role &gt; *roles)'],['../classCharacter.html#ad8b49ca5d214d3e00917c0bbea059cf0',1,'Character::Character(std::string name1, std::string name2=&quot;&quot;, std::string name3=&quot;&quot;)']]],
+  ['clear',['clear',['../classArrayList.html#a0a2156d172ee288d8d9f2307889324ce',1,'ArrayList::clear()'],['../classLinkedList.html#a16bd0b8c0f3a3f903a3d81e155a43c19',1,'LinkedList::clear()'],['../classList.html#add73ba3603cbbc254f3bddac80610327',1,'List::clear()'],['../classVectorList.html#a3ac069aae8119e2438bdb2ec2a092a4a',1,'VectorList::clear()']]]
 ];

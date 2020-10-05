@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['remove',['remove',['../classArrayList.html#a77f2faaacda526a5b93f308796360fc7',1,'ArrayList::remove()'],['../classLinkedList.html#a229cb3654719b0cee079a5f26a0a3230',1,'LinkedList::remove()'],['../classList.html#ac3b4b83b3ec104acff3321d6ba4b2bde',1,'List::remove()'],['../classVectorList.html#a55cc82f3086ba60575febfadff518807',1,'VectorList::remove()']]],
-  ['role',['Role',['../classCharacter_1_1Role.html',1,'Character']]]
+  ['main',['MAIN',['../classCharacter_1_1Role.html#affefe026f97608eac7a98cc7c70556d4a0044e94a59f2db4995ec01e77468cbeb',1,'Character::Role']]],
+  ['minor',['MINOR',['../classCharacter_1_1Role.html#affefe026f97608eac7a98cc7c70556d4ad298dad1bab41bcd021d9e14cb7cecb7',1,'Character::Role']]]
 ];

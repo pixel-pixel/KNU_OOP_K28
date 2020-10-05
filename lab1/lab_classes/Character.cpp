@@ -2,15 +2,15 @@
 
 Character::Role::Role(Book *book, Character::Role::Part part) : book(book), part(part) {}
 
-Book *Character::Role::getBook() const {
-    return book;
+Book &Character::Role::getBook() {
+    return *book;
 }
 
 void Character::Role::setBook(Book *book) {
     Role::book = book;
 }
 
-Character::Role::Part Character::Role::getPart() const {
+Character::Role::Part Character::Role::getPart() {
     return part;
 }
 
