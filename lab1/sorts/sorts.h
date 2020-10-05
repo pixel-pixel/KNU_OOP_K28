@@ -3,6 +3,14 @@
 
 #include <algorithm>
 
+/**
+ * @brief
+ * Function for sort array by bubble sort.
+ * @tparam  T               Class or primitive with override at least operator >.
+ * @param   arr             Array which we want to sort.
+ * @param   size            Count of elements in array.
+ * @param   compare_func    Function for compare. If nullptr -> compare elements by operator >.
+ */
 template<class T>
 void bubble_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2) = nullptr) {
     T temp;
@@ -30,6 +38,14 @@ void bubble_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2) = nullpt
     }
 }
 
+/**
+ * @brief
+ * Function for sort array by insertion sort.
+ * @tparam  T               Class or primitive with override at least operator >.
+ * @param   arr             Array which we want to sort.
+ * @param   size            Count of elements in array.
+ * @param   compare_func    Function for compare. If nullptr -> compare elements by operator >.
+ */
 template<class T>
 void insertion_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2) = nullptr) {
     T key;
@@ -126,6 +142,14 @@ void __merge_sort_temp(T *arr, int l, int r, int(*compare_func)(T &obj1, T &obj2
     }
 }
 
+/**
+ * @brief
+ * Function for sort array by merge sort.
+ * @tparam  T               Class or primitive with override at least operator <=.
+ * @param   arr             Array which we want to sort.
+ * @param   size            Count of elements in array.
+ * @param   compare_func    Function for compare. If nullptr -> compare elements by operator >.
+ */
 template<class T>
 void merge_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2) = nullptr) {
     __merge_sort_temp(arr, 0, size - 1, compare_func);
@@ -166,6 +190,14 @@ void __quick_sort_temp(T *arr, int low, int high, int(*compare_func)(T &obj1, T 
     }
 }
 
+/**
+ * @brief
+ * Function for sort array by quick sort.
+ * @tparam  T               Class or primitive with override at least operator <=.
+ * @param   arr             Array which we want to sort.
+ * @param   size            Count of elements in array.
+ * @param   compare_func    Function for compare. If nullptr -> compare elements by operator >.
+ */
 template<class T>
 void quick_sort(T *arr, int size, int(*compare_func)(T &obj1, T &obj2) = nullptr) {
     __quick_sort_temp(arr, 0, size - 1, compare_func);

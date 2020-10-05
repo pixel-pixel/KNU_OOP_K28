@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['book',['Book',['../classBook.html',1,'Book'],['../classBook.html#a65e0f838ea54b83030156648eee5a331',1,'Book::Book(std::string name, int pages, std::string annotation, std::string date, std::vector&lt; std::string &gt; *authors)'],['../classBook.html#a66d7441db7b07c46aaa6c0a7ae433781',1,'Book::Book(std::string name, int pages=0, std::string annotation=&quot;no annotation&quot;, std::string date=&quot;0000.00.00&quot;, const std::string &amp;author1=&quot;noname author&quot;, const std::string &amp;author2=&quot;&quot;, const std::string &amp;author3=&quot;&quot;)']]]
+  ['add',['add',['../classArrayList.html#ada456f3bfb5c8b16c1e48bbe80d69b16',1,'ArrayList::add()'],['../classLinkedList.html#a8380f3fc1f25d6b8a7ffe022c118410d',1,'LinkedList::add()'],['../classList.html#ab1ef7d5a819028760ad73aa8b0092ed0',1,'List::add()'],['../classVectorList.html#a34fa9cb531d2e8b8e908838b09838bb9',1,'VectorList::add()']]],
+  ['add_5fbook',['add_book',['../classSeries.html#af257a82fdce33c433c0d6efc88bc25bd',1,'Series']]],
+  ['add_5fname',['add_name',['../classCharacter.html#ad9376a5d951ca75b624804c951ecff8c',1,'Character']]],
+  ['add_5frole',['add_role',['../classCharacter.html#a1e0f13d110c66257d639853826fd77da',1,'Character']]],
+  ['arraylist',['ArrayList',['../classArrayList.html',1,'ArrayList&lt; T &gt;'],['../classArrayList.html#a709886bb98092ec82abd9ed526e7a0ca',1,'ArrayList::ArrayList()=default'],['../classArrayList.html#adc6e5adbea0e95d316580c091fcbd358',1,'ArrayList::ArrayList(int count, T(*create_func)(int))']]],
+  ['arraylist_2eh',['ArrayList.h',['../ArrayList_8h.html',1,'']]]
 ];
