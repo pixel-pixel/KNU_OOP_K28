@@ -7,6 +7,7 @@
 #include "sorts/sorts.h"
 #include "compare_functions/compare.h"
 #include "create_functions/create.h"
+#include "libs/utils.h"
 
 TEST_CASE ("[Integer] ArrayList") {
     std::stringstream ss;
@@ -1091,119 +1092,365 @@ TEST_CASE ("[String] VectorList") {
             CHECK(ss.str() == "[]");
 }
 
-//TEST_CASE ("[Vector] ArrayList") {
-//    std::stringstream ss;
-//
-//    ArrayList<std::vector<int>> list;
-//            CHECK(list.get_size() == 0);
-//
-//            CHECK_THROWS_AS(list.get(0), std::out_of_range);
-//            CHECK_THROWS_AS(list.get(10), std::out_of_range);
-//            CHECK_THROWS_AS(list.get(-1), std::out_of_range);
-//
-//            CHECK_THROWS_AS(list.remove(0), std::out_of_range);
-//            CHECK_THROWS_AS(list.remove(10), std::out_of_range);
-//            CHECK_THROWS_AS(list.remove(-1), std::out_of_range);
-//
-//            CHECK(list.find({0}) == -1);
-//
-//    list.add({4, 4, 4, 4});
-//    list.add({2, 2});
-//    list.add({1});
-//    ss << list;
-//            CHECK(ss.str() == "[4, 2, 1]");
-//    ss.str("");
-//
-//    list.add({3, 3, 3}, 1);
-//    ss << list;
-//            CHECK(ss.str() == "[4, 3, 2, 1]");
-//    ss.str("");
-//
-//    list.add({5, 5, 5, 5, 5}, -1); //when index < 0 -> index = last
-//    list.add({6, 6, 6, 6, 6, 6}, 2);
-//    list.add({7, 7, 7, 7, 7, 7, 7}, 0);
-//    list.add({8, 8, 8, 8, 8, 8, 8, 8}, -5);
-//    ss << list;
-//            CHECK(ss.str() == "[7, 4, 3, 6, 2, 1, 5, 8]");
-//    ss.str("");
-//
-//            CHECK(list.get_size() == 8);
-//
-//    list.remove(0);
-//    list.remove(-1);
-//    list.remove(2);
-//    ss << list;
-//            CHECK(ss.str() == "[4, 3, 2, 1, 5]");
-//    ss.str("");
-//
-//            CHECK(list.get_size() == 5);
-//
-//            CHECK(list.get(0) == 4);
-//            CHECK(list.get(2) == 2);
-//            CHECK(list.get(-1) == 5);
-//            CHECK_THROWS_AS(list.get(10), std::out_of_range);
-//
-//            CHECK(list.find({4, 4, 4, 4}) == 0);
-//            CHECK(list.find({2, 2}) == 2);
-//            CHECK(list.find({5, 5, 5, 5, 5}) == 4);
-//            CHECK(list.find({8, 8, 8, 8, 8, 8, 8, 8}) == -1);
-//
-//            CHECK_THROWS_AS(list.add({0}, 10), std::out_of_range);
-//            CHECK_THROWS_AS(list.remove(10), std::out_of_range);
-//
-//            SUBCASE("Bubble sort") {
-//        list.sort(bubble_sort);
-//        ss << list;
-//                CHECK(ss.str() == "[1, 2, 3, 4, 5]");
-//        ss.str("");
-//
-//        list.sort(bubble_sort, compare_vector_reverse);
-//        ss << list;
-//                CHECK(ss.str() == "[5, 4, 3, 2, 1]");
-//        ss.str("");
-//    }
-//
-//            SUBCASE("Insertion sort") {
-//        list.sort(insertion_sort);
-//        ss << list;
-//                CHECK(ss.str() == "[1, 2, 3, 4, 5]");
-//        ss.str("");
-//
-//        list.sort(insertion_sort, compare_vector_reverse);
-//        ss << list;
-//                CHECK(ss.str() == "[5, 4, 3, 2, 1]");
-//        ss.str("");
-//    }
-//
-//            SUBCASE("Merge sort") {
-//        list.sort(merge_sort);
-//        ss << list;
-//                CHECK(ss.str() == "[1, 2, 3, 4, 5]");
-//        ss.str("");
-//
-//        list.sort(merge_sort, compare_vector_reverse);
-//        ss << list;
-//                CHECK(ss.str() == "[5, 4, 3, 2, 1]");
-//        ss.str("");
-//    }
-//
-//            SUBCASE("Quick sort") {
-//        list.sort(quick_sort);
-//        ss << list;
-//                CHECK(ss.str() == "[1, 2, 3, 4, 5]");
-//        ss.str("");
-//
-//        list.sort(quick_sort, compare_vector_reverse);
-//        ss << list;
-//                CHECK(ss.str() == "[5, 4, 3, 2, 1]");
-//        ss.str("");
-//    }
-//
-//    list.clear();
-//    ss << list;
-//            CHECK(list.get_size() == 0);
-//            CHECK(ss.str() == "[]");
-//}
+TEST_CASE ("[Vector] ArrayList") {
+    std::stringstream ss;
 
+    ArrayList<std::vector<int>> list(10, create_vector_int_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
 
+    list.clear();
+            CHECK(list.get_size() == 0);
 
+            CHECK_THROWS_AS(list.get(0), std::out_of_range);
+            CHECK_THROWS_AS(list.get(10), std::out_of_range);
+            CHECK_THROWS_AS(list.get(-1), std::out_of_range);
+
+            CHECK_THROWS_AS(list.remove(0), std::out_of_range);
+            CHECK_THROWS_AS(list.remove(10), std::out_of_range);
+            CHECK_THROWS_AS(list.remove(-1), std::out_of_range);
+
+            CHECK(list.find({0}) == -1);
+
+    list.add({4, 4, 4, 4});
+    list.add({2, 2});
+    list.add({1});
+    ss << list;
+            CHECK(ss.str() == "[{4, 4, 4, 4}, {2, 2}, {1}]");
+    ss.str("");
+
+    list.add({3, 3, 3}, 1);
+    ss << list;
+            CHECK(ss.str() == "[{4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+    ss.str("");
+
+    list.add({5, 5, 5, 5, 5}, -1); //when index < 0 -> index = last
+    list.add({6, 6, 6, 6, 6, 6}, 2);
+    list.add({7, 7, 7, 7, 7, 7, 7}, 0);
+    list.add({8, 8, 8, 8, 8, 8, 8, 8}, -5);
+    ss << list;
+            CHECK(ss.str() ==
+                  "[{7, 7, 7, 7, 7, 7, 7}, {4, 4, 4, 4}, {3, 3, 3}, {6, 6, 6, 6, 6, 6}, {2, 2}, {1}, {5, 5, 5, 5, 5}, {8, 8, 8, 8, 8, 8, 8, 8}]");
+    ss.str("");
+
+            CHECK(list.get_size() == 8);
+
+    list.remove(0);
+    list.remove(-1);
+    list.remove(2);
+    ss << list;
+            CHECK(ss.str() == "[{4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}, {5, 5, 5, 5, 5}]");
+    ss.str("");
+
+            CHECK(list.get_size() == 5);
+
+            CHECK(list.get(0) == std::vector<int>{4, 4, 4, 4});
+            CHECK(list.get(2) == std::vector<int>{2, 2});
+            CHECK(list.get(-1) == std::vector<int>{5, 5, 5, 5, 5});
+            CHECK_THROWS_AS(list.get(10), std::out_of_range);
+
+            CHECK(list.find({4, 4, 4, 4}) == 0);
+            CHECK(list.find({2, 2}) == 2);
+            CHECK(list.find({5, 5, 5, 5, 5}) == 4);
+            CHECK(list.find({8, 8, 8, 8, 8, 8, 8, 8}) == -1);
+
+            CHECK_THROWS_AS(list.add({0}, 10), std::out_of_range);
+            CHECK_THROWS_AS(list.remove(10), std::out_of_range);
+
+            SUBCASE("Bubble sort") {
+        list.sort(bubble_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(bubble_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+            SUBCASE("Insertion sort") {
+        list.sort(insertion_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(insertion_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+            SUBCASE("Merge sort") {
+        list.sort(merge_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(merge_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+            SUBCASE("Quick sort") {
+        list.sort(quick_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(quick_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+    list.clear();
+    ss << list;
+            CHECK(list.get_size() == 0);
+            CHECK(ss.str() == "[]");
+}
+
+TEST_CASE ("[Vector] LinkedList") {
+    std::stringstream ss;
+
+    LinkedList<std::vector<int>> list(10, create_vector_int_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
+            CHECK(list.get_size() == 0);
+
+            CHECK_THROWS_AS(list.get(0), std::out_of_range);
+            CHECK_THROWS_AS(list.get(10), std::out_of_range);
+            CHECK_THROWS_AS(list.get(-1), std::out_of_range);
+
+            CHECK_THROWS_AS(list.remove(0), std::out_of_range);
+            CHECK_THROWS_AS(list.remove(10), std::out_of_range);
+            CHECK_THROWS_AS(list.remove(-1), std::out_of_range);
+
+            CHECK(list.find({0}) == -1);
+
+    list.add({4, 4, 4, 4});
+    list.add({2, 2});
+    list.add({1});
+    ss << list;
+            CHECK(ss.str() == "[{4, 4, 4, 4}, {2, 2}, {1}]");
+    ss.str("");
+
+    list.add({3, 3, 3}, 1);
+    ss << list;
+            CHECK(ss.str() == "[{4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+    ss.str("");
+
+    list.add({5, 5, 5, 5, 5}, -1); //when index < 0 -> index = last
+    list.add({6, 6, 6, 6, 6, 6}, 2);
+    list.add({7, 7, 7, 7, 7, 7, 7}, 0);
+    list.add({8, 8, 8, 8, 8, 8, 8, 8}, -5);
+    ss << list;
+            CHECK(ss.str() ==
+                  "[{7, 7, 7, 7, 7, 7, 7}, {4, 4, 4, 4}, {3, 3, 3}, {6, 6, 6, 6, 6, 6}, {2, 2}, {1}, {5, 5, 5, 5, 5}, {8, 8, 8, 8, 8, 8, 8, 8}]");
+    ss.str("");
+
+            CHECK(list.get_size() == 8);
+
+    list.remove(0);
+    list.remove(-1);
+    list.remove(2);
+    ss << list;
+            CHECK(ss.str() == "[{4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}, {5, 5, 5, 5, 5}]");
+    ss.str("");
+
+            CHECK(list.get_size() == 5);
+
+            CHECK(list.get(0) == std::vector<int>{4, 4, 4, 4});
+            CHECK(list.get(2) == std::vector<int>{2, 2});
+            CHECK(list.get(-1) == std::vector<int>{5, 5, 5, 5, 5});
+            CHECK_THROWS_AS(list.get(10), std::out_of_range);
+
+            CHECK(list.find({4, 4, 4, 4}) == 0);
+            CHECK(list.find({2, 2}) == 2);
+            CHECK(list.find({5, 5, 5, 5, 5}) == 4);
+            CHECK(list.find({8, 8, 8, 8, 8, 8, 8, 8}) == -1);
+
+            CHECK_THROWS_AS(list.add({0}, 10), std::out_of_range);
+            CHECK_THROWS_AS(list.remove(10), std::out_of_range);
+
+            SUBCASE("Bubble sort") {
+        list.sort(bubble_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(bubble_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+            SUBCASE("Insertion sort") {
+        list.sort(insertion_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(insertion_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+            SUBCASE("Merge sort") {
+        list.sort(merge_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(merge_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+            SUBCASE("Quick sort") {
+        list.sort(quick_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(quick_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+    list.clear();
+    ss << list;
+            CHECK(list.get_size() == 0);
+            CHECK(ss.str() == "[]");
+}
+
+TEST_CASE ("[Vector] VectorList") {
+    std::stringstream ss;
+
+    VectorList<std::vector<int>> list(10, create_vector_int_random);
+            CHECK(list.get_size() == 10);
+    ss << list;
+            CHECK(ss.str() != "[]");
+    ss.str("");
+
+    list.clear();
+            CHECK(list.get_size() == 0);
+
+            CHECK_THROWS_AS(list.get(0), std::out_of_range);
+            CHECK_THROWS_AS(list.get(10), std::out_of_range);
+            CHECK_THROWS_AS(list.get(-1), std::out_of_range);
+
+            CHECK_THROWS_AS(list.remove(0), std::out_of_range);
+            CHECK_THROWS_AS(list.remove(10), std::out_of_range);
+            CHECK_THROWS_AS(list.remove(-1), std::out_of_range);
+
+            CHECK(list.find({0}) == -1);
+
+    list.add({4, 4, 4, 4});
+    list.add({2, 2});
+    list.add({1});
+    ss << list;
+            CHECK(ss.str() == "[{4, 4, 4, 4}, {2, 2}, {1}]");
+    ss.str("");
+
+    list.add({3, 3, 3}, 1);
+    ss << list;
+            CHECK(ss.str() == "[{4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+    ss.str("");
+
+    list.add({5, 5, 5, 5, 5}, -1); //when index < 0 -> index = last
+    list.add({6, 6, 6, 6, 6, 6}, 2);
+    list.add({7, 7, 7, 7, 7, 7, 7}, 0);
+    list.add({8, 8, 8, 8, 8, 8, 8, 8}, -5);
+    ss << list;
+            CHECK(ss.str() ==
+                  "[{7, 7, 7, 7, 7, 7, 7}, {4, 4, 4, 4}, {3, 3, 3}, {6, 6, 6, 6, 6, 6}, {2, 2}, {1}, {5, 5, 5, 5, 5}, {8, 8, 8, 8, 8, 8, 8, 8}]");
+    ss.str("");
+
+            CHECK(list.get_size() == 8);
+
+    list.remove(0);
+    list.remove(-1);
+    list.remove(2);
+    ss << list;
+            CHECK(ss.str() == "[{4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}, {5, 5, 5, 5, 5}]");
+    ss.str("");
+
+            CHECK(list.get_size() == 5);
+
+            CHECK(list.get(0) == std::vector<int>{4, 4, 4, 4});
+            CHECK(list.get(2) == std::vector<int>{2, 2});
+            CHECK(list.get(-1) == std::vector<int>{5, 5, 5, 5, 5});
+            CHECK_THROWS_AS(list.get(10), std::out_of_range);
+
+            CHECK(list.find({4, 4, 4, 4}) == 0);
+            CHECK(list.find({2, 2}) == 2);
+            CHECK(list.find({5, 5, 5, 5, 5}) == 4);
+            CHECK(list.find({8, 8, 8, 8, 8, 8, 8, 8}) == -1);
+
+            CHECK_THROWS_AS(list.add({0}, 10), std::out_of_range);
+            CHECK_THROWS_AS(list.remove(10), std::out_of_range);
+
+            SUBCASE("Bubble sort") {
+        list.sort(bubble_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(bubble_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+            SUBCASE("Insertion sort") {
+        list.sort(insertion_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(insertion_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+            SUBCASE("Merge sort") {
+        list.sort(merge_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(merge_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+            SUBCASE("Quick sort") {
+        list.sort(quick_sort);
+        ss << list;
+                CHECK(ss.str() == "[{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}]");
+        ss.str("");
+
+        list.sort(quick_sort, compare_reverse);
+        ss << list;
+                CHECK(ss.str() == "[{5, 5, 5, 5, 5}, {4, 4, 4, 4}, {3, 3, 3}, {2, 2}, {1}]");
+        ss.str("");
+    }
+
+    list.clear();
+    ss << list;
+            CHECK(list.get_size() == 0);
+            CHECK(ss.str() == "[]");
+}

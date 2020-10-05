@@ -10,7 +10,6 @@ double create_double_random(int);
 
 std::string create_string_random(int);
 
-template <typename T>
-std::vector<T> create_vector_random(int);
+std::vector<int> create_vector_int_random(int);
 
 #endif //KNU_OOP_K28_CREATE_H

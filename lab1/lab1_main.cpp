@@ -3,6 +3,7 @@
 #include "lab_classes/Series.h"
 #include "lists/ArrayList.h"
 #include "create_functions/create.h"
+#include "libs/utils.h"
 
 namespace lab1 {
     int doctest() {
@@ -13,9 +14,10 @@ namespace lab1 {
     int main() {
         doctest();
 
-        ArrayList<std::string> list(5, create_string_random);
+        ArrayList<std::vector<int>> list(10, create_vector_int_random);
 
         std::cout << list << std::endl;
+
 
 //        Book a("War and God", 2000, "about war and Gods", "1995.11.07", "lev Tolstoi");
 //        Book b("Kozaki", 129, "about us", "2020", "Sergii", "Andrii");
