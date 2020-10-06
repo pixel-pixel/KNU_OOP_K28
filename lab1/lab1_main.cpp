@@ -56,6 +56,7 @@ namespace lab1 {
         list.add(ser2);
         list.add(ser3, 0);
 
+        //f
         list.sort();
         std::cout << list << std::endl;
         return 0;
