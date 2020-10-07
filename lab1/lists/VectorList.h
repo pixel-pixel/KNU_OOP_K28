@@ -11,24 +11,23 @@
  * @tparam  T   Class or primitive with override operators: std::ostream<<, >, <, ==, !=, >=, <=.
  */
 template<class T>
-class VectorList : List<T> {
+class VectorList : public List<T> {
     std::vector<T> vect;    ///< Vector we work with.
 
-public:
-    VectorList() = default;
-
-    /**
-    * @brief
-    * Constructor which generate some elements by functions and add to VectorList.
-    * @param   count       Count of elements we want to generate.
-    * @param   create_func Function which generate new element by index.
-    */
-    VectorList(int count, T(*create_func)(int)){
-        for(int i = 0; i < count; i++){
-            VectorList::add(create_func(i));
+    std::ostream &print(std::ostream &out) override{
+        out << '[';
+        if (vect.size() != 0) {
+            for (int i = 0; i < get_size() - 1; i++) {
+                out << get(i) << ", ";
+            }
+            out << get(get_size() - 1);
         }
+        out << ']';
+
+        return out;
     }
 
+public:
     ~VectorList() {
         clear();
     }
@@ -134,11 +133,9 @@ public:
     * Then the method clears the list and add all elements from array to VectorList.
     * @param   sort_func   The function for sort which takes the array of elements from the VectorList and size of the VectorList.
     */
-    void sort(void (*sort_func)(T *, int)) {
-        if (!sort_func)
-            quick_sort(&vect[0], vect.size());
-        else
-            sort_func(&vect[0], vect.size());
+    void sort(Comparator<T> *comparator = nullptr) {
+        QuickSort<T> quickSort;
+        quickSort.sort(&vect[0], vect.size(), comparator);
     }
 
     /**
@@ -151,8 +148,8 @@ public:
      * @param   sort_func       The function for sort which takes the array of elements from the VectorList, size of the list and compare function.
      * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
      */
-    void sort(void (*sort_func)(T *, int, int (*)(T &, T &)), int (*compare_func)(T &, T &) = nullptr) override {
-        sort_func(&vect[0], vect.size(), compare_func);
+    void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) override {
+        sort->sort(&vect[0], vect.size(), comparator);
     }
 
     /**
@@ -164,9 +161,14 @@ public:
      * @param   sort_func       The function for sort which takes the array of elements in the list, size of the list and compare function.
      * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
      */
-    static void sort(std::vector<T> global_vector, void (*sort_func)(T *, int, int (*)(T &, T &)),
-                     int (*compare_func)(T &, T &) = nullptr) {
-        sort_func(&global_vector[0], global_vector.size(), compare_func);
+
+    static void sort(std::vector<T> global_vector, Sort<T> *sort = nullptr, Comparator<T> *comparator = nullptr) {
+        if(sort)
+            sort->sort(&global_vector[0], global_vector.size(), comparator);
+        else{
+            QuickSort<T> quickSort;
+            quickSort.sort(&global_vector[0], global_vector.size(), comparator);
+        }
     }
 
     /**
@@ -187,14 +189,7 @@ public:
      * @endcode
      */
     friend std::ostream &operator<<(std::ostream &out, VectorList<T> &list) {
-        out << '[';
-        if (list.vect.size() != 0) {
-            for (int i = 0; i < list.get_size() - 1; i++) {
-                out << list.get(i) << ", ";
-            }
-            out << list.get(list.get_size() - 1);
-        }
-        out << ']';
+        return list.print(out);
     }
 
     bool operator==(VectorList &rhs) {

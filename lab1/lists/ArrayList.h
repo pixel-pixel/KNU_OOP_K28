@@ -10,7 +10,7 @@
  * @tparam  T   Class or primitive with override operators: std::ostream<<, >, <, ==, !=, >=, <=.
  */
 template<class T>
-class ArrayList : List<T> {
+class ArrayList : public List<T> {
 private:
     int size = 0;            ///< Value for saving count of elements in ArrayList.
     int arr_size = 2;        ///< Value for saving size of array in ArrayList.
@@ -33,21 +33,20 @@ private:
         arr_size = new_size;
     }
 
-public:
-    ArrayList() = default;
-
-    /**
-     * @brief
-     * Constructor which generate some elements by functions and add to ArrayList.
-     * @param   count       Count of elements we want to generate.
-     * @param   create_func Function which generate new element by index.
-     */
-    ArrayList(int count, T(*create_func)(int)){
-        for(int i = 0; i < count; i++){
-            ArrayList::add(create_func(i));
+    std::ostream &print(std::ostream &out) override{
+        out << '[';
+        for (int i = 0; i < size - 1; i++) {
+            out << arr[i] << ", ";
         }
+        if (size != 0)
+            out << arr[size - 1];
+
+        out << "]";
+
+        return out;
     }
 
+public:
     ~ArrayList() {
         delete[] arr;
     }
@@ -167,11 +166,9 @@ public:
      * ArrayList is sorted by default operators(>, <, ==, !=, >=, <=).
      * @param   sort_func   The function for sort which takes the array of elements from the list and size of the ArrayList.
      */
-    void sort(void (*sort_func)(T *, int) = nullptr) {
-        if (!sort_func)
-            quick_sort(arr, size);
-        else
-            sort_func(arr, size);
+    void sort(Comparator<T> *comparator = nullptr) {
+        QuickSort<T> quickSort;
+        quickSort.sort(arr, size, comparator);
     }
 
     /**
@@ -183,9 +180,8 @@ public:
      * @param   sort_func       The function for sort which takes the array of elements in the list, size of the list and compare function.
      * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
      */
-    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
-              int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
-        sort_func(arr, size, compare_func);
+    void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) override {
+        sort->sort(arr, size, comparator);
     }
 
     /**
@@ -220,17 +216,8 @@ public:
      * [T, T, T, T, T]
      * @endcode
      */
-    friend std::ostream &operator<<(std::ostream &out, const ArrayList<T> &list) {
-        out << '[';
-        for (int i = 0; i < list.size - 1; i++) {
-            out << list.arr[i] << ", ";
-        }
-        if (list.size != 0)
-            out << list.arr[list.size - 1];
-
-        out << "]";
-
-        return out;
+    friend std::ostream &operator<<(std::ostream &out, ArrayList<T> &list) {
+        return list.print(out);
     }
 
     bool operator==(ArrayList &rhs) {

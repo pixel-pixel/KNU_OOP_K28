@@ -1,7 +1,7 @@
 #include "Series.h"
 #include "../lists/VectorList.h"
-#include "../sorts/sorts.h"
-#include "../compare_functions/compare.h"
+#include "../sorts/QuickSort.h"
+#include "../comparators/BookByDateComparator.h"
 
 Series::Series(Character *main_character) {
     Series::main_character = main_character;
@@ -34,12 +34,12 @@ int Series::remove_book(Book &book) {
 
 
 std::vector<Book> &Series::getBooks() {
-    VectorList<Book>::sort(books, quick_sort, compare_book_by_date);
+    VectorList<Book>::sort(books, new QuickSort<Book>, new BookByDateComparator);
     return books;
 }
 
 std::ostream &operator<<(std::ostream &os, Series &series) {
-    VectorList<Book>::sort(series.getBooks(), quick_sort);
+    VectorList<Book>::sort(series.getBooks(), new QuickSort<Book>, new BookByDateComparator);
     os << '{';
     if (!series.getBooks().empty()) {
         for (int i = 0; i < series.getBooks().size() - 1; i++) {

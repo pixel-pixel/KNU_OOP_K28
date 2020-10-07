@@ -9,7 +9,7 @@
  * @tparam  T   Class or primitive with override operators: std::ostream<<, >, <, ==, !=, >=, <=.
  */
 template<class T>
-class LinkedList : List<T> {
+class LinkedList : public List<T> {
 private:
 
     /**
@@ -31,21 +31,21 @@ private:
     Node *head = nullptr;       ///< Pointer on first Node in LinkedList.
     Node *tail = nullptr;       ///< Pointer on last Node in LinkedList
 
-public:
-    LinkedList() = default;
-
-    /**
-     * @brief
-     * Constructor which generate some elements by functions and add to LinkedList.
-     * @param   count       Count of elements we want to generate.
-     * @param   create_func Function which generate new element by index.
-     */
-    LinkedList(int count, T(*create_func)(int)) {
-        for (int i = 0; i < count; i++) {
-            LinkedList::add(create_func(i));
+    std::ostream &print(std::ostream &out) override{
+        out << '[';
+        tail = head;
+        for (int i = 0; i < size - 1; i++) {
+            out << tail->obj << ", ";
+            tail = tail->next;
         }
+        if (size != 0)
+            out << tail->obj;
+        out << ']';
+
+        return out;
     }
 
+public:
     ~LinkedList() {
         if (size > 0) {
             tail = head->next;
@@ -211,7 +211,7 @@ public:
      * Then the method clears the list and add all elements from array to LinkedList.
      * @param   sort_func   The function for sort which takes the array of elements from the LinkedList and size of the LinkedList.
      */
-    void sort(void (*sort_func)(T *, int) = nullptr) {
+    void sort(Comparator<T> *comparator = nullptr) {
         T *arr = new T[size];
 
         tail = head;
@@ -220,10 +220,8 @@ public:
             tail = tail->next;
         }
 
-        if (!sort_func)
-            quick_sort(arr, size);
-        else
-            sort_func(arr, size);
+        QuickSort<T> quickSort;
+        quickSort.sort(arr, size, comparator);
 
         tail = head;
         for (int i = 0; i < size; i++) {
@@ -242,8 +240,7 @@ public:
      * @param   sort_func       The function for sort which takes the array of elements from the LinkedList, size of the list and compare function.
      * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
      */
-    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
-              int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
+    void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) override {
         T *arr = new T[size];
 
         tail = head;
@@ -252,7 +249,7 @@ public:
             tail = tail->next;
         }
 
-        sort_func(arr, size, compare_func);
+        sort->sort(arr, size, comparator);
 
         tail = head;
         for (int i = 0; i < size; i++) {
@@ -279,15 +276,7 @@ public:
      * @endcode
      */
     friend std::ostream &operator<<(std::ostream &out, LinkedList<T> &list) {
-        out << '[';
-        list.tail = list.head;
-        for (int i = 0; i < list.size - 1; i++) {
-            out << list.tail->obj << ", ";
-            list.tail = list.tail->next;
-        }
-        if (list.size != 0)
-            out << list.tail->obj;
-        out << ']';
+        return list.print(out);
     }
 
     bool operator==(LinkedList &rhs) {

@@ -1,7 +1,8 @@
 #ifndef KNU_OOP_K28_LIST_H
 #define KNU_OOP_K28_LIST_H
 
-#include "../sorts/sorts.h"
+#include "../sorts/Sort.h"
+#include "../sorts/QuickSort.h"
 
 /**
  * @brief
@@ -19,6 +20,8 @@
 
 template<class T>
 class List {
+private:
+    virtual std::ostream &print(std::ostream &out) = 0;
 public:
     /**
      * @brief
@@ -86,7 +89,7 @@ public:
      * Then the method must clear the list and add all elements from array to list.
      * @param   sort_func   The function for sort which takes the array of elements from the list and size of the list.
      */
-    virtual void sort(void (*sort_func)(T *, int) = nullptr) = 0;
+    virtual void sort(Comparator<T> *comparator = nullptr) = 0;
 
     /**
      * @brief
@@ -98,8 +101,7 @@ public:
      * @param   sort_func       The function for sort which takes the array of elements in the list, size of the list and compare function.
      * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
      */
-    virtual void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
-                      int(*compare_func)(T &obj1, T &obj2) = nullptr) = 0;
+    virtual void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) = 0;
 
     /**
      * @brief
@@ -107,6 +109,10 @@ public:
      * @return  size of list.
      */
     virtual int get_size() = 0;
+
+    friend std::ostream &operator<<(std::ostream &out, List<T> &list){
+        return list.print(out);
+    };
 };
 
 

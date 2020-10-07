@@ -16,4 +16,6 @@ std::ostream &operator<<(std::ostream &out, std::vector<T> &vect){
     out << '}';
 }
 
+
+
 #endif //KNU_OOP_K28_UTILS_H
