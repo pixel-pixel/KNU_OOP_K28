@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 
-#include "../utils/doctest.h"
-#include "../utils/utils.h"
+#include "utils/doctest.h"
+#include "utils/utils.h"
 
 #include "lists/ArrayList.h"
 #include "lists/LinkedList.h"

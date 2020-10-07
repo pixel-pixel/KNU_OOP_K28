@@ -1,5 +1,5 @@
-#include "../utils/doctest.h"
-#include "../utils/utils.h"
+#include "utils/doctest.h"
+#include "utils/utils.h"
 
 #include "lab_classes/Series.h"
 #include "lists/ArrayList.h"
