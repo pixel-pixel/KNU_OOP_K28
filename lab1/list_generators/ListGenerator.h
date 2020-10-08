@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "../lab_classes/Book.h"
+#include "../lab_classes/Character.h"
 #include "../lists/List.h"
 
 
@@ -19,6 +20,8 @@ public:
     static void random_vector_int(int count, List<std::vector<int>> *list);
 
     static void random_book(int count, List<Book> *list);
+
+    static void random_character(int count, List<Character> * list);
 };
 
 

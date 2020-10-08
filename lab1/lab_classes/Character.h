@@ -74,6 +74,10 @@ private:
     std::vector<Role> *roles;           ///< Pointer on vector where all roles of this character.
 
 public:
+    Character();
+
+    Character(Character *pCharacter);
+
     /**
      * @brief
      * Constructor with original to class`s members
@@ -89,7 +93,7 @@ public:
      * @param   name2   Second name which will be added to 'names'.
      * @param   name3   Third name which will be added to 'names'.
      */
-    Character(std::string name1, std::string name2 = "", std::string name3 = "");
+    Character(const std::string &name1, const std::string &name2 = "", const std::string &name3 = "");
 
     /**
      * @brief

@@ -10,17 +10,22 @@
  * Class with one parameter vector which contains books from one series.
  */
 class Series {
+private:
     Character *main_character = nullptr;    ///< Pointer on character for series.
-    std::vector<Book> books;                ///< Vector with books from series.
+    std::vector<Book> *books;                ///< Vector with books from series.
 
 public:
+    Series();
+
+    Series(Series *pSeries);
+
     /**
      * @brief
      * Constructor with main character if it != nullptr you can add all book to series.
      * If not - you can add only books where play this character.
      * @param   main_character  Pointer on character of series.
      */
-    Series(Character *main_character = nullptr);
+    Series(Character *main_character);
 
     /**
      * @brief
@@ -45,7 +50,9 @@ public:
      * Before method return vector, it sort all book by date.
      * @return  Vector of books of series.
      */
-    std::vector<Book> &getBooks();
+    std::vector<Book> *getBooks();
+
+    Character *getMainCharacter();
 
     /**
     * @brief
@@ -55,19 +62,19 @@ public:
     * {'book 1', 'book 2', ...}
     * @endcode
     */
-    friend std::ostream &operator<<(std::ostream &os, Series &series);
+    friend std::ostream &operator<<(std::ostream &os, const Series &series);
 
-    bool operator==(Series &rhs);
+    bool operator==(const Series &rhs) const;
 
-    bool operator!=(Series &rhs);
+    bool operator!=(const Series &rhs) const;
 
-    bool operator<(Series &rhs);
+    bool operator<(const Series &rhs) const;
 
-    bool operator>(Series &rhs);
+    bool operator>(const Series &rhs) const;
 
-    bool operator<=(Series &rhs);
+    bool operator<=(const Series &rhs) const;
 
-    bool operator>=(Series &rhs);
+    bool operator>=(const Series &rhs) const;
 };
 
 #endif

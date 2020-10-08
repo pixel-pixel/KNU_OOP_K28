@@ -97,3 +97,17 @@ void ListGenerator::random_book(int count, List<Book> *list) {
         list->add(new Book(name, pages, description, date, new std::vector<std::string>{author}));
     }
 }
+
+void ListGenerator::random_character(int count, List<Character> *list) {
+    std::string str;
+
+    for(int i = 0; i < count; i++){
+        srand(time(nullptr) + i);
+        str = "";
+        for(int i = 0; i < rand() % 100; i++){
+            str += (char)(rand() % 127 - 33) + 33;
+        }
+
+        list->add(new Character(str));
+    }
+}
