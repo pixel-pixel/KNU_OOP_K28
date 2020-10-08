@@ -31,20 +31,6 @@ private:
     Node *head = nullptr;       ///< Pointer on first Node in LinkedList.
     Node *tail = nullptr;       ///< Pointer on last Node in LinkedList
 
-    std::ostream &print(std::ostream &out) override{
-        out << '[';
-        tail = head;
-        for (int i = 0; i < size - 1; i++) {
-            out << tail->obj << ", ";
-            tail = tail->next;
-        }
-        if (size != 0)
-            out << tail->obj;
-        out << ']';
-
-        return out;
-    }
-
 public:
     ~LinkedList() {
         if (size > 0) {
@@ -265,6 +251,23 @@ public:
      */
     int get_size() override {
         return size;
+    }
+
+    std::string to_string() override {
+        std::stringstream ss;
+
+        ss << '[';
+        tail = head;
+        if (size != 0) {
+            for (int i = 0; i < size - 1; i++) {
+                ss << tail->obj << ", ";
+                tail = tail->next;
+            }
+            ss << tail->obj;
+        }
+        ss << ']';
+
+        return ss.str();
     }
 
     /**

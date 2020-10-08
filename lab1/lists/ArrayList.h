@@ -33,19 +33,6 @@ private:
         arr_size = new_size;
     }
 
-    std::ostream &print(std::ostream &out) override{
-        out << '[';
-        for (int i = 0; i < size - 1; i++) {
-            out << arr[i] << ", ";
-        }
-        if (size != 0)
-            out << arr[size - 1];
-
-        out << "]";
-
-        return out;
-    }
-
 public:
     ~ArrayList() {
         delete[] arr;
@@ -208,6 +195,20 @@ public:
         return size;
     }
 
+    std::string to_string() override {
+        std::stringstream ss;
+        ss << '[';
+        if (size != 0) {
+            for (int i = 0; i < size - 1; i++) {
+                ss << arr[i] << ", ";
+            }
+            ss << arr[size - 1];
+        }
+        ss << ']';
+
+        return ss.str();
+    }
+
     /**
      * @brief
      * Override operator<< of ostream.
@@ -217,7 +218,8 @@ public:
      * @endcode
      */
     friend std::ostream &operator<<(std::ostream &out, ArrayList<T> &list) {
-        return list.print(out);
+        out << list.to_string();
+        return out;
     }
 
     bool operator==(ArrayList &rhs) {

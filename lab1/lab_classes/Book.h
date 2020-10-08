@@ -25,6 +25,8 @@ private:
 public:
     Book();
 
+    Book(Book *pBook);
+
     /**
      * @brief
      * Constructor with original to class`s members
@@ -52,9 +54,9 @@ public:
      */
     Book(std::string name,
          int pages = 0,
-         std::string annotation = "no annotation",
-         std::string date = "0000.00.00",
-         const std::string &author1 = "noname author",
+         std::string annotation = "",
+         std::string date = "",
+         const std::string &author1 = "",
          const std::string &author2 = "",
          const std::string &author3 = "");
 

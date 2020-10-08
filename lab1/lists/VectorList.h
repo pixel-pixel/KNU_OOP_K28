@@ -14,19 +14,6 @@ template<class T>
 class VectorList : public List<T> {
     std::vector<T> vect;    ///< Vector we work with.
 
-    std::ostream &print(std::ostream &out) override{
-        out << '[';
-        if (vect.size() != 0) {
-            for (int i = 0; i < get_size() - 1; i++) {
-                out << get(i) << ", ";
-            }
-            out << get(get_size() - 1);
-        }
-        out << ']';
-
-        return out;
-    }
-
 public:
     ~VectorList() {
         clear();
@@ -180,6 +167,21 @@ public:
         return vect.size();
     }
 
+    std::string to_string() override{
+        std::stringstream ss;
+
+        ss << '[';
+        if (vect.size() != 0) {
+            for (int i = 0; i < vect.size() - 1; i++) {
+                ss << vect[i] << ", ";
+            }
+            ss << vect[vect.size() - 1];
+        }
+        ss << ']';
+
+        return ss.str();
+    }
+
     /**
      * @brief
      * Override operator<< of ostream.
@@ -189,7 +191,8 @@ public:
      * @endcode
      */
     friend std::ostream &operator<<(std::ostream &out, VectorList<T> &list) {
-        return list.print(out);
+        out << list.to_string();
+        return out;
     }
 
     bool operator==(VectorList &rhs) {

@@ -1,10 +1,12 @@
 #ifndef KNU_OOP_K28_LISTGENERATOR_H
 #define KNU_OOP_K28_LISTGENERATOR_H
 
+#include <ctime>
 #include <string>
 #include <vector>
+#include "../lab_classes/Book.h"
 #include "../lists/List.h"
-#include <ctime>
+
 
 class ListGenerator {
 public:
@@ -15,6 +17,8 @@ public:
     static void random_string(int count, List<std::string> *list);
 
     static void random_vector_int(int count, List<std::vector<int>> *list);
+
+    static void random_book(int count, List<Book> *list);
 };
 
 

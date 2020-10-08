@@ -1,6 +1,7 @@
 #ifndef KNU_OOP_K28_LIST_H
 #define KNU_OOP_K28_LIST_H
 
+#include "sstream"
 #include "../sorts/Sort.h"
 #include "../sorts/QuickSort.h"
 
@@ -20,8 +21,6 @@
 
 template<class T>
 class List {
-private:
-    virtual std::ostream &print(std::ostream &out) = 0;
 public:
     /**
      * @brief
@@ -110,8 +109,11 @@ public:
      */
     virtual int get_size() = 0;
 
+    virtual std::string to_string() = 0;
+
     friend std::ostream &operator<<(std::ostream &out, List<T> &list){
-        return list.print(out);
+        out << list.to_string();
+        return out;
     };
 };
 

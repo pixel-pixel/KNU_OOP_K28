@@ -51,3 +51,49 @@ void ListGenerator::random_vector_int(int count, List<std::vector<int>> *list) {
         list->add(res);
     }
 }
+
+void ListGenerator::random_book(int count, List<Book> *list) {
+    std::string name;
+    int pages;
+    std::string description;
+    std::string date;
+    std::string author;
+    for(int i = 0; i < count; i++){
+        srand(time(nullptr) + i);
+
+        name = "";
+        pages = 0;
+        description = "";
+        date = "";
+        author = "";
+        int date_prob;
+
+        for(int i = 0; i < rand() % 20 + 1; i++){
+            name += (char)(rand() % 57 + 65) ;
+        }
+        pages = rand() % 1000 + 1;
+        for(int i = 0; i < rand() % 250 + 1; i++){
+            description += (char)(rand() % 57 + 65);
+        }
+
+        date_prob = rand() % 30 + 1;
+        if(date_prob < 10) date += "0";
+        date += std::to_string(date_prob) + ":";
+
+        date_prob = rand() % 12 + 1;
+        if(date_prob < 10) date += "0";
+        date += std::to_string(date_prob) + ":";
+
+        date_prob = rand() % 2021;
+        if(date_prob < 1000) date += "0";
+        if(date_prob < 100) date += "0";
+        if(date_prob < 10) date += "0";
+        date += std::to_string(date_prob);
+
+        for(int i = 0; i < rand() % 250 + 1; i++){
+            author += (char)(rand() % 57 + 65);
+        }
+
+        list->add(new Book(name, pages, description, date, new std::vector<std::string>{author}));
+    }
+}
