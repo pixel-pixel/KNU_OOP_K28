@@ -3,6 +3,11 @@
 
 #include "Sort.h"
 
+/**
+ * @brief
+ * Class implements Sort interface. It sort array by Marge sort.
+ * @tparam  T   Class or primitive with override relational operators or have it own Comparator.
+ */
 template <class T>
 class MergeSort : public Sort<T>{
 private:
@@ -72,6 +77,13 @@ private:
     }
 
 public:
+    /**
+     * @brief
+     * Method for sort arrays by Merge sort by Comparator or relational operators(if point on Comparator == nullptr);
+     * @param   arr         Array which we want to sort.
+     * @param   size        Size of our array.
+     * @param   comparator  Functional interface for compare 2 objects.
+     */
     void sort(T *arr, int size, Comparator<T> *comparator) override {
         sort_temp(arr, 0, size - 1, comparator);
     }

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['querydata',['QueryData',['../structdoctest_1_1QueryData.html',1,'doctest']]]
+  ['series',['Series',['../classSeries.html',1,'']]],
+  ['sort',['Sort',['../classSort.html',1,'']]]
 ];

@@ -76,7 +76,9 @@ void ListGenerator::random_book(int count, List<Book> *list) {
             description += (char)(rand() % 57 + 65);
         }
 
-        date_prob = rand() % 30 + 1;
+        date_prob = rand() % 2021;
+        if(date_prob < 1000) date += "0";
+        if(date_prob < 100) date += "0";
         if(date_prob < 10) date += "0";
         date += std::to_string(date_prob) + ":";
 
@@ -84,9 +86,7 @@ void ListGenerator::random_book(int count, List<Book> *list) {
         if(date_prob < 10) date += "0";
         date += std::to_string(date_prob) + ":";
 
-        date_prob = rand() % 2021;
-        if(date_prob < 1000) date += "0";
-        if(date_prob < 100) date += "0";
+        date_prob = rand() % 30 + 1;
         if(date_prob < 10) date += "0";
         date += std::to_string(date_prob);
 

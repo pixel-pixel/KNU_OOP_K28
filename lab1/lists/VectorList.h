@@ -7,14 +7,18 @@
 
 /**
  * @brief
- * Class of dynamic array(list) based on std::vector.
- * @tparam  T   Class or primitive with override operators: std::ostream<<, >, <, ==, !=, >=, <=.
+ * Class of dynamic array(list) based on std::vector. Implements the List interface.
+ * @tparam  T   Class or primitive with override operators: std::ostream<< and (relational operators or have it own Comparator).
  */
 template<class T>
 class VectorList : public List<T> {
     std::vector<T> vect;    ///< Vector we work with.
 
 public:
+    /**
+     * @brief
+     * Destructor of VectorList. Clear the main vector.
+     */
     ~VectorList() {
         clear();
     }
@@ -85,7 +89,7 @@ public:
      * @brief
      * Find the index of an element in the VectorList.
      * @details
-     * If the element is not contained in the list, method return -1.
+     * If the element is not contained in the VectorList, method return -1.
      * If the VectorList contains great than 1 such element, method return tne first index.
      * @param   obj     The element which index we want to know.
      * @return          The index of the element in the VectorList or -1 if element is not contained.
@@ -113,12 +117,12 @@ public:
 
     /**
     * @brief
-    * Method for sort the VectorList.
+    * Method for sort the VectorList by Comparator.
     * @details
-    * If the sort function is not specified or equals 'nullptr', the VectorList will be sorted by quick sort function.
-    * Method creates array of elements in the VectorList for pass to sort function.
-    * Then the method clears the list and add all elements from array to VectorList.
-    * @param   sort_func   The function for sort which takes the array of elements from the VectorList and size of the VectorList.
+    * If the pointer on Comparator is not specified or equals 'nullptr', the VectorList will be sorted by object`s relational operators.
+    * Method pass array from std::vector to Sort`s method and sort it.
+    * The Sort`s method is 'QuickSort'.
+    * @param   comparator   The point on Comparator which compare two objects.
     */
     void sort(Comparator<T> *comparator = nullptr) {
         QuickSort<T> quickSort;
@@ -127,13 +131,12 @@ public:
 
     /**
      * @brief
-     * Override method for sort the VectorList by compare function.
+     * Override method for sort the VectorList by Comparator and certain sort.
      * @details
-     * If the compare function is not specified or equals 'nullptr', the VectorList will be sorted by default operators(>, <, ==, !=, >=, <=).
-     * Method also creates array of elements from the Linked for pass to sort function.
-     * Then the method clears the VectorList and add all elements from array to VectorList.
-     * @param   sort_func       The function for sort which takes the array of elements from the VectorList, size of the list and compare function.
-     * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
+     * If the pointer on Comparator is not specified or equals 'nullptr', the VectorList will be sorted by object`s relational operators.
+     * Method pass array from std::vector to Sort`s method and sort it.
+     * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort VectorList by certain type.
+     * @param   comparator  The point on Comparator which compare two objects.
      */
     void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) override {
         sort->sort(&vect[0], vect.size(), comparator);
@@ -145,14 +148,14 @@ public:
      * @details
      * Same to not static method but instead of a private vector pass it as parameter.
      * @param   global_vector   Vector we want to sort.
-     * @param   sort_func       The function for sort which takes the array of elements in the list, size of the list and compare function.
+     * @param   sort_func       The function for sort which takes the array of elements in the VectorList, size of the VectorList and compare function.
      * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
      */
 
     static void sort(std::vector<T> global_vector, Sort<T> *sort = nullptr, Comparator<T> *comparator = nullptr) {
-        if(sort)
+        if (sort)
             sort->sort(&global_vector[0], global_vector.size(), comparator);
-        else{
+        else {
             QuickSort<T> quickSort;
             quickSort.sort(&global_vector[0], global_vector.size(), comparator);
         }
@@ -167,7 +170,16 @@ public:
         return vect.size();
     }
 
-    std::string to_string() override{
+    /**
+    * @brief
+    * Return std::string representation.
+    * Out look like:
+    * @code
+    * [T, T, T, T, T]
+    * @endcode
+    * @return The string of this VectorList.
+    */
+    std::string to_string() override {
         std::stringstream ss;
 
         ss << '[';
@@ -181,53 +193,6 @@ public:
 
         return ss.str();
     }
-
-    /**
-     * @brief
-     * Override operator<< of ostream.
-     * Out look like:
-     * @code
-     * [T, T, T, T, T]
-     * @endcode
-     */
-    friend std::ostream &operator<<(std::ostream &out, VectorList<T> &list) {
-        out << list.to_string();
-        return out;
-    }
-
-    bool operator==(VectorList &rhs) {
-        if (get_size() != rhs.get_size()) return false;
-        for (int i = 0; i < get_size(); i++) {
-            if (get(i) != rhs.get(i)) return false;
-        }
-        return true;
-    }
-
-    bool operator!=(VectorList &rhs) {
-        return !(rhs == *this);
-    }
-
-    bool operator<(VectorList &rhs) {
-        if (get_size() < rhs.get_size()) return true;
-        for (int i = 0; i < get_size(); i++) {
-            if (get(i) < rhs.get(i)) return true;
-        }
-        return false;
-    }
-
-    bool operator>(VectorList &rhs) {
-        return rhs < *this;
-    }
-
-    bool operator<=(VectorList &rhs) {
-        return !(rhs < *this);
-    }
-
-    bool operator>=(VectorList &rhs) {
-        return !(*this < rhs);
-    }
-
 };
-
 
 #endif

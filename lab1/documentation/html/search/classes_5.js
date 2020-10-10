@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['series',['Series',['../classSeries.html',1,'']]]
+  ['mergesort',['MergeSort',['../classMergeSort.html',1,'']]]
 ];

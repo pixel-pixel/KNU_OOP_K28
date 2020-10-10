@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
-  ['remove',['remove',['../classArrayList.html#a77f2faaacda526a5b93f308796360fc7',1,'ArrayList::remove()'],['../classLinkedList.html#a229cb3654719b0cee079a5f26a0a3230',1,'LinkedList::remove()'],['../classList.html#ac3b4b83b3ec104acff3321d6ba4b2bde',1,'List::remove()'],['../classVectorList.html#a55cc82f3086ba60575febfadff518807',1,'VectorList::remove()']]],
-  ['remove_5fbook',['remove_book',['../classSeries.html#a40ab00b8d68f79648b114908725e993a',1,'Series']]],
-  ['role',['Role',['../classCharacter_1_1Role.html',1,'Character::Role'],['../classCharacter_1_1Role.html#a659b8edda659dbd1d0f982d35195981a',1,'Character::Role::Role()']]]
+  ['to_5fstring',['to_string',['../classArrayList.html#ae16941ad0136eb6917377b8ea2187d7c',1,'ArrayList::to_string()'],['../classLinkedList.html#ad6388f98cb4b8854f6271b15c201e1e7',1,'LinkedList::to_string()'],['../classList.html#aeb5c3d01693a79b4a8cbd820c672d6eb',1,'List::to_string()'],['../classVectorList.html#ad566eb62dd663e1b6f732d5e563de16d',1,'VectorList::to_string()']]]
 ];

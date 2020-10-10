@@ -1,6 +1,7 @@
 var searchData=
 [
   ['series',['Series',['../classSeries.html',1,'']]],
+  ['sort',['Sort',['../classSort.html',1,'']]],
   ['string',['String',['../classdoctest_1_1String.html',1,'doctest']]],
   ['stringmaker',['StringMaker',['../structdoctest_1_1StringMaker.html',1,'doctest']]],
   ['stringmaker_3c_20r_20c_3a_3a_2a_20_3e',['StringMaker&lt; R C::* &gt;',['../structdoctest_1_1StringMaker_3_01R_01C_1_1_5_01_4.html',1,'doctest']]],

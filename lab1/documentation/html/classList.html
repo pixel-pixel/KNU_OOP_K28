@@ -60,6 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classList-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">List&lt; T &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -92,32 +93,60 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab89abe7a19e1cd161f6bf0a1b41cf1a9"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#ab89abe7a19e1cd161f6bf0a1b41cf1a9">find</a> (T obj)=0</td></tr>
 <tr class="memdesc:ab89abe7a19e1cd161f6bf0a1b41cf1a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the index of an element in the list.  <a href="#ab89abe7a19e1cd161f6bf0a1b41cf1a9">More...</a><br /></td></tr>
 <tr class="separator:ab89abe7a19e1cd161f6bf0a1b41cf1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add73ba3603cbbc254f3bddac80610327"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#add73ba3603cbbc254f3bddac80610327">clear</a> ()=0</td></tr>
-<tr class="memdesc:add73ba3603cbbc254f3bddac80610327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all elements of the list. Now size = 0;.  <a href="#add73ba3603cbbc254f3bddac80610327">More...</a><br /></td></tr>
+<tr class="memitem:add73ba3603cbbc254f3bddac80610327"><td class="memItemLeft" align="right" valign="top"><a id="add73ba3603cbbc254f3bddac80610327"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#add73ba3603cbbc254f3bddac80610327">clear</a> ()=0</td></tr>
+<tr class="memdesc:add73ba3603cbbc254f3bddac80610327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all elements of the list. Now size = 0;. <br /></td></tr>
 <tr class="separator:add73ba3603cbbc254f3bddac80610327"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3feaf810a3de3e663fd8533297924356"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#a3feaf810a3de3e663fd8533297924356">sort</a> (void(*sort_func)(T *, int)=nullptr)=0</td></tr>
-<tr class="memdesc:a3feaf810a3de3e663fd8533297924356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for sort the list.  <a href="#a3feaf810a3de3e663fd8533297924356">More...</a><br /></td></tr>
-<tr class="separator:a3feaf810a3de3e663fd8533297924356"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7fe463e668da28b956c5b1dbcba85e6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#ab7fe463e668da28b956c5b1dbcba85e6">sort</a> (void(*sort_func)(T *, int, int(*)(T &amp;obj1, T &amp;obj2)), int(*compare_func)(T &amp;obj1, T &amp;obj2)=nullptr)=0</td></tr>
-<tr class="memdesc:ab7fe463e668da28b956c5b1dbcba85e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override method for sort the list by compare function.  <a href="#ab7fe463e668da28b956c5b1dbcba85e6">More...</a><br /></td></tr>
-<tr class="separator:ab7fe463e668da28b956c5b1dbcba85e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addc3884cadce741cbafe6ff0cb275d12"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#addc3884cadce741cbafe6ff0cb275d12">sort</a> (<a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *comparator=nullptr)=0</td></tr>
+<tr class="memdesc:addc3884cadce741cbafe6ff0cb275d12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for sort the list by <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a>.  <a href="#addc3884cadce741cbafe6ff0cb275d12">More...</a><br /></td></tr>
+<tr class="separator:addc3884cadce741cbafe6ff0cb275d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0401abed26b4981801e82c83236ec2be"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#a0401abed26b4981801e82c83236ec2be">sort</a> (<a class="el" href="classSort.html">Sort</a>&lt; T &gt; *sort, <a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *comparator=nullptr)=0</td></tr>
+<tr class="memdesc:a0401abed26b4981801e82c83236ec2be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override method for sort the list by <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> and certain sort.  <a href="#a0401abed26b4981801e82c83236ec2be">More...</a><br /></td></tr>
+<tr class="separator:a0401abed26b4981801e82c83236ec2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68f8888c8f0dd8680952b800ce198439"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#a68f8888c8f0dd8680952b800ce198439">get_size</a> ()=0</td></tr>
 <tr class="memdesc:a68f8888c8f0dd8680952b800ce198439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of list.  <a href="#a68f8888c8f0dd8680952b800ce198439">More...</a><br /></td></tr>
 <tr class="separator:a68f8888c8f0dd8680952b800ce198439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb5c3d01693a79b4a8cbd820c672d6eb"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#aeb5c3d01693a79b4a8cbd820c672d6eb">to_string</a> ()=0</td></tr>
+<tr class="memdesc:aeb5c3d01693a79b4a8cbd820c672d6eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return std::string representation.  <a href="#aeb5c3d01693a79b4a8cbd820c672d6eb">More...</a><br /></td></tr>
+<tr class="separator:aeb5c3d01693a79b4a8cbd820c672d6eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cd95d90527844d33a051f6fb1de524d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#a8cd95d90527844d33a051f6fb1de524d">operator==</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a8cd95d90527844d33a051f6fb1de524d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="#a8cd95d90527844d33a051f6fb1de524d">More...</a><br /></td></tr>
+<tr class="separator:a8cd95d90527844d33a051f6fb1de524d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf756a63755fe2772aab23a32ad9aba0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#aaf756a63755fe2772aab23a32ad9aba0">operator!=</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:aaf756a63755fe2772aab23a32ad9aba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inequality operator.  <a href="#aaf756a63755fe2772aab23a32ad9aba0">More...</a><br /></td></tr>
+<tr class="separator:aaf756a63755fe2772aab23a32ad9aba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc921f7feb49733656f7cad267f95e0e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#adc921f7feb49733656f7cad267f95e0e">operator&lt;</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:adc921f7feb49733656f7cad267f95e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relation 'less that' operator.  <a href="#adc921f7feb49733656f7cad267f95e0e">More...</a><br /></td></tr>
+<tr class="separator:adc921f7feb49733656f7cad267f95e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82612ab6b3d018a50672c9bbc904b623"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#a82612ab6b3d018a50672c9bbc904b623">operator&gt;</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a82612ab6b3d018a50672c9bbc904b623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relation 'great that' operator.  <a href="#a82612ab6b3d018a50672c9bbc904b623">More...</a><br /></td></tr>
+<tr class="separator:a82612ab6b3d018a50672c9bbc904b623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2f9e83ed7a16e1f3fc3a0752aa96c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#abc2f9e83ed7a16e1f3fc3a0752aa96c3">operator&lt;=</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:abc2f9e83ed7a16e1f3fc3a0752aa96c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relation 'less or equals' operator.  <a href="#abc2f9e83ed7a16e1f3fc3a0752aa96c3">More...</a><br /></td></tr>
+<tr class="separator:abc2f9e83ed7a16e1f3fc3a0752aa96c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2f22f73c3b2b8ea255a5b662b192473"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#ac2f22f73c3b2b8ea255a5b662b192473">operator&gt;=</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:ac2f22f73c3b2b8ea255a5b662b192473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relation 'great or equals' operator.  <a href="#ac2f22f73c3b2b8ea255a5b662b192473">More...</a><br /></td></tr>
+<tr class="separator:ac2f22f73c3b2b8ea255a5b662b192473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a8acc2cfc35aee432fb9ed4221d491ad6"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#a8acc2cfc35aee432fb9ed4221d491ad6">operator&lt;&lt;</a> (std::ostream &amp;out, <a class="el" href="classList.html">List</a>&lt; T &gt; &amp;list)</td></tr>
+<tr class="memdesc:a8acc2cfc35aee432fb9ed4221d491ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override operator&lt;&lt; of ostream. Out look like:  <a href="#a8acc2cfc35aee432fb9ed4221d491ad6">More...</a><br /></td></tr>
+<tr class="separator:a8acc2cfc35aee432fb9ed4221d491ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
 class List&lt; T &gt;</h3>
 
 <p>Interface for working with dynamic arrays(lists). </p>
-<p>Classes must also implement a friend method for outputting elements. Classes must also have two constructors - an empty one and one that looks like this: </p><div class="fragment"><div class="line"><a class="code" href="classList.html">List</a>(<span class="keywordtype">int</span> count, T(*create_func)(<span class="keywordtype">int</span> index));</div></div><!-- fragment --><p> count - the number of items to be added to list. create_func - function witch generate elements by index. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>Class or primitive with override operators: std::ostream&lt;&lt;, &gt;, &lt;, ==, !=, &gt;=, &lt;=. </td></tr>
+    <tr><td class="paramname">T</td><td>Class or primitive with override operators: std::ostream&lt;&lt; and (relational operators or have it own <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a>). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="List_8h_source.html#l00021">21</a> of file <a class="el" href="List_8h_source.html">List.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="List_8h_source.html#l00015">15</a> of file <a class="el" href="List_8h_source.html">List.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab1ef7d5a819028760ad73aa8b0092ed0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab1ef7d5a819028760ad73aa8b0092ed0">&#9670;&nbsp;</a></span>add()</h2>
@@ -125,7 +154,7 @@ class List&lt; T &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -168,44 +197,13 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="add73ba3603cbbc254f3bddac80610327"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add73ba3603cbbc254f3bddac80610327">&#9670;&nbsp;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void <a class="el" href="classList.html">List</a>&lt; T &gt;::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Remove all elements of the list. Now size = 0;. </p>
-
-<p>Implemented in <a class="el" href="classLinkedList.html#a16bd0b8c0f3a3f903a3d81e155a43c19">LinkedList&lt; T &gt;</a>, <a class="el" href="classArrayList.html#a0a2156d172ee288d8d9f2307889324ce">ArrayList&lt; T &gt;</a>, and <a class="el" href="classVectorList.html#a3ac069aae8119e2438bdb2ec2a092a4a">VectorList&lt; T &gt;</a>.</p>
-
-</div>
-</div>
 <a id="ab89abe7a19e1cd161f6bf0a1b41cf1a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab89abe7a19e1cd161f6bf0a1b41cf1a9">&#9670;&nbsp;</a></span>find()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -244,7 +242,7 @@ template&lt;class T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -283,7 +281,7 @@ template&lt;class T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -309,13 +307,251 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="aaf756a63755fe2772aab23a32ad9aba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf756a63755fe2772aab23a32ad9aba0">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classList.html">List</a>&lt; T &gt;::operator!= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classList.html">List</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inequality operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>Second <a class="el" href="classList.html" title="Interface for working with dynamic arrays(lists). ">List</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If sizes and object in lists are the same -&gt; false, else -&gt; true. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="List_8h_source.html#l00144">144</a> of file <a class="el" href="List_8h_source.html">List.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                               {</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">return</span> !(rhs == *<span class="keyword">this</span>);</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="adc921f7feb49733656f7cad267f95e0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc921f7feb49733656f7cad267f95e0e">&#9670;&nbsp;</a></span>operator<()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classList.html">List</a>&lt; T &gt;::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classList.html">List</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Relation 'less that' operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>Second <a class="el" href="classList.html" title="Interface for working with dynamic arrays(lists). ">List</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If size == rhs<code>s size -&gt; [i] &lt; rhs</code>s[i], else -&gt; size &lt; rhs`s size. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="List_8h_source.html#l00154">154</a> of file <a class="el" href="List_8h_source.html">List.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                              {</div><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="classList.html#a68f8888c8f0dd8680952b800ce198439">get_size</a>() == rhs.<a class="code" href="classList.html#a68f8888c8f0dd8680952b800ce198439">get_size</a>()){</div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classList.html#a68f8888c8f0dd8680952b800ce198439">get_size</a>(); i++) {</div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                <span class="keywordflow">if</span> (<span class="keyword">get</span>(i) &lt; rhs.<a class="code" href="classList.html#a3d5a51699256e0e1139627642b4f47bc">get</a>(i)) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            }</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        }</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classList.html#a68f8888c8f0dd8680952b800ce198439">get_size</a>() &lt; rhs.<a class="code" href="classList.html#a68f8888c8f0dd8680952b800ce198439">get_size</a>();</div><div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div><div class="ttc" id="classList_html_a68f8888c8f0dd8680952b800ce198439"><div class="ttname"><a href="classList.html#a68f8888c8f0dd8680952b800ce198439">List::get_size</a></div><div class="ttdeci">virtual int get_size()=0</div><div class="ttdoc">Return the size of list. </div></div>
+<div class="ttc" id="classList_html_a3d5a51699256e0e1139627642b4f47bc"><div class="ttname"><a href="classList.html#a3d5a51699256e0e1139627642b4f47bc">List::get</a></div><div class="ttdeci">virtual T &amp; get(int index)=0</div><div class="ttdoc">Get element by index from list. </div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abc2f9e83ed7a16e1f3fc3a0752aa96c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc2f9e83ed7a16e1f3fc3a0752aa96c3">&#9670;&nbsp;</a></span>operator<=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classList.html">List</a>&lt; T &gt;::operator&lt;= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classList.html">List</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Relation 'less or equals' operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>Second <a class="el" href="classList.html" title="Interface for working with dynamic arrays(lists). ">List</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>!(rhs &lt; *this). </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="List_8h_source.html#l00180">180</a> of file <a class="el" href="List_8h_source.html">List.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                               {</div><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">return</span> !(rhs &lt; *<span class="keyword">this</span>);</div><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a8cd95d90527844d33a051f6fb1de524d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cd95d90527844d33a051f6fb1de524d">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classList.html">List</a>&lt; T &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classList.html">List</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Equality operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>Second <a class="el" href="classList.html" title="Interface for working with dynamic arrays(lists). ">List</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If sizes and object in lists are the same -&gt; true, else -&gt; false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="List_8h_source.html#l00130">130</a> of file <a class="el" href="List_8h_source.html">List.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                               {</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classList.html#a68f8888c8f0dd8680952b800ce198439">get_size</a>() != rhs.<a class="code" href="classList.html#a68f8888c8f0dd8680952b800ce198439">get_size</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classList.html#a68f8888c8f0dd8680952b800ce198439">get_size</a>(); i++) {</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">get</span>(i) != rhs.<a class="code" href="classList.html#a3d5a51699256e0e1139627642b4f47bc">get</a>(i)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div><div class="ttc" id="classList_html_a68f8888c8f0dd8680952b800ce198439"><div class="ttname"><a href="classList.html#a68f8888c8f0dd8680952b800ce198439">List::get_size</a></div><div class="ttdeci">virtual int get_size()=0</div><div class="ttdoc">Return the size of list. </div></div>
+<div class="ttc" id="classList_html_a3d5a51699256e0e1139627642b4f47bc"><div class="ttname"><a href="classList.html#a3d5a51699256e0e1139627642b4f47bc">List::get</a></div><div class="ttdeci">virtual T &amp; get(int index)=0</div><div class="ttdoc">Get element by index from list. </div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a82612ab6b3d018a50672c9bbc904b623"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82612ab6b3d018a50672c9bbc904b623">&#9670;&nbsp;</a></span>operator>()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classList.html">List</a>&lt; T &gt;::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classList.html">List</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Relation 'great that' operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>Second <a class="el" href="classList.html" title="Interface for working with dynamic arrays(lists). ">List</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>rhs &lt; *this. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="List_8h_source.html#l00170">170</a> of file <a class="el" href="List_8h_source.html">List.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                              {</div><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> rhs &lt; *<span class="keyword">this</span>;</div><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="ac2f22f73c3b2b8ea255a5b662b192473"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2f22f73c3b2b8ea255a5b662b192473">&#9670;&nbsp;</a></span>operator>=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classList.html">List</a>&lt; T &gt;::operator&gt;= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classList.html">List</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Relation 'great or equals' operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>Second <a class="el" href="classList.html" title="Interface for working with dynamic arrays(lists). ">List</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>!(*this &lt; rhs). </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="List_8h_source.html#l00190">190</a> of file <a class="el" href="List_8h_source.html">List.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                               {</div><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &lt; rhs);</div><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
 <a id="ac3b4b83b3ec104acff3321d6ba4b2bde"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac3b4b83b3ec104acff3321d6ba4b2bde">&#9670;&nbsp;</a></span>remove()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -347,13 +583,13 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a3feaf810a3de3e663fd8533297924356"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3feaf810a3de3e663fd8533297924356">&#9670;&nbsp;</a></span>sort() <span class="overload">[1/2]</span></h2>
+<a id="addc3884cadce741cbafe6ff0cb275d12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addc3884cadce741cbafe6ff0cb275d12">&#9670;&nbsp;</a></span>sort() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -361,8 +597,8 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classList.html">List</a>&lt; T &gt;::sort </td>
           <td>(</td>
-          <td class="paramtype">void(*)(T *, int)&#160;</td>
-          <td class="paramname"><em>sort_func</em> = <code>nullptr</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>comparator</em> = <code>nullptr</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -373,25 +609,25 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Method for sort the list. </p>
-<p>If the sort function is not specified or equals 'nullptr', the list must be sorted by quick sort function. Method must create array of elements in the list for pass to sort function. Then the method must clear the list and add all elements from array to list. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Method for sort the list by <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a>. </p>
+<p>If the pointer on <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> is not specified or equals 'nullptr', the list must be sorted by object<code>s relational operators. Method must create array of elements in the list for pass to <a class="el" href="classSort.html" title="Functional interface for sort arrays. ">Sort</a></code>s method. Then the method must clear the list and add all elements from array to list. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sort_func</td><td>The function for sort which takes the array of elements from the list and size of the list. </td></tr>
+    <tr><td class="paramname">comparator</td><td>The point on <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> which compare two objects. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classLinkedList.html#af94908fb428bb64ccc98084572a950f8">LinkedList&lt; T &gt;</a>, <a class="el" href="classArrayList.html#a9f82e3e8d72983e2c041204de5dbd4be">ArrayList&lt; T &gt;</a>, and <a class="el" href="classVectorList.html#a63d9d7796f6977ff456b836ef7ae9fdb">VectorList&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classLinkedList.html#a09cb9510b72afe1497e14e76cd9407e8">LinkedList&lt; T &gt;</a>, <a class="el" href="classArrayList.html#a9667c0609f45d091d4fb18f292feafd0">ArrayList&lt; T &gt;</a>, and <a class="el" href="classVectorList.html#a5185636633abd001edc1749af88aeba3">VectorList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
-<a id="ab7fe463e668da28b956c5b1dbcba85e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7fe463e668da28b956c5b1dbcba85e6">&#9670;&nbsp;</a></span>sort() <span class="overload">[2/2]</span></h2>
+<a id="a0401abed26b4981801e82c83236ec2be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0401abed26b4981801e82c83236ec2be">&#9670;&nbsp;</a></span>sort() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -399,14 +635,14 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classList.html">List</a>&lt; T &gt;::sort </td>
           <td>(</td>
-          <td class="paramtype">void(*)(T *, int, int(*)(T &amp;obj1, T &amp;obj2))&#160;</td>
-          <td class="paramname"><em>sort_func</em>, </td>
+          <td class="paramtype"><a class="el" href="classSort.html">Sort</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>sort</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int(*)(T &amp;obj1, T &amp;obj2)&#160;</td>
-          <td class="paramname"><em>compare_func</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>comparator</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -421,17 +657,93 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Override method for sort the list by compare function. </p>
-<p>If the compare function is not specified or equals 'nullptr', the list must be sorted by default operators(&gt;, &lt;, ==, !=, &gt;=, &lt;=). Method also must create array of elements in the list for pass to sort function. Then the method must clear the list and add all elements from array to list. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Override method for sort the list by <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> and certain sort. </p>
+<p>If the pointer on <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> is not specified or equals 'nullptr', the list must be sorted by object<code>s relational operators. Method must create array of elements in the list for pass to <a class="el" href="classSort.html" title="Functional interface for sort arrays. ">Sort</a></code>s method. Then the method must clear the list and add all elements from array to list. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sort_func</td><td>The function for sort which takes the array of elements in the list, size of the list and compare function. </td></tr>
-    <tr><td class="paramname">compare_func</td><td>The function which takes 2 elements and return: 1 -&gt; if first is bigger, -1 -&gt; if first is less, 0 -&gt; else. </td></tr>
+    <tr><td class="paramname">sort</td><td>The pointer on <a class="el" href="classSort.html" title="Functional interface for sort arrays. ">Sort</a> object which have one method - 'sort'. It sort list by certain type. </td></tr>
+    <tr><td class="paramname">comparator</td><td>The point on <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> which compare two objects. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classLinkedList.html#ae74d4d78c0a6b8779948fe87000d8569">LinkedList&lt; T &gt;</a>, and <a class="el" href="classArrayList.html#a07ef6531eb158c2eaa2af000fcd87bc2">ArrayList&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classLinkedList.html#ab8b172e7de98835028e76d9bf8e02dfb">LinkedList&lt; T &gt;</a>, <a class="el" href="classArrayList.html#ac6e828c2e0f3927d6e778fef598beb72">ArrayList&lt; T &gt;</a>, and <a class="el" href="classVectorList.html#a056863353ecda8c05667d5b4ac5ab2ff">VectorList&lt; T &gt;</a>.</p>
 
+</div>
+</div>
+<a id="aeb5c3d01693a79b4a8cbd820c672d6eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb5c3d01693a79b4a8cbd820c672d6eb">&#9670;&nbsp;</a></span>to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string <a class="el" href="classList.html">List</a>&lt; T &gt;::to_string </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return std::string representation. </p>
+<dl class="section return"><dt>Returns</dt><dd>The string of this <a class="el" href="classList.html" title="Interface for working with dynamic arrays(lists). ">List</a>. </dd></dl>
+
+<p>Implemented in <a class="el" href="classLinkedList.html#ad6388f98cb4b8854f6271b15c201e1e7">LinkedList&lt; T &gt;</a>, <a class="el" href="classArrayList.html#ae16941ad0136eb6917377b8ea2187d7c">ArrayList&lt; T &gt;</a>, and <a class="el" href="classVectorList.html#ad566eb62dd663e1b6f732d5e563de16d">VectorList&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a8acc2cfc35aee432fb9ed4221d491ad6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8acc2cfc35aee432fb9ed4221d491ad6">&#9670;&nbsp;</a></span>operator<<</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classList.html">List</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Override operator&lt;&lt; of ostream. Out look like: </p>
+<div class="fragment"><div class="line">[T, T, T, T, T]</div></div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="List_8h_source.html#l00119">119</a> of file <a class="el" href="List_8h_source.html">List.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                                                                  {</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        out &lt;&lt; list.<a class="code" href="classList.html#aeb5c3d01693a79b4a8cbd820c672d6eb">to_string</a>();</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span> out;</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    };</div><div class="ttc" id="classList_html_aeb5c3d01693a79b4a8cbd820c672d6eb"><div class="ttname"><a href="classList.html#aeb5c3d01693a79b4a8cbd820c672d6eb">List::to_string</a></div><div class="ttdeci">virtual std::string to_string()=0</div><div class="ttdoc">Return std::string representation. </div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

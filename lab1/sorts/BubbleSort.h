@@ -3,10 +3,21 @@
 
 #include "Sort.h"
 
+/**
+ * @brief
+ * Class implements Sort interface. It sort arrays by Bubble sort.
+ * @tparam  T   Class or primitive with override relational operators or have it own Comparator.
+ */
 template <class T>
 class BubbleSort : public Sort<T>{
 public:
-private:
+    /**
+     * @brief
+     * Method for sort arrays by Bubble sort by Comparator or relational operators(if point on Comparator == nullptr);
+     * @param   arr         Array which we want to sort.
+     * @param   size        Size of our array.
+     * @param   comparator  Functional interface for compare 2 objects.
+     */
     void sort(T *arr, int size, Comparator<T> *comparator) override {
         T temp;
 

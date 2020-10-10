@@ -129,7 +129,7 @@ bool Book::operator==(const Book &rhs) const {
            pages == rhs.pages &&
            annotation == rhs.annotation &&
            date == rhs.date &&
-           authors == rhs.authors;
+           *authors == *rhs.authors;
 }
 
 bool Book::operator!=(const Book &rhs) const {
