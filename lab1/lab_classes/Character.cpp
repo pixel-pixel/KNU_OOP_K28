@@ -52,13 +52,27 @@ bool Character::Role::operator>=(const Character::Role &rhs) const {
     return !(*this < rhs);
 }
 
+Character::Character() {
+    names = new std::vector<std::string>;
+    roles = new std::vector<Role>;
+}
+
+Character::Character(Character *pCharacter) {
+    Character::names = pCharacter->names;
+    Character::roles = pCharacter->roles;
+}
+
 Character::Character(std::vector<std::string> *names,
                      std::vector<Role> *roles = new std::vector<Role>) :
         names(names), roles(roles) {}
 
-Character::Character(std::string name1, std::string name2, std::string name3) {
+Character::Character(const std::string &name1,
+                     const std::string &name2,
+                     const std::string &name3) {
     names = new std::vector<std::string>;
-    names->push_back(name1);
+
+    if(!name1.empty())
+        names->push_back(name1);
     if (!name2.empty())
         names->push_back(name2);
     if (!name3.empty())
@@ -92,22 +106,29 @@ void Character::setRoles(std::vector<Role> *roles) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Character &character) {
-    os << '{' << '{';
+    os << '{';
     if (character.names->size() != 0) {
+        os << '{';
         for (int i = 0; i < character.names->size() - 1; i++) {
             os << character.names->operator[](i) << ", ";
         }
-        os << character.names->operator[](character.names->size() - 1);
+        os << character.names->operator[](character.names->size() - 1) << "}, ";
+    }else{
+        os << "no names, ";
     }
-    os << "}, {";
+
 
     if (character.roles->size() != 0) {
+        os << '{';
         for (int i = 0; i < character.roles->size() - 1; i++) {
             os << character.roles->operator[](i) << ", ";
         }
-        os << character.roles->operator[](character.roles->size() - 1);
+        os << character.roles->operator[](character.roles->size() - 1) << "}, ";
+    } else{
+        os << "no roles";
     }
-    os << "}}";
+    os << '}';
+
     return os;
 }
 

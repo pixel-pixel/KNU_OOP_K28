@@ -1,9 +1,10 @@
-#include "../libs/doctest.h"
+#include "utils/doctest.h"
+#include "utils/utils.h"
 
 #include "lab_classes/Series.h"
 #include "lists/ArrayList.h"
-#include "create_functions/create.h"
-#include "../libs/utils.h"
+#include "list_generators/ListGenerator.h"
+
 
 namespace lab1 {
     /**
@@ -21,7 +22,6 @@ namespace lab1 {
      */
     int main() {
         doctest();
-
 
         Book a("War and God", 2000, "about war and Gods", "1995.11.07", "lev Tolstoi");
         Book b("Kozaki", 129, "about us", "2020", "Sergii", "Andrii");

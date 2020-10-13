@@ -1,20 +1,14 @@
 #ifndef KNU_OOP_K28_LIST_H
 #define KNU_OOP_K28_LIST_H
 
-#include "../sorts/sorts.h"
+#include "sstream"
+#include "../sorts/Sort.h"
+#include "../sorts/QuickSort.h"
 
 /**
  * @brief
  * Interface for working with dynamic arrays(lists).
- * @details
- * Classes must also implement a friend method for outputting elements.
- * Classes must also have two constructors - an empty one and one that looks like this:
- * @code
- * List(int count, T(*create_func)(int index));
- * @endcode
- * count - the number of items to be added to list.
- * create_func - function witch generate elements by index.
- * @tparam  T   Class or primitive with override operators: std::ostream<<, >, <, ==, !=, >=, <=.
+ * @tparam  T   Class or primitive with override operators: std::ostream<< and (relational operators or have it own Comparator).
  */
 
 template<class T>
@@ -79,27 +73,26 @@ public:
 
     /**
      * @brief
-     * Method for sort the list.
+     * Method for sort the list by Comparator.
      * @details
-     * If the sort function is not specified or equals 'nullptr', the list must be sorted by quick sort function.
-     * Method must create array of elements in the list for pass to sort function.
+     * If the pointer on Comparator is not specified or equals 'nullptr', the list must be sorted by object`s relational operators.
+     * Method must create array of elements in the list for pass to Sort`s method.
      * Then the method must clear the list and add all elements from array to list.
-     * @param   sort_func   The function for sort which takes the array of elements from the list and size of the list.
+     * @param   comparator   The point on Comparator which compare two objects.
      */
-    virtual void sort(void (*sort_func)(T *, int) = nullptr) = 0;
+    virtual void sort(Comparator<T> *comparator = nullptr) = 0;
 
     /**
      * @brief
-     * Override method for sort the list by compare function.
+     * Override method for sort the list by Comparator and certain sort.
      * @details
-     * If the compare function is not specified or equals 'nullptr', the list must be sorted by default operators(>, <, ==, !=, >=, <=).
-     * Method also must create array of elements in the list for pass to sort function.
+     * If the pointer on Comparator is not specified or equals 'nullptr', the list must be sorted by object`s relational operators.
+     * Method must create array of elements in the list for pass to Sort`s method.
      * Then the method must clear the list and add all elements from array to list.
-     * @param   sort_func       The function for sort which takes the array of elements in the list, size of the list and compare function.
-     * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
+     * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort list by certain type.
+     * @param   comparator  The point on Comparator which compare two objects.
      */
-    virtual void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
-                      int(*compare_func)(T &obj1, T &obj2) = nullptr) = 0;
+    virtual void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) = 0;
 
     /**
      * @brief
@@ -107,6 +100,96 @@ public:
      * @return  size of list.
      */
     virtual int get_size() = 0;
+
+    /**
+     * @brief
+     * Return std::string representation.
+     * @return The string of this List.
+     */
+    virtual std::string to_string() = 0;
+
+    /**
+     * @brief
+     * Override operator<< of ostream.
+     * Out look like:
+     * @code
+     * [T, T, T, T, T]
+     * @endcode
+     */
+    friend std::ostream &operator<<(std::ostream &out, List<T> &list) {
+        out << list.to_string();
+        return out;
+    };
+
+    /**
+     * @brief
+     * Equality operator.
+     * @param   rhs     Second List.
+     * @return          If sizes and object in lists are the same -> true, else -> false.
+     */
+    bool operator==(List &rhs) {
+        if (get_size() != rhs.get_size()) return false;
+        for (int i = 0; i < get_size(); i++) {
+            if (get(i) != rhs.get(i)) return false;
+        }
+        return true;
+    }
+
+    /**
+     * @brief
+     * Inequality operator.
+     * @param   rhs     Second List.
+     * @return          If sizes and object in lists are the same -> false, else -> true.
+     */
+    bool operator!=(List &rhs) {
+        return !(rhs == *this);
+    }
+
+    /**
+     * @brief
+     * Relation 'less that' operator.
+     * @param   rhs     Second List.
+     * @return          If size == rhs`s size -> [i] < rhs`s[i], else -> size < rhs`s size.
+     */
+    bool operator<(List &rhs) {
+        if(get_size() == rhs.get_size()){
+            for (int i = 0; i < get_size(); i++) {
+                if (get(i) < rhs.get(i)) return true;
+            }
+            return false;
+        }
+        return get_size() < rhs.get_size();
+    }
+
+    /**
+    * @brief
+    * Relation 'great that' operator.
+    * @param   rhs     Second List.
+    * @return          rhs < *this.
+    */
+    bool operator>(List &rhs) {
+        return rhs < *this;
+    }
+
+    /**
+     * @brief
+     * Relation 'less or equals' operator.
+     * @param   rhs     Second List.
+     * @return          !(rhs < *this).
+     */
+    bool operator<=(List &rhs) {
+        return !(rhs < *this);
+    }
+
+    /**
+    * @brief
+    * Relation 'great or equals' operator.
+    * @param   rhs     Second List.
+    * @return          !(*this < rhs).
+    */
+    bool operator>=(List &rhs) {
+        return !(*this < rhs);
+    }
 };
 
 

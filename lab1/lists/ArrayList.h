@@ -6,11 +6,11 @@
 
 /**
  * @brief
- * Class of dynamic array(list) based on array.
- * @tparam  T   Class or primitive with override operators: std::ostream<<, >, <, ==, !=, >=, <=.
+ * Class of dynamic array(list) based on array. Implements the List interface.
+ * @tparam  T   Class or primitive with override operators: std::ostream<< and (relational operators or have it own Comparator).
  */
 template<class T>
-class ArrayList : List<T> {
+class ArrayList : public List<T> {
 private:
     int size = 0;            ///< Value for saving count of elements in ArrayList.
     int arr_size = 2;        ///< Value for saving size of array in ArrayList.
@@ -34,20 +34,10 @@ private:
     }
 
 public:
-    ArrayList() = default;
-
     /**
      * @brief
-     * Constructor which generate some elements by functions and add to ArrayList.
-     * @param   count       Count of elements we want to generate.
-     * @param   create_func Function which generate new element by index.
+     * Destructor of ArrayList. Delete the main dynamic array.
      */
-    ArrayList(int count, T(*create_func)(int)){
-        for(int i = 0; i < count; i++){
-            ArrayList::add(create_func(i));
-        }
-    }
-
     ~ArrayList() {
         delete[] arr;
     }
@@ -114,7 +104,7 @@ public:
      * Method returns reference not an element.
      * If index is less than 0, than index = size - 1 (remove last element from the ArrayList).
      * If index is bigger or equals to the size, than method must throw std::out_of_range.
-     * @param   index   The index of the element in the list we want to get.
+     * @param   index   The index of the element in the ArrayList we want to get.
      * @return          The element from ArrayList by index.
      */
     T &get(int index) override {
@@ -130,8 +120,8 @@ public:
      * @brief
      * Find the index of an element in the ArrayList.
      * @details
-     * If the element is not contained in the list, method return -1.
-     * If the list contains great than 1 such element, method return tne first index.
+     * If the element is not contained in the ArrayList, method return -1.
+     * If the ArrayList contains great than 1 such element, method return tne first index.
      * @param   obj     The element which index we want to know.
      * @return          The index of the element in the ArrayList or -1 if element is not contained.
      */
@@ -160,47 +150,41 @@ public:
 
     /**
      * @brief
-     * Method for sort the ArrayList.
+     * Method for sort the ArrayList by Comparator.
      * @details
-     * If the sort function is not specified or equals 'nullptr', the ArrayList must be sorted by quick sort function.
-     * Method pass array to sort function.
-     * ArrayList is sorted by default operators(>, <, ==, !=, >=, <=).
-     * @param   sort_func   The function for sort which takes the array of elements from the list and size of the ArrayList.
+     * If the pointer on Comparator is not specified or equals 'nullptr', the ArrayList will be sorted by object`s relational operators.
+     * Sort method is 'QuickSort'.
+     * @param   comparator   The point on Comparator which compare two objects.
      */
-    void sort(void (*sort_func)(T *, int) = nullptr) {
-        if (!sort_func)
-            quick_sort(arr, size);
-        else
-            sort_func(arr, size);
+    void sort(Comparator<T> *comparator = nullptr) {
+        QuickSort<T> quickSort;
+        quickSort.sort(arr, size, comparator);
     }
 
     /**
      * @brief
-     * Override method for sort the ArrayList by compare function.
+     * Override method for sort the ArrayList by Comparator and certain sort.
      * @details
-     * If the compare function is not specified or equals 'nullptr', the ArrayList will be sorted by default operators(>, <, ==, !=, >=, <=).
-     * Method pass array to sort function.
-     * @param   sort_func       The function for sort which takes the array of elements in the list, size of the list and compare function.
-     * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
+     * If the pointer on Comparator is not specified or equals 'nullptr', the ArrayList will be sorted by object`s relational operators.
+     * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort ArrayList by certain type.
+     * @param   comparator  The point on Comparator which compare two objects.
      */
-    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
-              int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
-        sort_func(arr, size, compare_func);
+    void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) override {
+        sort->sort(arr, size, comparator);
     }
 
     /**
      * @brief
-     * Static method for sort any other array
+     * Static method for sort any other array.
      * @details
      * Same to not static method but instead of a private array and size pass them as parameter.
      * @param   global_arr      Array we want to sort.
      * @param   global_size     Size of our array.
-     * @param   sort_func       The function for sort which takes the array of elements in the list, size of the list and compare function.
-     * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
+     * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort ArrayList by certain type.
+     * @param   comparator  The point on Comparator which compare two objects.
      */
-    static void sort(T *global_arr, int global_size, void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
-                     int(*compare_func)(T &obj1, T &obj2) = nullptr) {
-        sort_func(global_arr, global_size, compare_func);
+    static void sort(T *global_arr, int global_size, Sort<T> *sort, Comparator<T> *comparator = nullptr) {
+        sort->sort(global_arr, global_size, comparator);
     }
 
     /**
@@ -214,57 +198,26 @@ public:
 
     /**
      * @brief
-     * Override operator<< of ostream.
+     * Return std::string representation.
      * Out look like:
      * @code
      * [T, T, T, T, T]
      * @endcode
+     * @return The string of this ArrayList.
      */
-    friend std::ostream &operator<<(std::ostream &out, const ArrayList<T> &list) {
-        out << '[';
-        for (int i = 0; i < list.size - 1; i++) {
-            out << list.arr[i] << ", ";
+    std::string to_string() override {
+        std::stringstream ss;
+        ss << '[';
+        if (size != 0) {
+            for (int i = 0; i < size - 1; i++) {
+                ss << arr[i] << ", ";
+            }
+            ss << arr[size - 1];
         }
-        if (list.size != 0)
-            out << list.arr[list.size - 1];
+        ss << ']';
 
-        out << "]";
-
-        return out;
-    }
-
-    bool operator==(ArrayList &rhs) {
-        if (get_size() != rhs.get_size()) return false;
-        for (int i = 0; i < get_size(); i++) {
-            if (get(i) != rhs.get(i)) return false;
-        }
-        return true;
-    }
-
-    bool operator!=(ArrayList &rhs) {
-        return !(rhs == *this);
-    }
-
-    bool operator<(ArrayList &rhs) {
-        if (get_size() < rhs.get_size()) return true;
-        for (int i = 0; i < get_size(); i++) {
-            if (get(i) < rhs.get(i)) return true;
-        }
-        return false;
-    }
-
-    bool operator>(ArrayList &rhs) {
-        return rhs < *this;
-    }
-
-    bool operator<=(ArrayList &rhs) {
-        return !(rhs < *this);
-    }
-
-    bool operator>=(ArrayList &rhs) {
-        return !(*this < rhs);
+        return ss.str();
     }
 };
-
 
 #endif

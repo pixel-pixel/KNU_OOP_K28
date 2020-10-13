@@ -5,13 +5,12 @@
 
 /**
  * @brief
- * Class of dynamic array(list) based on linked nodes.
- * @tparam  T   Class or primitive with override operators: std::ostream<<, >, <, ==, !=, >=, <=.
+ * Class of dynamic array(list) based on linked nodes. Implements the List interface.
+ * @tparam  T   Class or primitive with override operators: std::ostream<< and (relational operators or have it own Comparator).
  */
 template<class T>
-class LinkedList : List<T> {
+class LinkedList : public List<T> {
 private:
-
     /**
      * @brief
      * Inner class which contains pointer on next Node. They contain our objects.
@@ -32,20 +31,10 @@ private:
     Node *tail = nullptr;       ///< Pointer on last Node in LinkedList
 
 public:
-    LinkedList() = default;
-
     /**
      * @brief
-     * Constructor which generate some elements by functions and add to LinkedList.
-     * @param   count       Count of elements we want to generate.
-     * @param   create_func Function which generate new element by index.
+     * Destructor of LinkedList. Delete all Nodes.
      */
-    LinkedList(int count, T(*create_func)(int)) {
-        for (int i = 0; i < count; i++) {
-            LinkedList::add(create_func(i));
-        }
-    }
-
     ~LinkedList() {
         if (size > 0) {
             tail = head->next;
@@ -167,7 +156,7 @@ public:
      * @brief
      * Find the index of an element in the LinkedList.
      * @details
-     * If the element is not contained in the list, method return -1.
+     * If the element is not contained in the LinkedList, method return -1.
      * If the LinkedList contains great than 1 such element, method return tne first index.
      * @param   obj     The element which index we want to know.
      * @return          The index of the element in the LinkedList or -1 if element is not contained.
@@ -204,14 +193,15 @@ public:
 
     /**
      * @brief
-     * Method for sort the LinkedList.
+     * Method for sort the LinkedList by Comparator.
      * @details
-     * If the sort function is not specified or equals 'nullptr', the LinkedList will be sorted by quick sort function.
-     * Method creates array of elements in the LinkedList for pass to sort function.
-     * Then the method clears the list and add all elements from array to LinkedList.
-     * @param   sort_func   The function for sort which takes the array of elements from the LinkedList and size of the LinkedList.
+     * If the pointer on Comparator is not specified or equals 'nullptr', the LinkedList will be sorted by object`s relational operators.
+     * Method creates array of elements in the LinkedList for pass to Sort`s method.
+     * Then the method clears the LinkedList and add all elements from array to LinkedList.
+     * Sort`s method is 'QuickSort'.
+     * @param   comparator   The point on Comparator which compare two objects.
      */
-    void sort(void (*sort_func)(T *, int) = nullptr) {
+    void sort(Comparator<T> *comparator = nullptr) {
         T *arr = new T[size];
 
         tail = head;
@@ -220,10 +210,8 @@ public:
             tail = tail->next;
         }
 
-        if (!sort_func)
-            quick_sort(arr, size);
-        else
-            sort_func(arr, size);
+        QuickSort<T> quickSort;
+        quickSort.sort(arr, size, comparator);
 
         tail = head;
         for (int i = 0; i < size; i++) {
@@ -234,16 +222,15 @@ public:
 
     /**
      * @brief
-     * Override method for sort the LinkedList by compare function.
+     * Override method for sort the LinkedList by Comparator and certain sort.
      * @details
-     * If the compare function is not specified or equals 'nullptr', the LinkedList will be sorted by default operators(>, <, ==, !=, >=, <=).
-     * Method also creates array of elements from the Linked for pass to sort function.
+     * If the pointer on Comparator is not specified or equals 'nullptr', the LinkedList will be sorted by object`s relational operators.
+     * Method creates array of elements in the LinkedList for pass to Sort`s method.
      * Then the method clears the LinkedList and add all elements from array to LinkedList.
-     * @param   sort_func       The function for sort which takes the array of elements from the LinkedList, size of the list and compare function.
-     * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
+     * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort LinkedList by certain type.
+     * @param   comparator  The point on Comparator which compare two objects.
      */
-    void sort(void (*sort_func)(T *, int, int(*)(T &obj1, T &obj2)),
-              int(*compare_func)(T &obj1, T &obj2) = nullptr) override {
+    void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) override {
         T *arr = new T[size];
 
         tail = head;
@@ -252,7 +239,7 @@ public:
             tail = tail->next;
         }
 
-        sort_func(arr, size, compare_func);
+        sort->sort(arr, size, comparator);
 
         tail = head;
         for (int i = 0; i < size; i++) {
@@ -272,56 +259,29 @@ public:
 
     /**
      * @brief
-     * Override operator<< of ostream.
+     * Return std::string representation.
      * Out look like:
      * @code
      * [T, T, T, T, T]
      * @endcode
+     * @return The string of this LinkedList.
      */
-    friend std::ostream &operator<<(std::ostream &out, LinkedList<T> &list) {
-        out << '[';
-        list.tail = list.head;
-        for (int i = 0; i < list.size - 1; i++) {
-            out << list.tail->obj << ", ";
-            list.tail = list.tail->next;
+    std::string to_string() override {
+        std::stringstream ss;
+
+        ss << '[';
+        tail = head;
+        if (size != 0) {
+            for (int i = 0; i < size - 1; i++) {
+                ss << tail->obj << ", ";
+                tail = tail->next;
+            }
+            ss << tail->obj;
         }
-        if (list.size != 0)
-            out << list.tail->obj;
-        out << ']';
-    }
+        ss << ']';
 
-    bool operator==(LinkedList &rhs) {
-        if (get_size() != rhs.get_size()) return false;
-        for (int i = 0; i < get_size(); i++) {
-            if (get(i) != rhs.get(i)) return false;
-        }
-        return true;
-    }
-
-    bool operator!=(LinkedList &rhs) {
-        return !(rhs == *this);
-    }
-
-    bool operator<(LinkedList &rhs) {
-        if (get_size() < rhs.get_size()) return true;
-        for (int i = 0; i < get_size(); i++) {
-            if (get(i) < rhs.get(i)) return true;
-        }
-        return false;
-    }
-
-    bool operator>(LinkedList &rhs) {
-        return rhs < *this;
-    }
-
-    bool operator<=(LinkedList &rhs) {
-        return !(rhs < *this);
-    }
-
-    bool operator>=(LinkedList &rhs) {
-        return !(*this < rhs);
+        return ss.str();
     }
 };
-
 
 #endif

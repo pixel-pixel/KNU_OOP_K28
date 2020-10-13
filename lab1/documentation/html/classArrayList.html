@@ -61,14 +61,13 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="classArrayList-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ArrayList&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class of dynamic array(list) based on array.  
+<p>Class of dynamic array(list) based on array. Implements the <a class="el" href="classList.html" title="Interface for working with dynamic arrays(lists). ">List</a> interface.  
  <a href="classArrayList.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>&gt;</code></p>
@@ -89,183 +88,78 @@ Collaboration diagram for ArrayList&lt; T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a709886bb98092ec82abd9ed526e7a0ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a709886bb98092ec82abd9ed526e7a0ca">ArrayList</a> ()=default</td></tr>
-<tr class="separator:a709886bb98092ec82abd9ed526e7a0ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc6e5adbea0e95d316580c091fcbd358"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#adc6e5adbea0e95d316580c091fcbd358">ArrayList</a> (int count, T(*create_func)(int))</td></tr>
-<tr class="memdesc:adc6e5adbea0e95d316580c091fcbd358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which generate some elements by functions and add to <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>.  <a href="#adc6e5adbea0e95d316580c091fcbd358">More...</a><br /></td></tr>
-<tr class="separator:adc6e5adbea0e95d316580c091fcbd358"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4af637822f64b61267b1e0ed4d4fca33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a4af637822f64b61267b1e0ed4d4fca33">~ArrayList</a> ()</td></tr>
+<tr class="memitem:a4af637822f64b61267b1e0ed4d4fca33"><td class="memItemLeft" align="right" valign="top"><a id="a4af637822f64b61267b1e0ed4d4fca33"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a4af637822f64b61267b1e0ed4d4fca33">~ArrayList</a> ()</td></tr>
+<tr class="memdesc:a4af637822f64b61267b1e0ed4d4fca33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. Delete the main dynamic array. <br /></td></tr>
 <tr class="separator:a4af637822f64b61267b1e0ed4d4fca33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada456f3bfb5c8b16c1e48bbe80d69b16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#ada456f3bfb5c8b16c1e48bbe80d69b16">add</a> (T obj, int index=-1) override</td></tr>
-<tr class="memdesc:ada456f3bfb5c8b16c1e48bbe80d69b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add element to <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>.  <a href="#ada456f3bfb5c8b16c1e48bbe80d69b16">More...</a><br /></td></tr>
+<tr class="memdesc:ada456f3bfb5c8b16c1e48bbe80d69b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add element to <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>.  <a href="#ada456f3bfb5c8b16c1e48bbe80d69b16">More...</a><br /></td></tr>
 <tr class="separator:ada456f3bfb5c8b16c1e48bbe80d69b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77f2faaacda526a5b93f308796360fc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a77f2faaacda526a5b93f308796360fc7">remove</a> (int index) override</td></tr>
-<tr class="memdesc:a77f2faaacda526a5b93f308796360fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove element by index from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>.  <a href="#a77f2faaacda526a5b93f308796360fc7">More...</a><br /></td></tr>
+<tr class="memdesc:a77f2faaacda526a5b93f308796360fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove element by index from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>.  <a href="#a77f2faaacda526a5b93f308796360fc7">More...</a><br /></td></tr>
 <tr class="separator:a77f2faaacda526a5b93f308796360fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05d641d47a117120bd77e37e4606b6f3"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a05d641d47a117120bd77e37e4606b6f3">get</a> (int index) override</td></tr>
-<tr class="memdesc:a05d641d47a117120bd77e37e4606b6f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get element by index from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>.  <a href="#a05d641d47a117120bd77e37e4606b6f3">More...</a><br /></td></tr>
+<tr class="memdesc:a05d641d47a117120bd77e37e4606b6f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get element by index from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>.  <a href="#a05d641d47a117120bd77e37e4606b6f3">More...</a><br /></td></tr>
 <tr class="separator:a05d641d47a117120bd77e37e4606b6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9051c8b11431f13165ea796fc02176ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a9051c8b11431f13165ea796fc02176ec">find</a> (T obj) override</td></tr>
-<tr class="memdesc:a9051c8b11431f13165ea796fc02176ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the index of an element in the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>.  <a href="#a9051c8b11431f13165ea796fc02176ec">More...</a><br /></td></tr>
+<tr class="memdesc:a9051c8b11431f13165ea796fc02176ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the index of an element in the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>.  <a href="#a9051c8b11431f13165ea796fc02176ec">More...</a><br /></td></tr>
 <tr class="separator:a9051c8b11431f13165ea796fc02176ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a2156d172ee288d8d9f2307889324ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a0a2156d172ee288d8d9f2307889324ce">clear</a> () override</td></tr>
-<tr class="memdesc:a0a2156d172ee288d8d9f2307889324ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all elements of the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. Now size = 0;.  <a href="#a0a2156d172ee288d8d9f2307889324ce">More...</a><br /></td></tr>
+<tr class="memitem:a0a2156d172ee288d8d9f2307889324ce"><td class="memItemLeft" align="right" valign="top"><a id="a0a2156d172ee288d8d9f2307889324ce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a0a2156d172ee288d8d9f2307889324ce">clear</a> () override</td></tr>
+<tr class="memdesc:a0a2156d172ee288d8d9f2307889324ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all elements of the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. Now size = 0;. <br /></td></tr>
 <tr class="separator:a0a2156d172ee288d8d9f2307889324ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f82e3e8d72983e2c041204de5dbd4be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a9f82e3e8d72983e2c041204de5dbd4be">sort</a> (void(*sort_func)(T *, int)=nullptr)</td></tr>
-<tr class="memdesc:a9f82e3e8d72983e2c041204de5dbd4be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for sort the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>.  <a href="#a9f82e3e8d72983e2c041204de5dbd4be">More...</a><br /></td></tr>
-<tr class="separator:a9f82e3e8d72983e2c041204de5dbd4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07ef6531eb158c2eaa2af000fcd87bc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a07ef6531eb158c2eaa2af000fcd87bc2">sort</a> (void(*sort_func)(T *, int, int(*)(T &amp;obj1, T &amp;obj2)), int(*compare_func)(T &amp;obj1, T &amp;obj2)=nullptr) override</td></tr>
-<tr class="memdesc:a07ef6531eb158c2eaa2af000fcd87bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override method for sort the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a> by compare function.  <a href="#a07ef6531eb158c2eaa2af000fcd87bc2">More...</a><br /></td></tr>
-<tr class="separator:a07ef6531eb158c2eaa2af000fcd87bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9667c0609f45d091d4fb18f292feafd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a9667c0609f45d091d4fb18f292feafd0">sort</a> (<a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *comparator=nullptr)</td></tr>
+<tr class="memdesc:a9667c0609f45d091d4fb18f292feafd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for sort the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> by <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a>.  <a href="#a9667c0609f45d091d4fb18f292feafd0">More...</a><br /></td></tr>
+<tr class="separator:a9667c0609f45d091d4fb18f292feafd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e828c2e0f3927d6e778fef598beb72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#ac6e828c2e0f3927d6e778fef598beb72">sort</a> (<a class="el" href="classSort.html">Sort</a>&lt; T &gt; *sort, <a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *comparator=nullptr) override</td></tr>
+<tr class="memdesc:ac6e828c2e0f3927d6e778fef598beb72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override method for sort the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> by <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> and certain sort.  <a href="#ac6e828c2e0f3927d6e778fef598beb72">More...</a><br /></td></tr>
+<tr class="separator:ac6e828c2e0f3927d6e778fef598beb72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37ae6d64eb140e2276da869ec9d3475a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a37ae6d64eb140e2276da869ec9d3475a">get_size</a> () override</td></tr>
-<tr class="memdesc:a37ae6d64eb140e2276da869ec9d3475a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>.  <a href="#a37ae6d64eb140e2276da869ec9d3475a">More...</a><br /></td></tr>
+<tr class="memdesc:a37ae6d64eb140e2276da869ec9d3475a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>.  <a href="#a37ae6d64eb140e2276da869ec9d3475a">More...</a><br /></td></tr>
 <tr class="separator:a37ae6d64eb140e2276da869ec9d3475a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a823cbe7d4e4cdb30d9ea1e65ed2075"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a3a823cbe7d4e4cdb30d9ea1e65ed2075">operator==</a> (<a class="el" href="classArrayList.html">ArrayList</a> &amp;rhs)</td></tr>
-<tr class="separator:a3a823cbe7d4e4cdb30d9ea1e65ed2075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac30f230a8bf6c07195d5182530301254"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#ac30f230a8bf6c07195d5182530301254">operator!=</a> (<a class="el" href="classArrayList.html">ArrayList</a> &amp;rhs)</td></tr>
-<tr class="separator:ac30f230a8bf6c07195d5182530301254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2e65bcb99b11770af3d967c60737669"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#aa2e65bcb99b11770af3d967c60737669">operator&lt;</a> (<a class="el" href="classArrayList.html">ArrayList</a> &amp;rhs)</td></tr>
-<tr class="separator:aa2e65bcb99b11770af3d967c60737669"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a150e7d6106432eb32220c1543e307d7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a150e7d6106432eb32220c1543e307d7a">operator&gt;</a> (<a class="el" href="classArrayList.html">ArrayList</a> &amp;rhs)</td></tr>
-<tr class="separator:a150e7d6106432eb32220c1543e307d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8565084b31973368a288985650e7c1e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a8565084b31973368a288985650e7c1e2">operator&lt;=</a> (<a class="el" href="classArrayList.html">ArrayList</a> &amp;rhs)</td></tr>
-<tr class="separator:a8565084b31973368a288985650e7c1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0a4b7cd62a1da8da0708a53cc110bbe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#aa0a4b7cd62a1da8da0708a53cc110bbe">operator&gt;=</a> (<a class="el" href="classArrayList.html">ArrayList</a> &amp;rhs)</td></tr>
-<tr class="separator:aa0a4b7cd62a1da8da0708a53cc110bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae16941ad0136eb6917377b8ea2187d7c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#ae16941ad0136eb6917377b8ea2187d7c">to_string</a> () override</td></tr>
+<tr class="memdesc:ae16941ad0136eb6917377b8ea2187d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return std::string representation. Out look like:  <a href="#ae16941ad0136eb6917377b8ea2187d7c">More...</a><br /></td></tr>
+<tr class="separator:ae16941ad0136eb6917377b8ea2187d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classList"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classList')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classList.html">List&lt; T &gt;</a></td></tr>
+<tr class="memitem:a8cd95d90527844d33a051f6fb1de524d inherit pub_methods_classList"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#a8cd95d90527844d33a051f6fb1de524d">operator==</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a8cd95d90527844d33a051f6fb1de524d inherit pub_methods_classList"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="classList.html#a8cd95d90527844d33a051f6fb1de524d">More...</a><br /></td></tr>
+<tr class="separator:a8cd95d90527844d33a051f6fb1de524d inherit pub_methods_classList"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf756a63755fe2772aab23a32ad9aba0 inherit pub_methods_classList"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#aaf756a63755fe2772aab23a32ad9aba0">operator!=</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:aaf756a63755fe2772aab23a32ad9aba0 inherit pub_methods_classList"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inequality operator.  <a href="classList.html#aaf756a63755fe2772aab23a32ad9aba0">More...</a><br /></td></tr>
+<tr class="separator:aaf756a63755fe2772aab23a32ad9aba0 inherit pub_methods_classList"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc921f7feb49733656f7cad267f95e0e inherit pub_methods_classList"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#adc921f7feb49733656f7cad267f95e0e">operator&lt;</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:adc921f7feb49733656f7cad267f95e0e inherit pub_methods_classList"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relation 'less that' operator.  <a href="classList.html#adc921f7feb49733656f7cad267f95e0e">More...</a><br /></td></tr>
+<tr class="separator:adc921f7feb49733656f7cad267f95e0e inherit pub_methods_classList"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82612ab6b3d018a50672c9bbc904b623 inherit pub_methods_classList"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#a82612ab6b3d018a50672c9bbc904b623">operator&gt;</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a82612ab6b3d018a50672c9bbc904b623 inherit pub_methods_classList"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relation 'great that' operator.  <a href="classList.html#a82612ab6b3d018a50672c9bbc904b623">More...</a><br /></td></tr>
+<tr class="separator:a82612ab6b3d018a50672c9bbc904b623 inherit pub_methods_classList"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2f9e83ed7a16e1f3fc3a0752aa96c3 inherit pub_methods_classList"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#abc2f9e83ed7a16e1f3fc3a0752aa96c3">operator&lt;=</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:abc2f9e83ed7a16e1f3fc3a0752aa96c3 inherit pub_methods_classList"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relation 'less or equals' operator.  <a href="classList.html#abc2f9e83ed7a16e1f3fc3a0752aa96c3">More...</a><br /></td></tr>
+<tr class="separator:abc2f9e83ed7a16e1f3fc3a0752aa96c3 inherit pub_methods_classList"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2f22f73c3b2b8ea255a5b662b192473 inherit pub_methods_classList"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html#ac2f22f73c3b2b8ea255a5b662b192473">operator&gt;=</a> (<a class="el" href="classList.html">List</a> &amp;rhs)</td></tr>
+<tr class="memdesc:ac2f22f73c3b2b8ea255a5b662b192473 inherit pub_methods_classList"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relation 'great or equals' operator.  <a href="classList.html#ac2f22f73c3b2b8ea255a5b662b192473">More...</a><br /></td></tr>
+<tr class="separator:ac2f22f73c3b2b8ea255a5b662b192473 inherit pub_methods_classList"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a33fd21945504fdb85c9781b24a15c06f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a33fd21945504fdb85c9781b24a15c06f">sort</a> (T *global_arr, int global_size, void(*sort_func)(T *, int, int(*)(T &amp;obj1, T &amp;obj2)), int(*compare_func)(T &amp;obj1, T &amp;obj2)=nullptr)</td></tr>
-<tr class="memdesc:a33fd21945504fdb85c9781b24a15c06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static method for sort any other array.  <a href="#a33fd21945504fdb85c9781b24a15c06f">More...</a><br /></td></tr>
-<tr class="separator:a33fd21945504fdb85c9781b24a15c06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:ae6f18932e4d08da5269ea6cc9674a24a"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#ae6f18932e4d08da5269ea6cc9674a24a">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt; &amp;list)</td></tr>
-<tr class="memdesc:ae6f18932e4d08da5269ea6cc9674a24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override operator&lt;&lt; of ostream. Out look like:  <a href="#ae6f18932e4d08da5269ea6cc9674a24a">More...</a><br /></td></tr>
-<tr class="separator:ae6f18932e4d08da5269ea6cc9674a24a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502a633d4fbb044d9b5a360df57d10df"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArrayList.html#a502a633d4fbb044d9b5a360df57d10df">sort</a> (T *global_arr, int global_size, <a class="el" href="classSort.html">Sort</a>&lt; T &gt; *sort, <a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *comparator=nullptr)</td></tr>
+<tr class="memdesc:a502a633d4fbb044d9b5a360df57d10df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static method for sort any other array.  <a href="#a502a633d4fbb044d9b5a360df57d10df">More...</a><br /></td></tr>
+<tr class="separator:a502a633d4fbb044d9b5a360df57d10df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
 class ArrayList&lt; T &gt;</h3>
 
-<p>Class of dynamic array(list) based on array. </p>
+<p>Class of dynamic array(list) based on array. Implements the <a class="el" href="classList.html" title="Interface for working with dynamic arrays(lists). ">List</a> interface. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>Class or primitive with override operators: std::ostream&lt;&lt;, &gt;, &lt;, ==, !=, &gt;=, &lt;=. </td></tr>
+    <tr><td class="paramname">T</td><td>Class or primitive with override operators: std::ostream&lt;&lt; and (relational operators or have it own <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a>). </td></tr>
   </table>
   </dd>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00013">13</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a709886bb98092ec82abd9ed526e7a0ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a709886bb98092ec82abd9ed526e7a0ca">&#9670;&nbsp;</a></span>ArrayList() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::<a class="el" href="classArrayList.html">ArrayList</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adc6e5adbea0e95d316580c091fcbd358"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc6e5adbea0e95d316580c091fcbd358">&#9670;&nbsp;</a></span>ArrayList() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::<a class="el" href="classArrayList.html">ArrayList</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>count</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T(*)(int)&#160;</td>
-          <td class="paramname"><em>create_func</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor which generate some elements by functions and add to <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">count</td><td>Count of elements we want to generate. </td></tr>
-    <tr><td class="paramname">create_func</td><td>Function which generate new element by index. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00045">45</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                              {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; count; i++){</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <a class="code" href="classArrayList.html#ada456f3bfb5c8b16c1e48bbe80d69b16">ArrayList::add</a>(create_func(i));</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div><div class="ttc" id="classArrayList_html_ada456f3bfb5c8b16c1e48bbe80d69b16"><div class="ttname"><a href="classArrayList.html#ada456f3bfb5c8b16c1e48bbe80d69b16">ArrayList::add</a></div><div class="ttdeci">void add(T obj, int index=-1) override</div><div class="ttdoc">Add element to ArrayList. </div><div class="ttdef"><b>Definition:</b> <a href="ArrayList_8h_source.html#l00066">ArrayList.h:66</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a4af637822f64b61267b1e0ed4d4fca33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4af637822f64b61267b1e0ed4d4fca33">&#9670;&nbsp;</a></span>~ArrayList()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::~<a class="el" href="classArrayList.html">ArrayList</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00051">51</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                 {</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">delete</span>[] arr;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div></div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ada456f3bfb5c8b16c1e48bbe80d69b16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada456f3bfb5c8b16c1e48bbe80d69b16">&#9670;&nbsp;</a></span>add()</h2>
 
@@ -302,8 +196,8 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Add element to <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </p>
-<p>Adds an element and puts it in a certain position. If the index is not specified or less than zero - adds an item to the end of the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. If an item is not added to the end of the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>, the item that belonged to that index(and all after it) moves forward. </p><dl class="exception"><dt>Exceptions</dt><dd>
+<p>Add element to <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. </p>
+<p>Adds an element and puts it in a certain position. If the index is not specified or less than zero - adds an item to the end of the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. If an item is not added to the end of the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>, the item that belonged to that index(and all after it) moves forward. </p><dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::out_of_range</td><td>If index is bigger than size. </td></tr>
   </table>
@@ -311,7 +205,7 @@ template&lt;class T&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">obj</td><td>The element which we want to add to <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </td></tr>
+    <tr><td class="paramname">obj</td><td>The element which we want to add to <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. </td></tr>
     <tr><td class="paramname">index</td><td>The index on which we want to place the element. </td></tr>
   </table>
   </dd>
@@ -319,41 +213,8 @@ template&lt;class T&gt; </div>
 
 <p>Implements <a class="el" href="classList.html#ab1ef7d5a819028760ad73aa8b0092ed0">List&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00066">66</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                             {</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span> (index &lt; 0)</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            index = size;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (index &gt; size)</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;index &quot;</span> + std::to_string(index) + <span class="stringliteral">&quot; is greater then the size&quot;</span>);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> (size == arr_size)</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            change_arr_size(arr_size / 2 * 3 + 2);</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        T temp1 = obj;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        T temp2;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">while</span> (index &lt;= size) {</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            temp2 = arr[index];</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            arr[index] = temp1;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            std::swap(temp1, temp2);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            index++;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        size++;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div></div><!-- fragment -->
-</div>
-</div>
-<a id="a0a2156d172ee288d8d9f2307889324ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a2156d172ee288d8d9f2307889324ce">&#9670;&nbsp;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Remove all elements of the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. Now size = 0;. </p>
-
-<p>Implements <a class="el" href="classList.html#add73ba3603cbbc254f3bddac80610327">List&lt; T &gt;</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00154">154</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                          {</div><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keyword">delete</span>[] arr;</div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        size = 0;</div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        arr_size = 16;</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        arr = <span class="keyword">new</span> T[arr_size];</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00056">56</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                             {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span> (index &lt; 0)</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            index = size;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (index &gt; size)</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;index &quot;</span> + std::to_string(index) + <span class="stringliteral">&quot; is greater then the size&quot;</span>);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">if</span> (size == arr_size)</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            change_arr_size(arr_size / 2 * 3 + 2);</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        T temp1 = obj;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        T temp2;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">while</span> (index &lt;= size) {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            temp2 = arr[index];</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            arr[index] = temp1;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            std::swap(temp1, temp2);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            index++;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        size++;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a9051c8b11431f13165ea796fc02176ec"></a>
@@ -382,19 +243,19 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Find the index of an element in the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </p>
-<p>If the element is not contained in the list, method return -1. If the list contains great than 1 such element, method return tne first index. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Find the index of an element in the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. </p>
+<p>If the element is not contained in the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>, method return -1. If the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> contains great than 1 such element, method return tne first index. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">obj</td><td>The element which index we want to know. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The index of the element in the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a> or -1 if element is not contained. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the element in the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> or -1 if element is not contained. </dd></dl>
 
 <p>Implements <a class="el" href="classList.html#ab89abe7a19e1cd161f6bf0a1b41cf1a9">List&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00138">138</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                             {</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordtype">int</span> res = -1;</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++) {</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="keywordflow">if</span> (arr[i] == obj) {</div><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                res = i;</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <span class="keywordflow">break</span>;</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            }</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        }</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">return</span> res;</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00128">128</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                             {</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">int</span> res = -1;</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++) {</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">if</span> (arr[i] == obj) {</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                res = i;</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="keywordflow">break</span>;</div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            }</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        }</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">return</span> res;</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a05d641d47a117120bd77e37e4606b6f3"></a>
@@ -423,19 +284,19 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get element by index from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </p>
-<p>Method returns reference not an element. If index is less than 0, than index = size - 1 (remove last element from the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>). If index is bigger or equals to the size, than method must throw std::out_of_range. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Get element by index from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. </p>
+<p>Method returns reference not an element. If index is less than 0, than index = size - 1 (remove last element from the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>). If index is bigger or equals to the size, than method must throw std::out_of_range. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>The index of the element in the list we want to get. </td></tr>
+    <tr><td class="paramname">index</td><td>The index of the element in the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> we want to get. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The element from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a> by index. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The element from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> by index. </dd></dl>
 
 <p>Implements <a class="el" href="classList.html#a3d5a51699256e0e1139627642b4f47bc">List&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00120">120</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                               {</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span> (index &gt;= size || (index &lt; 0 &amp;&amp; size == 0))</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;index &quot;</span> + std::to_string(index) + <span class="stringliteral">&quot; is greater then the size-1&quot;</span>);</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (index &lt; 0)</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            index = size - 1;</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">return</span> arr[index];</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00110">110</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                               {</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">if</span> (index &gt;= size || (index &lt; 0 &amp;&amp; size == 0))</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;index &quot;</span> + std::to_string(index) + <span class="stringliteral">&quot; is greater then the size-1&quot;</span>);</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (index &lt; 0)</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            index = size - 1;</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> arr[index];</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a37ae6d64eb140e2276da869ec9d3475a"></a>
@@ -463,197 +324,13 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Return the size of <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>size of <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </dd></dl>
+<p>Return the size of <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>size of <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. </dd></dl>
 
 <p>Implements <a class="el" href="classList.html#a68f8888c8f0dd8680952b800ce198439">List&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00211">211</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                            {</div><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordflow">return</span> size;</div><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    }</div></div><!-- fragment -->
-</div>
-</div>
-<a id="ac30f230a8bf6c07195d5182530301254"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac30f230a8bf6c07195d5182530301254">&#9670;&nbsp;</a></span>operator!=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::operator!= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00244">244</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                                    {</div><div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">return</span> !(rhs == *<span class="keyword">this</span>);</div><div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div></div><!-- fragment -->
-</div>
-</div>
-<a id="aa2e65bcb99b11770af3d967c60737669"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2e65bcb99b11770af3d967c60737669">&#9670;&nbsp;</a></span>operator<()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00248">248</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                                   {</div><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classArrayList.html#a37ae6d64eb140e2276da869ec9d3475a">get_size</a>() &lt; rhs.<a class="code" href="classArrayList.html#a37ae6d64eb140e2276da869ec9d3475a">get_size</a>()) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classArrayList.html#a37ae6d64eb140e2276da869ec9d3475a">get_size</a>(); i++) {</div><div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">get</span>(i) &lt; rhs.<a class="code" href="classArrayList.html#a05d641d47a117120bd77e37e4606b6f3">get</a>(i)) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        }</div><div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div><div class="ttc" id="classArrayList_html_a37ae6d64eb140e2276da869ec9d3475a"><div class="ttname"><a href="classArrayList.html#a37ae6d64eb140e2276da869ec9d3475a">ArrayList::get_size</a></div><div class="ttdeci">int get_size() override</div><div class="ttdoc">Return the size of ArrayList. </div><div class="ttdef"><b>Definition:</b> <a href="ArrayList_8h_source.html#l00211">ArrayList.h:211</a></div></div>
-<div class="ttc" id="classArrayList_html_a05d641d47a117120bd77e37e4606b6f3"><div class="ttname"><a href="classArrayList.html#a05d641d47a117120bd77e37e4606b6f3">ArrayList::get</a></div><div class="ttdeci">T &amp; get(int index) override</div><div class="ttdoc">Get element by index from ArrayList. </div><div class="ttdef"><b>Definition:</b> <a href="ArrayList_8h_source.html#l00120">ArrayList.h:120</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a8565084b31973368a288985650e7c1e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8565084b31973368a288985650e7c1e2">&#9670;&nbsp;</a></span>operator<=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::operator&lt;= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00260">260</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                                    {</div><div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">return</span> !(rhs &lt; *<span class="keyword">this</span>);</div><div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div></div><!-- fragment -->
-</div>
-</div>
-<a id="a3a823cbe7d4e4cdb30d9ea1e65ed2075"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a823cbe7d4e4cdb30d9ea1e65ed2075">&#9670;&nbsp;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::operator== </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00236">236</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                                    {</div><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classArrayList.html#a37ae6d64eb140e2276da869ec9d3475a">get_size</a>() != rhs.<a class="code" href="classArrayList.html#a37ae6d64eb140e2276da869ec9d3475a">get_size</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="classArrayList.html#a37ae6d64eb140e2276da869ec9d3475a">get_size</a>(); i++) {</div><div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">get</span>(i) != rhs.<a class="code" href="classArrayList.html#a05d641d47a117120bd77e37e4606b6f3">get</a>(i)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        }</div><div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    }</div><div class="ttc" id="classArrayList_html_a37ae6d64eb140e2276da869ec9d3475a"><div class="ttname"><a href="classArrayList.html#a37ae6d64eb140e2276da869ec9d3475a">ArrayList::get_size</a></div><div class="ttdeci">int get_size() override</div><div class="ttdoc">Return the size of ArrayList. </div><div class="ttdef"><b>Definition:</b> <a href="ArrayList_8h_source.html#l00211">ArrayList.h:211</a></div></div>
-<div class="ttc" id="classArrayList_html_a05d641d47a117120bd77e37e4606b6f3"><div class="ttname"><a href="classArrayList.html#a05d641d47a117120bd77e37e4606b6f3">ArrayList::get</a></div><div class="ttdeci">T &amp; get(int index) override</div><div class="ttdoc">Get element by index from ArrayList. </div><div class="ttdef"><b>Definition:</b> <a href="ArrayList_8h_source.html#l00120">ArrayList.h:120</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a150e7d6106432eb32220c1543e307d7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a150e7d6106432eb32220c1543e307d7a">&#9670;&nbsp;</a></span>operator>()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::operator&gt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00256">256</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                                   {</div><div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keywordflow">return</span> rhs &lt; *<span class="keyword">this</span>;</div><div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    }</div></div><!-- fragment -->
-</div>
-</div>
-<a id="aa0a4b7cd62a1da8da0708a53cc110bbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0a4b7cd62a1da8da0708a53cc110bbe">&#9670;&nbsp;</a></span>operator>=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::operator&gt;= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00264">264</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                                    {</div><div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &lt; rhs);</div><div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00195">195</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                            {</div><div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> size;</div><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a77f2faaacda526a5b93f308796360fc7"></a>
@@ -682,8 +359,8 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Remove element by index from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </p>
-<p>If we remove element by index, all elements with bigger index moved: index+1 -&gt; index, index+2 -&gt; index+1; But: index-1 -&gt; index-1, index-2 -&gt; index-2; If index is less than 0, than index = size - 1 (remove last element in <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>). </p><dl class="exception"><dt>Exceptions</dt><dd>
+<p>Remove element by index from <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. </p>
+<p>If we remove element by index, all elements with bigger index moved: index+1 -&gt; index, index+2 -&gt; index+1; But: index-1 -&gt; index-1, index-2 -&gt; index-2; If index is less than 0, than index = size - 1 (remove last element in <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>). </p><dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::out_of_range</td><td>If index is bigger than size - 1. </td></tr>
   </table>
@@ -698,12 +375,12 @@ template&lt;class T&gt; </div>
 
 <p>Implements <a class="el" href="classList.html#ac3b4b83b3ec104acff3321d6ba4b2bde">List&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00098">98</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                    {</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">if</span> (index &gt;= size || (index &lt; 0 &amp;&amp; size == 0))</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;index &quot;</span> + std::to_string(index) + <span class="stringliteral">&quot; is greater then the size-1&quot;</span>);</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (index &lt; 0)</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            index = size - 1;</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = index; i &lt; size - 1; i++) {</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            arr[i] = arr[i + 1];</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        size--;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00088">88</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                    {</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (index &gt;= size || (index &lt; 0 &amp;&amp; size == 0))</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;index &quot;</span> + std::to_string(index) + <span class="stringliteral">&quot; is greater then the size-1&quot;</span>);</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (index &lt; 0)</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            index = size - 1;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = index; i &lt; size - 1; i++) {</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            arr[i] = arr[i + 1];</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        size--;</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
-<a id="a9f82e3e8d72983e2c041204de5dbd4be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f82e3e8d72983e2c041204de5dbd4be">&#9670;&nbsp;</a></span>sort() <span class="overload">[1/3]</span></h2>
+<a id="a9667c0609f45d091d4fb18f292feafd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9667c0609f45d091d4fb18f292feafd0">&#9670;&nbsp;</a></span>sort() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -716,8 +393,8 @@ template&lt;class T&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::sort </td>
           <td>(</td>
-          <td class="paramtype">void(*)(T *, int)&#160;</td>
-          <td class="paramname"><em>sort_func</em> = <code>nullptr</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>comparator</em> = <code>nullptr</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -728,23 +405,24 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Method for sort the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </p>
-<p>If the sort function is not specified or equals 'nullptr', the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a> must be sorted by quick sort function. Method pass array to sort function. <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a> is sorted by default operators(&gt;, &lt;, ==, !=, &gt;=, &lt;=). </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Method for sort the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> by <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a>. </p>
+<p>If the pointer on <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> is not specified or equals 'nullptr', the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> will be sorted by object`s relational operators. <a class="el" href="classSort.html" title="Functional interface for sort arrays. ">Sort</a> method is '<a class="el" href="classQuickSort.html" title="Class implements Sort interface. It sort array by Quick sort. ">QuickSort</a>'. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sort_func</td><td>The function for sort which takes the array of elements from the list and size of the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a>. </td></tr>
+    <tr><td class="paramname">comparator</td><td>The point on <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> which compare two objects. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classList.html#a3feaf810a3de3e663fd8533297924356">List&lt; T &gt;</a>.</p>
+<p>Implements <a class="el" href="classList.html#addc3884cadce741cbafe6ff0cb275d12">List&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00170">170</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                                                     {</div><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">if</span> (!sort_func)</div><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <a class="code" href="sorts_8h.html#a8375be233b7e91b2a810b2f3274f764a">quick_sort</a>(arr, size);</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">else</span></div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            sort_func(arr, size);</div><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    }</div><div class="ttc" id="sorts_8h_html_a8375be233b7e91b2a810b2f3274f764a"><div class="ttname"><a href="sorts_8h.html#a8375be233b7e91b2a810b2f3274f764a">quick_sort</a></div><div class="ttdeci">void quick_sort(T *arr, int size, int(*compare_func)(T &amp;obj1, T &amp;obj2)=nullptr)</div><div class="ttdoc">Function for sort array by quick sort. </div><div class="ttdef"><b>Definition:</b> <a href="sorts_8h_source.html#l00202">sorts.h:202</a></div></div>
+<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00159">159</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                                                   {</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <a class="code" href="classQuickSort.html">QuickSort&lt;T&gt;</a> quickSort;</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        quickSort.<a class="code" href="classQuickSort.html#a4adfb93fe7b74f100eae5d437bc56ad0">sort</a>(arr, size, comparator);</div><div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div><div class="ttc" id="classQuickSort_html_a4adfb93fe7b74f100eae5d437bc56ad0"><div class="ttname"><a href="classQuickSort.html#a4adfb93fe7b74f100eae5d437bc56ad0">QuickSort::sort</a></div><div class="ttdeci">void sort(T *arr, int size, Comparator&lt; T &gt; *comparator) override</div><div class="ttdoc">Method for sort arrays by Quick sort by Comparator or relational operators(if point on Comparator == ...</div><div class="ttdef"><b>Definition:</b> <a href="QuickSort_8h_source.html#l00057">QuickSort.h:57</a></div></div>
+<div class="ttc" id="classQuickSort_html"><div class="ttname"><a href="classQuickSort.html">QuickSort</a></div><div class="ttdoc">Class implements Sort interface. It sort array by Quick sort. </div><div class="ttdef"><b>Definition:</b> <a href="QuickSort_8h_source.html#l00013">QuickSort.h:13</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a07ef6531eb158c2eaa2af000fcd87bc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07ef6531eb158c2eaa2af000fcd87bc2">&#9670;&nbsp;</a></span>sort() <span class="overload">[2/3]</span></h2>
+<a id="ac6e828c2e0f3927d6e778fef598beb72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6e828c2e0f3927d6e778fef598beb72">&#9670;&nbsp;</a></span>sort() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -757,14 +435,14 @@ template&lt;class T&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::sort </td>
           <td>(</td>
-          <td class="paramtype">void(*)(T *, int, int(*)(T &amp;obj1, T &amp;obj2))&#160;</td>
-          <td class="paramname"><em>sort_func</em>, </td>
+          <td class="paramtype"><a class="el" href="classSort.html">Sort</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>sort</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int(*)(T &amp;obj1, T &amp;obj2)&#160;</td>
-          <td class="paramname"><em>compare_func</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>comparator</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -779,23 +457,24 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Override method for sort the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a> by compare function. </p>
-<p>If the compare function is not specified or equals 'nullptr', the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. ">ArrayList</a> will be sorted by default operators(&gt;, &lt;, ==, !=, &gt;=, &lt;=). Method pass array to sort function. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Override method for sort the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> by <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> and certain sort. </p>
+<p>If the pointer on <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> is not specified or equals 'nullptr', the <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> will be sorted by object`s relational operators. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sort_func</td><td>The function for sort which takes the array of elements in the list, size of the list and compare function. </td></tr>
-    <tr><td class="paramname">compare_func</td><td>The function which takes 2 elements and return: 1 -&gt; if first is bigger, -1 -&gt; if first is less, 0 -&gt; else. </td></tr>
+    <tr><td class="paramname">sort</td><td>The pointer on <a class="el" href="classSort.html" title="Functional interface for sort arrays. ">Sort</a> object which have one method - 'sort'. It sort <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> by certain type. </td></tr>
+    <tr><td class="paramname">comparator</td><td>The point on <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> which compare two objects. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classList.html#ab7fe463e668da28b956c5b1dbcba85e6">List&lt; T &gt;</a>.</p>
+<p>Implements <a class="el" href="classList.html#a0401abed26b4981801e82c83236ec2be">List&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00186">186</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                                                                       {</div><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        sort_func(arr, size, compare_func);</div><div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00172">172</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                                                                           {</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        sort-&gt;<a class="code" href="classSort.html#a5bf74c6c3b6e689cc3fb1f9ec2bb3e81">sort</a>(arr, size, comparator);</div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div><div class="ttc" id="classSort_html_a5bf74c6c3b6e689cc3fb1f9ec2bb3e81"><div class="ttname"><a href="classSort.html#a5bf74c6c3b6e689cc3fb1f9ec2bb3e81">Sort::sort</a></div><div class="ttdeci">virtual void sort(T *arr, int size, Comparator&lt; T &gt; *comparator=nullptr)=0</div><div class="ttdoc">Virtual method for sort arrays by Comparator or relational operators(if point on Comparator == nullpt...</div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a id="a33fd21945504fdb85c9781b24a15c06f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33fd21945504fdb85c9781b24a15c06f">&#9670;&nbsp;</a></span>sort() <span class="overload">[3/3]</span></h2>
+<a id="a502a633d4fbb044d9b5a360df57d10df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a502a633d4fbb044d9b5a360df57d10df">&#9670;&nbsp;</a></span>sort() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -820,14 +499,14 @@ template&lt;class T&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)(T *, int, int(*)(T &amp;obj1, T &amp;obj2))&#160;</td>
-          <td class="paramname"><em>sort_func</em>, </td>
+          <td class="paramtype"><a class="el" href="classSort.html">Sort</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>sort</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int(*)(T &amp;obj1, T &amp;obj2)&#160;</td>
-          <td class="paramname"><em>compare_func</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classComparator.html">Comparator</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>comparator</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -847,19 +526,19 @@ template&lt;class T&gt; </div>
   <table class="params">
     <tr><td class="paramname">global_arr</td><td>Array we want to sort. </td></tr>
     <tr><td class="paramname">global_size</td><td>Size of our array. </td></tr>
-    <tr><td class="paramname">sort_func</td><td>The function for sort which takes the array of elements in the list, size of the list and compare function. </td></tr>
-    <tr><td class="paramname">compare_func</td><td>The function which takes 2 elements and return: 1 -&gt; if first is bigger, -1 -&gt; if first is less, 0 -&gt; else. </td></tr>
+    <tr><td class="paramname">sort</td><td>The pointer on <a class="el" href="classSort.html" title="Functional interface for sort arrays. ">Sort</a> object which have one method - 'sort'. It sort <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a> by certain type. </td></tr>
+    <tr><td class="paramname">comparator</td><td>The point on <a class="el" href="classComparator.html" title="Functional interface for compare 2 objects. ">Comparator</a> which compare two objects. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00201">201</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                                                                     {</div><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        sort_func(global_arr, global_size, compare_func);</div><div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00186">186</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                                                                                                         {</div><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        sort-&gt;<a class="code" href="classSort.html#a5bf74c6c3b6e689cc3fb1f9ec2bb3e81">sort</a>(global_arr, global_size, comparator);</div><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }</div><div class="ttc" id="classSort_html_a5bf74c6c3b6e689cc3fb1f9ec2bb3e81"><div class="ttname"><a href="classSort.html#a5bf74c6c3b6e689cc3fb1f9ec2bb3e81">Sort::sort</a></div><div class="ttdeci">virtual void sort(T *arr, int size, Comparator&lt; T &gt; *comparator=nullptr)=0</div><div class="ttdoc">Virtual method for sort arrays by Comparator or relational operators(if point on Comparator == nullpt...</div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="ae6f18932e4d08da5269ea6cc9674a24a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6f18932e4d08da5269ea6cc9674a24a">&#9670;&nbsp;</a></span>operator<<</h2>
+<a id="ae16941ad0136eb6917377b8ea2187d7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae16941ad0136eb6917377b8ea2187d7c">&#9670;&nbsp;</a></span>to_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -870,34 +549,26 @@ template&lt;class T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td class="memname">std::string <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt;::to_string </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classArrayList.html">ArrayList</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>list</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Override operator&lt;&lt; of ostream. Out look like: </p>
-<div class="fragment"><div class="line">[T, T, T, T, T]</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00223">223</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                                                                             {</div><div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        out &lt;&lt; <span class="charliteral">&#39;[&#39;</span>;</div><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; list.size - 1; i++) {</div><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            out &lt;&lt; list.arr[i] &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        }</div><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">if</span> (list.size != 0)</div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            out &lt;&lt; list.arr[list.size - 1];</div><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div><div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        out &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div><div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div><div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <span class="keywordflow">return</span> out;</div><div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    }</div></div><!-- fragment -->
+<p>Return std::string representation. Out look like: </p>
+<div class="fragment"><div class="line">[T, T, T, T, T]</div></div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>The string of this <a class="el" href="classArrayList.html" title="Class of dynamic array(list) based on array. Implements the List interface. ">ArrayList</a>. </dd></dl>
+
+<p>Implements <a class="el" href="classList.html#aeb5c3d01693a79b4a8cbd820c672d6eb">List&lt; T &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="ArrayList_8h_source.html#l00208">208</a> of file <a class="el" href="ArrayList_8h_source.html">ArrayList.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                                   {</div><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        std::stringstream ss;</div><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        ss &lt;&lt; <span class="charliteral">&#39;[&#39;</span>;</div><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">if</span> (size != 0) {</div><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size - 1; i++) {</div><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                ss &lt;&lt; arr[i] &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            }</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            ss &lt;&lt; arr[size - 1];</div><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        }</div><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        ss &lt;&lt; <span class="charliteral">&#39;]&#39;</span>;</div><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">return</span> ss.str();</div><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

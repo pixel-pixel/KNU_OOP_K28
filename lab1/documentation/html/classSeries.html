@@ -74,44 +74,56 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7f571e03e38313c1d3e3d1cfcf2e8cbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a7f571e03e38313c1d3e3d1cfcf2e8cbd">Series</a> (<a class="el" href="classCharacter.html">Character</a> *main_character=nullptr)</td></tr>
-<tr class="memdesc:a7f571e03e38313c1d3e3d1cfcf2e8cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with main character if it != nullptr you can add all book to series. If not - you can add only books where play this character.  <a href="#a7f571e03e38313c1d3e3d1cfcf2e8cbd">More...</a><br /></td></tr>
-<tr class="separator:a7f571e03e38313c1d3e3d1cfcf2e8cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05ffa435753f66228b0cdcebff72c909"><td class="memItemLeft" align="right" valign="top"><a id="a05ffa435753f66228b0cdcebff72c909"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Series</b> (<a class="el" href="classSeries.html">Series</a> *pSeries)</td></tr>
+<tr class="separator:a05ffa435753f66228b0cdcebff72c909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f77ed23405664289a1575f0f9b7508"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a95f77ed23405664289a1575f0f9b7508">Series</a> (<a class="el" href="classCharacter.html">Character</a> *main_character)</td></tr>
+<tr class="memdesc:a95f77ed23405664289a1575f0f9b7508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with main character if it != nullptr you can add all book to series. If not - you can add only books where play this character.  <a href="#a95f77ed23405664289a1575f0f9b7508">More...</a><br /></td></tr>
+<tr class="separator:a95f77ed23405664289a1575f0f9b7508"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af257a82fdce33c433c0d6efc88bc25bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#af257a82fdce33c433c0d6efc88bc25bd">add_book</a> (<a class="el" href="classBook.html">Book</a> &amp;book)</td></tr>
 <tr class="memdesc:af257a82fdce33c433c0d6efc88bc25bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add book to series. If main 'main_character' == nullptr just add. Else if main character contains this book - add, if not contains - no add.  <a href="#af257a82fdce33c433c0d6efc88bc25bd">More...</a><br /></td></tr>
 <tr class="separator:af257a82fdce33c433c0d6efc88bc25bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40ab00b8d68f79648b114908725e993a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a40ab00b8d68f79648b114908725e993a">remove_book</a> (<a class="el" href="classBook.html">Book</a> &amp;book)</td></tr>
 <tr class="memdesc:a40ab00b8d68f79648b114908725e993a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove book from series.  <a href="#a40ab00b8d68f79648b114908725e993a">More...</a><br /></td></tr>
 <tr class="separator:a40ab00b8d68f79648b114908725e993a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66ae9b1aaa652c280d308866ec4f4670"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classBook.html">Book</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">getBooks</a> ()</td></tr>
-<tr class="memdesc:a66ae9b1aaa652c280d308866ec4f4670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Before method return vector, it sort all book by date.  <a href="#a66ae9b1aaa652c280d308866ec4f4670">More...</a><br /></td></tr>
-<tr class="separator:a66ae9b1aaa652c280d308866ec4f4670"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e27a36e3e5947ff67c75652827e04c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a4e27a36e3e5947ff67c75652827e04c9">operator==</a> (<a class="el" href="classSeries.html">Series</a> &amp;rhs)</td></tr>
-<tr class="separator:a4e27a36e3e5947ff67c75652827e04c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6318cc8bd276c3546a4227ef0baa39b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a6318cc8bd276c3546a4227ef0baa39b2">operator!=</a> (<a class="el" href="classSeries.html">Series</a> &amp;rhs)</td></tr>
-<tr class="separator:a6318cc8bd276c3546a4227ef0baa39b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97bf3c76083451a0f62a17139d66a20b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a97bf3c76083451a0f62a17139d66a20b">operator&lt;</a> (<a class="el" href="classSeries.html">Series</a> &amp;rhs)</td></tr>
-<tr class="separator:a97bf3c76083451a0f62a17139d66a20b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6963e8ba6fd18f0eaed72d40e876c137"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a6963e8ba6fd18f0eaed72d40e876c137">operator&gt;</a> (<a class="el" href="classSeries.html">Series</a> &amp;rhs)</td></tr>
-<tr class="separator:a6963e8ba6fd18f0eaed72d40e876c137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabac72a0af52ff68601b2345f1f3aedb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#aabac72a0af52ff68601b2345f1f3aedb">operator&lt;=</a> (<a class="el" href="classSeries.html">Series</a> &amp;rhs)</td></tr>
-<tr class="separator:aabac72a0af52ff68601b2345f1f3aedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5cf1f5c06db4878cb5a47485e9cafef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#ab5cf1f5c06db4878cb5a47485e9cafef">operator&gt;=</a> (<a class="el" href="classSeries.html">Series</a> &amp;rhs)</td></tr>
-<tr class="separator:ab5cf1f5c06db4878cb5a47485e9cafef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a4eb9bd9c7c79a7f783148c060bcf7c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classBook.html">Book</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a3a4eb9bd9c7c79a7f783148c060bcf7c">getBooks</a> ()</td></tr>
+<tr class="memdesc:a3a4eb9bd9c7c79a7f783148c060bcf7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Before method return vector, it sort all book by date.  <a href="#a3a4eb9bd9c7c79a7f783148c060bcf7c">More...</a><br /></td></tr>
+<tr class="separator:a3a4eb9bd9c7c79a7f783148c060bcf7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e6f70ed92494d095cde7d69e9bce8c7"><td class="memItemLeft" align="right" valign="top"><a id="a2e6f70ed92494d095cde7d69e9bce8c7"></a>
+<a class="el" href="classCharacter.html">Character</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getMainCharacter</b> ()</td></tr>
+<tr class="separator:a2e6f70ed92494d095cde7d69e9bce8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ca4313b7092ec06521ccde4bf7664e"><td class="memItemLeft" align="right" valign="top"><a id="a34ca4313b7092ec06521ccde4bf7664e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classSeries.html">Series</a> &amp;rhs) const</td></tr>
+<tr class="separator:a34ca4313b7092ec06521ccde4bf7664e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a178c28f0d79acdd8a14f2f60d465d2a2"><td class="memItemLeft" align="right" valign="top"><a id="a178c28f0d79acdd8a14f2f60d465d2a2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classSeries.html">Series</a> &amp;rhs) const</td></tr>
+<tr class="separator:a178c28f0d79acdd8a14f2f60d465d2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad78953c7c800686b379baa0c760fb869"><td class="memItemLeft" align="right" valign="top"><a id="ad78953c7c800686b379baa0c760fb869"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classSeries.html">Series</a> &amp;rhs) const</td></tr>
+<tr class="separator:ad78953c7c800686b379baa0c760fb869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafdac10b2a4409960fdc6e6aff5de721"><td class="memItemLeft" align="right" valign="top"><a id="aafdac10b2a4409960fdc6e6aff5de721"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classSeries.html">Series</a> &amp;rhs) const</td></tr>
+<tr class="separator:aafdac10b2a4409960fdc6e6aff5de721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fab0a0f50caa1add07378bb7d85bc8f"><td class="memItemLeft" align="right" valign="top"><a id="a4fab0a0f50caa1add07378bb7d85bc8f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classSeries.html">Series</a> &amp;rhs) const</td></tr>
+<tr class="separator:a4fab0a0f50caa1add07378bb7d85bc8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbc5574bd4fe68d0f0afe858845e0952"><td class="memItemLeft" align="right" valign="top"><a id="acbc5574bd4fe68d0f0afe858845e0952"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classSeries.html">Series</a> &amp;rhs) const</td></tr>
+<tr class="separator:acbc5574bd4fe68d0f0afe858845e0952"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a51629d8803e3dbf400b97d1041fb1a90"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#a51629d8803e3dbf400b97d1041fb1a90">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="classSeries.html">Series</a> &amp;series)</td></tr>
-<tr class="memdesc:a51629d8803e3dbf400b97d1041fb1a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override operator&lt;&lt; of ostream. Out look like:  <a href="#a51629d8803e3dbf400b97d1041fb1a90">More...</a><br /></td></tr>
-<tr class="separator:a51629d8803e3dbf400b97d1041fb1a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa73269120750d1810d687ecbfc8f5b2a"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeries.html#aa73269120750d1810d687ecbfc8f5b2a">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classSeries.html">Series</a> &amp;series)</td></tr>
+<tr class="memdesc:aa73269120750d1810d687ecbfc8f5b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override operator&lt;&lt; of ostream. Out look like:  <a href="#aa73269120750d1810d687ecbfc8f5b2a">More...</a><br /></td></tr>
+<tr class="separator:aa73269120750d1810d687ecbfc8f5b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class with one parameter vector which contains books from one series. </p>
 
 <p class="definition">Definition at line <a class="el" href="Series_8h_source.html#l00012">12</a> of file <a class="el" href="Series_8h_source.html">Series.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7f571e03e38313c1d3e3d1cfcf2e8cbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f571e03e38313c1d3e3d1cfcf2e8cbd">&#9670;&nbsp;</a></span>Series()</h2>
+<a id="a95f77ed23405664289a1575f0f9b7508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f77ed23405664289a1575f0f9b7508">&#9670;&nbsp;</a></span>Series()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -120,7 +132,7 @@ Friends</h2></td></tr>
           <td class="memname">Series::Series </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCharacter.html">Character</a> *&#160;</td>
-          <td class="paramname"><em>main_character</em> = <code>nullptr</code></td><td>)</td>
+          <td class="paramname"><em>main_character</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -134,8 +146,8 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00006">6</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                                        {</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    Series::main_character = main_character;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;}</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00015">15</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                        {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Series::main_character = main_character;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Series::books = <span class="keyword">new</span> std::vector&lt;Book&gt;;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -164,19 +176,18 @@ Friends</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 -&gt; if add, -1 -&gt; else. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00010">10</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                               {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span>(Series::main_character){</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; Series::main_character-&gt;<a class="code" href="classCharacter.html#a17151984f0f8267dd30f5e1ff6014932">getRoles</a>()-&gt;size(); i++){</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <span class="keywordflow">if</span>(Series::main_character-&gt;getRoles()-&gt;operator[](i).getBook() == book){</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                books.push_back(book);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                <span class="keywordflow">break</span>;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            }</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> -1;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    } <span class="keywordflow">else</span>{</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        books.push_back(book);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div><div class="ttc" id="classCharacter_html_a17151984f0f8267dd30f5e1ff6014932"><div class="ttname"><a href="classCharacter.html#a17151984f0f8267dd30f5e1ff6014932">Character::getRoles</a></div><div class="ttdeci">std::vector&lt; Role &gt; * getRoles() const</div><div class="ttdef"><b>Definition:</b> <a href="Character_8cpp_source.html#l00086">Character.cpp:86</a></div></div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00020">20</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                               {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">if</span>(Series::main_character != <span class="keyword">nullptr</span>){</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; Series::main_character-&gt;getRoles()-&gt;size(); i++){</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">if</span>(Series::main_character-&gt;getRoles()-&gt;operator[](i).getBook() == book){</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                books-&gt;push_back(book);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordflow">break</span>;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            }</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> -1;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    } <span class="keywordflow">else</span>{</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        books-&gt;push_back(book);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
-<a id="a66ae9b1aaa652c280d308866ec4f4670"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66ae9b1aaa652c280d308866ec4f4670">&#9670;&nbsp;</a></span>getBooks()</h2>
+<a id="a3a4eb9bd9c7c79a7f783148c060bcf7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a4eb9bd9c7c79a7f783148c060bcf7c">&#9670;&nbsp;</a></span>getBooks()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="classBook.html">Book</a> &gt; &amp; Series::getBooks </td>
+          <td class="memname">std::vector&lt; <a class="el" href="classBook.html">Book</a> &gt; * Series::getBooks </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -187,132 +198,11 @@ Friends</h2></td></tr>
 <p>Before method return vector, it sort all book by date. </p>
 <dl class="section return"><dt>Returns</dt><dd>Vector of books of series. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00036">36</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                  {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classVectorList.html#a63d9d7796f6977ff456b836ef7ae9fdb">VectorList&lt;Book&gt;::sort</a>(books, <a class="code" href="sorts_8h.html#a8375be233b7e91b2a810b2f3274f764a">quick_sort</a>, <a class="code" href="compare_8cpp.html#a3f96c80477d8594e955313c9e43e616e">compare_book_by_date</a>);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> books;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div><div class="ttc" id="sorts_8h_html_a8375be233b7e91b2a810b2f3274f764a"><div class="ttname"><a href="sorts_8h.html#a8375be233b7e91b2a810b2f3274f764a">quick_sort</a></div><div class="ttdeci">void quick_sort(T *arr, int size, int(*compare_func)(T &amp;obj1, T &amp;obj2)=nullptr)</div><div class="ttdoc">Function for sort array by quick sort. </div><div class="ttdef"><b>Definition:</b> <a href="sorts_8h_source.html#l00202">sorts.h:202</a></div></div>
-<div class="ttc" id="compare_8cpp_html_a3f96c80477d8594e955313c9e43e616e"><div class="ttname"><a href="compare_8cpp.html#a3f96c80477d8594e955313c9e43e616e">compare_book_by_date</a></div><div class="ttdeci">int compare_book_by_date(Book &amp;book1, Book &amp;book2)</div><div class="ttdoc">Function for compare Books by date. </div><div class="ttdef"><b>Definition:</b> <a href="compare_8cpp_source.html#l00008">compare.cpp:8</a></div></div>
-<div class="ttc" id="classVectorList_html_a63d9d7796f6977ff456b836ef7ae9fdb"><div class="ttname"><a href="classVectorList.html#a63d9d7796f6977ff456b836ef7ae9fdb">VectorList::sort</a></div><div class="ttdeci">void sort(void(*sort_func)(T *, int))</div><div class="ttdoc">Method for sort the VectorList. </div><div class="ttdef"><b>Definition:</b> <a href="VectorList_8h_source.html#l00137">VectorList.h:137</a></div></div>
+<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00050">50</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                  {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classVectorList.html#a5185636633abd001edc1749af88aeba3">VectorList&lt;Book&gt;::sort</a>(*books, <span class="keyword">new</span> <a class="code" href="classQuickSort.html">QuickSort&lt;Book&gt;</a>, <span class="keyword">new</span> <a class="code" href="classBookByDateComparator.html">BookByDateComparator</a>);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> books;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div><div class="ttc" id="classBookByDateComparator_html"><div class="ttname"><a href="classBookByDateComparator.html">BookByDateComparator</a></div><div class="ttdoc">Class implements the Comparator interface and compare Books by date. </div><div class="ttdef"><b>Definition:</b> <a href="BookByDateComparator_8h_source.html#l00011">BookByDateComparator.h:11</a></div></div>
+<div class="ttc" id="classVectorList_html_a5185636633abd001edc1749af88aeba3"><div class="ttname"><a href="classVectorList.html#a5185636633abd001edc1749af88aeba3">VectorList::sort</a></div><div class="ttdeci">void sort(Comparator&lt; T &gt; *comparator=nullptr)</div><div class="ttdoc">Method for sort the VectorList by Comparator. </div><div class="ttdef"><b>Definition:</b> <a href="VectorList_8h_source.html#l00127">VectorList.h:127</a></div></div>
+<div class="ttc" id="classQuickSort_html"><div class="ttname"><a href="classQuickSort.html">QuickSort</a></div><div class="ttdoc">Class implements Sort interface. It sort array by Quick sort. </div><div class="ttdef"><b>Definition:</b> <a href="QuickSort_8h_source.html#l00013">QuickSort.h:13</a></div></div>
 </div><!-- fragment -->
-</div>
-</div>
-<a id="a6318cc8bd276c3546a4227ef0baa39b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6318cc8bd276c3546a4227ef0baa39b2">&#9670;&nbsp;</a></span>operator!=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Series::operator!= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classSeries.html">Series</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00059">59</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                   {</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> !(rhs == *<span class="keyword">this</span>);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="a97bf3c76083451a0f62a17139d66a20b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97bf3c76083451a0f62a17139d66a20b">&#9670;&nbsp;</a></span>operator<()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Series::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classSeries.html">Series</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00063">63</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                  {</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> books &lt; rhs.books;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="aabac72a0af52ff68601b2345f1f3aedb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabac72a0af52ff68601b2345f1f3aedb">&#9670;&nbsp;</a></span>operator<=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Series::operator&lt;= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classSeries.html">Series</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00071">71</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                   {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> !(rhs &lt; *<span class="keyword">this</span>);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="a4e27a36e3e5947ff67c75652827e04c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e27a36e3e5947ff67c75652827e04c9">&#9670;&nbsp;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Series::operator== </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classSeries.html">Series</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00055">55</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                   {</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> books == rhs.<a class="code" href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">getBooks</a>();</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div><div class="ttc" id="classSeries_html_a66ae9b1aaa652c280d308866ec4f4670"><div class="ttname"><a href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">Series::getBooks</a></div><div class="ttdeci">std::vector&lt; Book &gt; &amp; getBooks()</div><div class="ttdoc">Before method return vector, it sort all book by date. </div><div class="ttdef"><b>Definition:</b> <a href="Series_8cpp_source.html#l00036">Series.cpp:36</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a6963e8ba6fd18f0eaed72d40e876c137"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6963e8ba6fd18f0eaed72d40e876c137">&#9670;&nbsp;</a></span>operator>()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Series::operator&gt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classSeries.html">Series</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00067">67</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                  {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> rhs &lt; *<span class="keyword">this</span>;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="ab5cf1f5c06db4878cb5a47485e9cafef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5cf1f5c06db4878cb5a47485e9cafef">&#9670;&nbsp;</a></span>operator>=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Series::operator&gt;= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classSeries.html">Series</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00075">75</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                   {</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &lt; rhs);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a40ab00b8d68f79648b114908725e993a"></a>
@@ -340,13 +230,13 @@ Friends</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 -&gt; if remove, -1 -&gt; if book not contains </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00025">25</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                  {</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; books.size(); i++) {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> (books[i] == book){</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            books.erase(books.begin() + i);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        };</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> -1;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00035">35</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                  {</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; books-&gt;size(); i++) {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">if</span> (books-&gt;operator[](i) == book){</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            books-&gt;erase(books-&gt;begin() + i);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> -1;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="a51629d8803e3dbf400b97d1041fb1a90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51629d8803e3dbf400b97d1041fb1a90">&#9670;&nbsp;</a></span>operator<<</h2>
+<a id="aa73269120750d1810d687ecbfc8f5b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa73269120750d1810d687ecbfc8f5b2a">&#9670;&nbsp;</a></span>operator<<</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,7 +253,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classSeries.html">Series</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classSeries.html">Series</a> &amp;&#160;</td>
           <td class="paramname"><em>series</em>&#160;</td>
         </tr>
         <tr>
@@ -381,10 +271,10 @@ Friends</h2></td></tr>
 
 <p>Override operator&lt;&lt; of ostream. Out look like: </p>
 <div class="fragment"><div class="line">{<span class="stringliteral">&#39;book 1&#39;</span>, <span class="stringliteral">&#39;book 2&#39;</span>, ...}</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00041">41</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                                       {</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classVectorList.html#a63d9d7796f6977ff456b836ef7ae9fdb">VectorList&lt;Book&gt;::sort</a>(series.<a class="code" href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">getBooks</a>(), <a class="code" href="sorts_8h.html#a8375be233b7e91b2a810b2f3274f764a">quick_sort</a>);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    os &lt;&lt; <span class="charliteral">&#39;{&#39;</span>;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (!series.<a class="code" href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">getBooks</a>().empty()) {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; series.<a class="code" href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">getBooks</a>().size() - 1; i++) {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            os &lt;&lt; series.<a class="code" href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">getBooks</a>()[i] &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        os &lt;&lt; series.<a class="code" href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">getBooks</a>().at(series.<a class="code" href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">getBooks</a>().size() - 1);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    os &lt;&lt; <span class="charliteral">&#39;}&#39;</span>;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> os;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div><div class="ttc" id="sorts_8h_html_a8375be233b7e91b2a810b2f3274f764a"><div class="ttname"><a href="sorts_8h.html#a8375be233b7e91b2a810b2f3274f764a">quick_sort</a></div><div class="ttdeci">void quick_sort(T *arr, int size, int(*compare_func)(T &amp;obj1, T &amp;obj2)=nullptr)</div><div class="ttdoc">Function for sort array by quick sort. </div><div class="ttdef"><b>Definition:</b> <a href="sorts_8h_source.html#l00202">sorts.h:202</a></div></div>
-<div class="ttc" id="classVectorList_html_a63d9d7796f6977ff456b836ef7ae9fdb"><div class="ttname"><a href="classVectorList.html#a63d9d7796f6977ff456b836ef7ae9fdb">VectorList::sort</a></div><div class="ttdeci">void sort(void(*sort_func)(T *, int))</div><div class="ttdoc">Method for sort the VectorList. </div><div class="ttdef"><b>Definition:</b> <a href="VectorList_8h_source.html#l00137">VectorList.h:137</a></div></div>
-<div class="ttc" id="classSeries_html_a66ae9b1aaa652c280d308866ec4f4670"><div class="ttname"><a href="classSeries.html#a66ae9b1aaa652c280d308866ec4f4670">Series::getBooks</a></div><div class="ttdeci">std::vector&lt; Book &gt; &amp; getBooks()</div><div class="ttdoc">Before method return vector, it sort all book by date. </div><div class="ttdef"><b>Definition:</b> <a href="Series_8cpp_source.html#l00036">Series.cpp:36</a></div></div>
+<p class="definition">Definition at line <a class="el" href="Series_8cpp_source.html#l00055">55</a> of file <a class="el" href="Series_8cpp_source.html">Series.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                                             {</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classVectorList.html#a5185636633abd001edc1749af88aeba3">VectorList&lt;Book&gt;::sort</a>(*series.books, <span class="keyword">new</span> <a class="code" href="classQuickSort.html">QuickSort&lt;Book&gt;</a>, <span class="keyword">new</span> <a class="code" href="classBookByDateComparator.html">BookByDateComparator</a>);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    os &lt;&lt; <span class="charliteral">&#39;{&#39;</span>;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (!series.books-&gt;empty()) {</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; series.books-&gt;size() - 1; i++) {</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            os &lt;&lt; series.books-&gt;operator[](i) &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        os &lt;&lt; series.books-&gt;at(series.books-&gt;size() - 1);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    os &lt;&lt; <span class="charliteral">&#39;}&#39;</span>;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> os;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div><div class="ttc" id="classBookByDateComparator_html"><div class="ttname"><a href="classBookByDateComparator.html">BookByDateComparator</a></div><div class="ttdoc">Class implements the Comparator interface and compare Books by date. </div><div class="ttdef"><b>Definition:</b> <a href="BookByDateComparator_8h_source.html#l00011">BookByDateComparator.h:11</a></div></div>
+<div class="ttc" id="classVectorList_html_a5185636633abd001edc1749af88aeba3"><div class="ttname"><a href="classVectorList.html#a5185636633abd001edc1749af88aeba3">VectorList::sort</a></div><div class="ttdeci">void sort(Comparator&lt; T &gt; *comparator=nullptr)</div><div class="ttdoc">Method for sort the VectorList by Comparator. </div><div class="ttdef"><b>Definition:</b> <a href="VectorList_8h_source.html#l00127">VectorList.h:127</a></div></div>
+<div class="ttc" id="classQuickSort_html"><div class="ttname"><a href="classQuickSort.html">QuickSort</a></div><div class="ttdoc">Class implements Sort interface. It sort array by Quick sort. </div><div class="ttdef"><b>Definition:</b> <a href="QuickSort_8h_source.html#l00013">QuickSort.h:13</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

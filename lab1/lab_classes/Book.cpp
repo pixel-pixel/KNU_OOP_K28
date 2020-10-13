@@ -3,11 +3,19 @@
 #include <utility>
 
 Book::Book() {
-    Book::name = "noname";
+    Book::name = "";
     Book::pages = 0;
     Book::annotation = "";
-    Book::date = "0000.00.00";
+    Book::date = "";
     Book::authors = new std::vector<std::string>;
+}
+
+Book::Book(Book *pBook) {
+    Book::name = pBook->name;
+    Book::pages = pBook->pages;
+    Book::annotation = pBook->annotation;
+    Book::date = pBook->date;
+    Book::authors = pBook->authors;
 }
 
 Book::Book(std::string name,
@@ -33,7 +41,8 @@ Book::Book(std::string name,
         annotation(std::move(annotation)),
         date(std::move(date)) {
     Book::authors = new std::vector<std::string>;
-    Book::authors->push_back(author1);
+    if(!author1.empty())
+        Book::authors->push_back(author1);
     if (!author2.empty())
         Book::authors->push_back(author2);
     if (!author3.empty())
@@ -81,13 +90,37 @@ void Book::setAuthors(std::vector<std::string> *authors) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Book &book) {
-    os << '(' << book.name << ", " << book.pages << ", " << book.annotation << ", "
-       << book.date << ", " << '{';
+    os << '(';
+    if(book.name.empty())
+        os << "no name, ";
+    else
+        os << book.name << ", ";
 
-    for (int i = 0; i < book.authors->size(); i++) {
-        os << book.authors->operator[](i) << ' ';
+    if(book.pages <= 0)
+        os << "no pages, ";
+    else
+        os << book.pages << ", ";
+
+    if(book.annotation.empty())
+        os << "no annotation, ";
+    else
+        os << book.annotation << ", ";
+
+    if(book.date.empty())
+        os << "no date, ";
+    else
+        os << book.date << ", ";
+
+    if(book.authors->size() != 0){
+        os << '{';
+        for (int i = 0; i < book.authors->size() - 1; i++) {
+            os << book.authors->operator[](i) << ' ';
+        }
+        os << book.authors->operator[](book.authors->size() - 1) << '}';
+    } else{
+        os << "no authors";
     }
-    os << '}' << ')';
+    os << ')';
     return os;
 }
 
@@ -96,7 +129,7 @@ bool Book::operator==(const Book &rhs) const {
            pages == rhs.pages &&
            annotation == rhs.annotation &&
            date == rhs.date &&
-           authors == rhs.authors;
+           *authors == *rhs.authors;
 }
 
 bool Book::operator!=(const Book &rhs) const {

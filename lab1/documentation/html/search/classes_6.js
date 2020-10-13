@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vectorlist',['VectorList',['../classVectorList.html',1,'']]]
+  ['quicksort',['QuickSort',['../classQuickSort.html',1,'']]]
 ];
