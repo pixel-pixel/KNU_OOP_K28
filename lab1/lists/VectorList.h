@@ -122,11 +122,17 @@ public:
     * If the pointer on Comparator is not specified or equals 'nullptr', the VectorList will be sorted by object`s relational operators.
     * Method pass array from std::vector to Sort`s method and sort it.
     * The Sort`s method is 'QuickSort'.
-    * @param   comparator   The point on Comparator which compare two objects.
+    * @param   comparator   The point on Comparator which compare two objects. DefaultComparator if not init.
     */
-    void sort(Comparator<T> *comparator = nullptr) {
+    void sort(Comparator<T> *comparator = nullptr) override {
         QuickSort<T> quickSort;
-        quickSort.sort(&vect[0], vect.size(), comparator);
+
+        if(comparator) {
+            quickSort.sort(&vect[0], vect.size(), comparator);
+        } else {
+            DefaultComparator<T> defaultComparator;
+            quickSort.sort(&vect[0], vect.size(), &defaultComparator);
+        }
     }
 
     /**
@@ -136,10 +142,15 @@ public:
      * If the pointer on Comparator is not specified or equals 'nullptr', the VectorList will be sorted by object`s relational operators.
      * Method pass array from std::vector to Sort`s method and sort it.
      * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort VectorList by certain type.
-     * @param   comparator  The point on Comparator which compare two objects.
+     * @param   comparator  The point on Comparator which compare two objects. DefaultComparator if not init.
      */
     void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) override {
-        sort->sort(&vect[0], vect.size(), comparator);
+        if(comparator){
+            sort->sort(&vect[0], vect.size(), comparator);
+        } else {
+            DefaultComparator<T> defaultComparator;
+            sort->sort(&vect[0], vect.size(), &defaultComparator);
+        }
     }
 
     /**
@@ -152,12 +163,24 @@ public:
      * @param   compare_func    The function which takes 2 elements and return: 1 -> if first is bigger, -1 -> if first is less, 0 -> else.
      */
 
-    static void sort(std::vector<T> global_vector, Sort<T> *sort = nullptr, Comparator<T> *comparator = nullptr) {
-        if (sort)
-            sort->sort(&global_vector[0], global_vector.size(), comparator);
+    static void sort(std::vector<T> global_vector, Sort<T> *sort, Comparator<T> *comparator = nullptr) {
+        if (sort) {
+            if (comparator) {
+                sort->sort(&global_vector[0], global_vector.size(), comparator);
+            }else{
+                DefaultComparator<T> defaultComparator;
+                sort->sort(&global_vector[0], global_vector.size(), &defaultComparator);
+            }
+        }
         else {
             QuickSort<T> quickSort;
-            quickSort.sort(&global_vector[0], global_vector.size(), comparator);
+
+            if (comparator) {
+                quickSort.sort(&global_vector[0], global_vector.size(), comparator);
+            }else{
+                DefaultComparator<T> defaultComparator;
+                quickSort.sort(&global_vector[0], global_vector.size(), &defaultComparator);
+            }
         }
     }
 

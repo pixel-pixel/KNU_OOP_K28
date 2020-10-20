@@ -23,18 +23,20 @@ private:
     std::vector<std::string> *authors;  ///< Pointer on vector with authors.
 
 public:
+    /**
+     * @brief
+     * Constructor without parameters
+     */
     Book();
 
+    /**
+     * Constructor which copy all from pointer on book to this book
+     */
     Book(Book *pBook);
 
     /**
      * @brief
      * Constructor with original to class`s members
-     * @param   name        Name of book.
-     * @param   pages       Count of pages in book.
-     * @param   annotation  Short book`s annotation.
-     * @param   date        Date of book`s release (yyyy.mm.dd).
-     * @param   authors     Pointer on vector with authors.
      */
     Book(std::string name,
          int pages,
@@ -45,12 +47,6 @@ public:
     /**
      * @brief
      * Simple constructor for compact create book.
-     * @param   name        Name of book.
-     * @param   pages       Count of pages in book.
-     * @param   annotation  Short book`s annotation.
-     * @param   author1     First author which will be added to 'authors'.
-     * @param   author2     Second author which will be added to 'authors'.
-     * @param   author3     Third author which will be added to 'authors'.
      */
     Book(std::string name,
          int pages = 0,
@@ -60,8 +56,18 @@ public:
          const std::string &author2 = "",
          const std::string &author3 = "");
 
+    /**
+     * @brief
+     * Name getter.
+     * @return  Name.
+     */
     const std::string &getName() const;
 
+    /**
+     * @brief
+     * Name setter.
+     * @param   name    New name.
+     */
     void setName(const std::string &name);
 
     int getPages() const;

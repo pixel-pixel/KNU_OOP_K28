@@ -154,11 +154,17 @@ public:
      * @details
      * If the pointer on Comparator is not specified or equals 'nullptr', the ArrayList will be sorted by object`s relational operators.
      * Sort method is 'QuickSort'.
-     * @param   comparator   The point on Comparator which compare two objects.
+     * @param   comparator   The point on Comparator which compare two objects. DefaultComparator if not init.
      */
-    void sort(Comparator<T> *comparator = nullptr) {
+    void sort(Comparator<T> *comparator = nullptr) override {
         QuickSort<T> quickSort;
-        quickSort.sort(arr, size, comparator);
+
+        if(comparator){
+            quickSort.sort(arr, size, comparator);
+        }else{
+            DefaultComparator<T> defaultComparator;
+            quickSort.sort(arr, size, &defaultComparator);
+        }
     }
 
     /**
@@ -167,10 +173,15 @@ public:
      * @details
      * If the pointer on Comparator is not specified or equals 'nullptr', the ArrayList will be sorted by object`s relational operators.
      * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort ArrayList by certain type.
-     * @param   comparator  The point on Comparator which compare two objects.
+     * @param   comparator  The point on Comparator which compare two objects. DefaultComparator if not init.
      */
     void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) override {
-        sort->sort(arr, size, comparator);
+        if(comparator){
+            sort->sort(arr, size, comparator);
+        }else{
+            DefaultComparator<T> defaultComparator;
+            sort->sort(arr, size, &defaultComparator);
+        }
     }
 
     /**
@@ -183,8 +194,25 @@ public:
      * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort ArrayList by certain type.
      * @param   comparator  The point on Comparator which compare two objects.
      */
-    static void sort(T *global_arr, int global_size, Sort<T> *sort, Comparator<T> *comparator = nullptr) {
-        sort->sort(global_arr, global_size, comparator);
+    static void sort(T *global_arr, int global_size, Sort<T> *sort = nullptr, Comparator<T> *comparator = nullptr) {
+        if(sort) {
+            if(comparator) {
+                sort->sort(global_arr, global_size, comparator);
+            } else {
+                DefaultComparator<T> defaultComparator;
+                sort->sort(global_arr, global_size, &defaultComparator);
+            }
+        } else {
+            QuickSort<T> quickSort;
+
+            if(comparator) {
+                quickSort.sort(global_arr, global_size, comparator);
+            } else {
+                DefaultComparator<T> defaultComparator;
+                quickSort.sort(global_arr, global_size, &defaultComparator);
+            }
+        }
+
     }
 
     /**

@@ -2,6 +2,7 @@
 #define KNU_OOP_K28_SORT_H
 
 #include "../comparators/Comparator.h"
+#include "../comparators/DefaultComparator.h"
 
 /**
  * @brief
@@ -16,9 +17,9 @@ public:
      * Virtual method for sort arrays by Comparator or relational operators(if point on Comparator == nullptr);
      * @param   arr         Array which we want to sort.
      * @param   size        Size of our array.
-     * @param   comparator  Functional interface for compare 2 objects.
+     * @param   comparator  Functional interface for compare 2 objects. DefaultComparator if not init.
      */
-    virtual void sort(T* arr, int size, Comparator<T> *comparator = nullptr) = 0;
+    virtual void sort(T* arr, int size, Comparator<T> *comparator = new DefaultComparator<T>) = 0;
 };
 
 

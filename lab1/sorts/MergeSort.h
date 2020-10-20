@@ -8,8 +8,8 @@
  * Class implements Sort interface. It sort array by Marge sort.
  * @tparam  T   Class or primitive with override relational operators or have it own Comparator.
  */
-template <class T>
-class MergeSort : public Sort<T>{
+template<class T>
+class MergeSort : public Sort<T> {
 private:
     void merge(T *arr, int l, int m, int r, Comparator<T> *comparator) {
         int i, j, k;
@@ -27,28 +27,15 @@ private:
         j = 0;
         k = l;
 
-        if (comparator == nullptr) {
-            while (i < n1 && j < n2) {
-                if (L[i] <= R[j]) {
-                    arr[k] = L[i];
-                    i++;
-                } else {
-                    arr[k] = R[j];
-                    j++;
-                }
-                k++;
+        while (i < n1 && j < n2) {
+            if (comparator->compare(L[i], R[j]) <= 0) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
             }
-        } else {
-            while (i < n1 && j < n2) {
-                if (comparator->compare(L[i], R[j]) <= 0) {
-                    arr[k] = L[i];
-                    i++;
-                } else {
-                    arr[k] = R[j];
-                    j++;
-                }
-                k++;
-            }
+            k++;
         }
 
 
@@ -82,9 +69,9 @@ public:
      * Method for sort arrays by Merge sort by Comparator or relational operators(if point on Comparator == nullptr);
      * @param   arr         Array which we want to sort.
      * @param   size        Size of our array.
-     * @param   comparator  Functional interface for compare 2 objects.
+     * @param   comparator  Functional interface for compare 2 objects. DefaultComparator if not init.
      */
-    void sort(T *arr, int size, Comparator<T> *comparator) override {
+    void sort(T *arr, int size, Comparator<T> *comparator = new DefaultComparator<T>) override {
         sort_temp(arr, 0, size - 1, comparator);
     }
 };

@@ -15,34 +15,32 @@
 #include "comparators/ReverseComparator.h"
 #include "list_generators/ListGenerator.h"
 
-#include "lab_classes/Book.h"
-#include "lab_classes/Character.h"
-#include "lab_classes/Series.h"
+#include "library/Book.h"
+#include "library/Character.h"
+#include "library/Series.h"
 
 TEST_CASE ("Integer Lists") {
-#define TYPE int
-
-    List<TYPE> *list;
+    List<int> *list;
     std::stringstream ss;
 
-    TYPE zero = 0;
-    TYPE one = 1;
-    TYPE two = 2;
-    TYPE three = 3;
-    TYPE four = 4;
-    TYPE five = 5;
-    TYPE six = 6;
-    TYPE seven = 7;
-    TYPE eight = 8;
+    int zero = 0;
+    int one = 1;
+    int two = 2;
+    int three = 3;
+    int four = 4;
+    int five = 5;
+    int six = 6;
+    int seven = 7;
+    int eight = 8;
 
             SUBCASE("ArrayList") {
-        list = new ArrayList<TYPE>;
+        list = new ArrayList<int>;
     }
             SUBCASE("LinkedList") {
-        list = new LinkedList<TYPE>;
+        list = new LinkedList<int>;
     }
             SUBCASE("VectorList") {
-        list = new VectorList<TYPE>;
+        list = new VectorList<int>;
     }
 
             CHECK(list->get_size() == 0);
@@ -104,35 +102,35 @@ TEST_CASE ("Integer Lists") {
     list->sort();
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new ReverseComparator<TYPE>);
+    list->sort(new ReverseComparator<int>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Bubble sort
-    list->sort(new BubbleSort<TYPE>);
+    list->sort(new BubbleSort<int>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new BubbleSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new BubbleSort<int>, new ReverseComparator<int>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Insertion sort
-    list->sort(new InsertionSort<TYPE>);
+    list->sort(new InsertionSort<int>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new InsertionSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new InsertionSort<int>, new ReverseComparator<int>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Merge sort
-    list->sort(new MergeSort<TYPE>);
+    list->sort(new MergeSort<int>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new MergeSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new MergeSort<int>, new ReverseComparator<int>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Quick sort
-    list->sort(new QuickSort<TYPE>);
+    list->sort(new QuickSort<int>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new QuickSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new QuickSort<int>, new ReverseComparator<int>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
     //--------------------------------------------------------------------------
 
@@ -145,29 +143,27 @@ TEST_CASE ("Integer Lists") {
 }
 
 TEST_CASE ("Double Lists") {
-#define TYPE double
-
-    List<TYPE> *list;
+    List<double> *list;
     std::stringstream ss;
 
-    TYPE zero = 0.1;
-    TYPE one = 1.1;
-    TYPE two = 2.2;
-    TYPE three = 3.3;
-    TYPE four = 4.4;
-    TYPE five = 5.5;
-    TYPE six = 6.6;
-    TYPE seven = 7.7;
-    TYPE eight = 8.8;
+    double zero = 0.1;
+    double one = 1.1;
+    double two = 2.2;
+    double three = 3.3;
+    double four = 4.4;
+    double five = 5.5;
+    double six = 6.6;
+    double seven = 7.7;
+    double eight = 8.8;
 
             SUBCASE("ArrayList") {
-        list = new ArrayList<TYPE>;
+        list = new ArrayList<double>;
     }
             SUBCASE("LinkedList") {
-        list = new LinkedList<TYPE>;
+        list = new LinkedList<double>;
     }
             SUBCASE("VectorList") {
-        list = new VectorList<TYPE>;
+        list = new VectorList<double>;
     }
 
             CHECK(list->get_size() == 0);
@@ -229,35 +225,35 @@ TEST_CASE ("Double Lists") {
     list->sort();
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new ReverseComparator<TYPE>);
+    list->sort(new ReverseComparator<double>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Bubble sort
-    list->sort(new BubbleSort<TYPE>);
+    list->sort(new BubbleSort<double>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new BubbleSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new BubbleSort<double>, new ReverseComparator<double>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Insertion sort
-    list->sort(new InsertionSort<TYPE>);
+    list->sort(new InsertionSort<double>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new InsertionSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new InsertionSort<double>, new ReverseComparator<double>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Merge sort
-    list->sort(new MergeSort<TYPE>);
+    list->sort(new MergeSort<double>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new MergeSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new MergeSort<double>, new ReverseComparator<double>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Quick sort
-    list->sort(new QuickSort<TYPE>);
+    list->sort(new QuickSort<double>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new QuickSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new QuickSort<double>, new ReverseComparator<double>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
     //--------------------------------------------------------------------------
 
@@ -270,29 +266,27 @@ TEST_CASE ("Double Lists") {
 }
 
 TEST_CASE ("String lists") {
-#define TYPE std::string
-
-    List<TYPE> *list;
+    List<std::string> *list;
     std::stringstream ss;
 
-    TYPE zero = "0";
-    TYPE one = "a";
-    TYPE two = "b";
-    TYPE three = "c";
-    TYPE four = "d";
-    TYPE five = "e";
-    TYPE six = "f";
-    TYPE seven = "g";
-    TYPE eight = "h";
+    std::string zero = "0";
+    std::string one = "a";
+    std::string two = "b";
+    std::string three = "c";
+    std::string four = "d";
+    std::string five = "e";
+    std::string six = "f";
+    std::string seven = "g";
+    std::string eight = "h";
 
             SUBCASE("ArrayList") {
-        list = new ArrayList<TYPE>;
+        list = new ArrayList<std::string>;
     }
             SUBCASE("LinkedList") {
-        list = new LinkedList<TYPE>;
+        list = new LinkedList<std::string>;
     }
             SUBCASE("VectorList") {
-        list = new VectorList<TYPE>;
+        list = new VectorList<std::string>;
     }
 
             CHECK(list->get_size() == 0);
@@ -354,35 +348,35 @@ TEST_CASE ("String lists") {
     list->sort();
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new ReverseComparator<TYPE>);
+    list->sort(new ReverseComparator<std::string>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Bubble sort
-    list->sort(new BubbleSort<TYPE>);
+    list->sort(new BubbleSort<std::string>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new BubbleSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new BubbleSort<std::string>, new ReverseComparator<std::string>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Insertion sort
-    list->sort(new InsertionSort<TYPE>);
+    list->sort(new InsertionSort<std::string>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new InsertionSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new InsertionSort<std::string>, new ReverseComparator<std::string>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Merge sort
-    list->sort(new MergeSort<TYPE>);
+    list->sort(new MergeSort<std::string>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new MergeSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new MergeSort<std::string>, new ReverseComparator<std::string>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Quick sort
-    list->sort(new QuickSort<TYPE>);
+    list->sort(new QuickSort<std::string>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new QuickSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new QuickSort<std::string>, new ReverseComparator<std::string>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
     //--------------------------------------------------------------------------
 
@@ -395,29 +389,27 @@ TEST_CASE ("String lists") {
 }
 
 TEST_CASE ("Vector Lists") {
-#define TYPE std::vector<int>
-
-    List<TYPE> *list;
+    List<std::vector<int>> *list;
     std::stringstream ss;
 
-    TYPE zero = {};
-    TYPE one = {1};
-    TYPE two = {2, 2};
-    TYPE three = {3, 3, 3};
-    TYPE four = {4, 4, 4, 4};
-    TYPE five = {5, 5, 5, 5, 5};
-    TYPE six = {6, 6, 6, 6, 6, 6};
-    TYPE seven = {7, 7, 7, 7, 7, 7, 7};
-    TYPE eight = {8, 8, 8, 8, 8, 8, 8, 8};
+    std::vector<int> zero = {};
+    std::vector<int> one = {1};
+    std::vector<int> two = {2, 2};
+    std::vector<int> three = {3, 3, 3};
+    std::vector<int> four = {4, 4, 4, 4};
+    std::vector<int> five = {5, 5, 5, 5, 5};
+    std::vector<int> six = {6, 6, 6, 6, 6, 6};
+    std::vector<int> seven = {7, 7, 7, 7, 7, 7, 7};
+    std::vector<int> eight = {8, 8, 8, 8, 8, 8, 8, 8};
 
             SUBCASE("ArrayList") {
-        list = new ArrayList<TYPE>;
+        list = new ArrayList<std::vector<int>>;
     }
             SUBCASE("LinkedList") {
-        list = new LinkedList<TYPE>;
+        list = new LinkedList<std::vector<int>>;
     }
             SUBCASE("VectorList") {
-        list = new VectorList<TYPE>;
+        list = new VectorList<std::vector<int>>;
     }
 
             CHECK(list->get_size() == 0);
@@ -479,35 +471,35 @@ TEST_CASE ("Vector Lists") {
     list->sort();
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new ReverseComparator<TYPE>);
+    list->sort(new ReverseComparator<std::vector<int>>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Bubble sort
-    list->sort(new BubbleSort<TYPE>);
+    list->sort(new BubbleSort<std::vector<int>>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new BubbleSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new BubbleSort<std::vector<int>>, new ReverseComparator<std::vector<int>>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Insertion sort
-    list->sort(new InsertionSort<TYPE>);
+    list->sort(new InsertionSort<std::vector<int>>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new InsertionSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new InsertionSort<std::vector<int>>, new ReverseComparator<std::vector<int>>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Merge sort
-    list->sort(new MergeSort<TYPE>);
+    list->sort(new MergeSort<std::vector<int>>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new MergeSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new MergeSort<std::vector<int>>, new ReverseComparator<std::vector<int>>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Quick sort
-    list->sort(new QuickSort<TYPE>);
+    list->sort(new QuickSort<std::vector<int>>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new QuickSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new QuickSort<std::vector<int>>, new ReverseComparator<std::vector<int>>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
     //--------------------------------------------------------------------------
 
@@ -520,29 +512,27 @@ TEST_CASE ("Vector Lists") {
 }
 
 TEST_CASE ("Book lists") {
-#define TYPE Book
-    
-    List<TYPE> *list;
+    List<Book> *list;
     std::stringstream ss;
 
-    TYPE zero("0");
-    TYPE one("1one", 111, "The first");
-    TYPE two("2two", 222);
-    TYPE three("3Three", 333, "three3", "1992.12.12");
-    TYPE four("4four", 444, "four4", "0444.04.04", "4our");
-    TYPE five("5fiVE", 5);
-    TYPE six("6SIX", 666, "sssix", "2006.06.16");
-    TYPE seven("7Seven", 77);
-    TYPE eight("8Eight", 888);
+    Book zero("0");
+    Book one("1one", 111, "The first");
+    Book two("2two", 222);
+    Book three("3Three", 333, "three3", "1992.12.12");
+    Book four("4four", 444, "four4", "0444.04.04", "4our");
+    Book five("5fiVE", 5);
+    Book six("6SIX", 666, "sssix", "2006.06.16");
+    Book seven("7Seven", 77);
+    Book eight("8Eight", 888);
 
             SUBCASE("ArrayList") {
-        list = new ArrayList<TYPE>;
+        list = new ArrayList<Book>;
     }
             SUBCASE("LinkedList") {
-        list = new LinkedList<TYPE>;
+        list = new LinkedList<Book>;
     }
             SUBCASE("VectorList") {
-        list = new VectorList<TYPE>;
+        list = new VectorList<Book>;
     }
 
             CHECK(list->get_size() == 0);
@@ -604,35 +594,35 @@ TEST_CASE ("Book lists") {
     list->sort();
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new ReverseComparator<TYPE>);
+    list->sort(new ReverseComparator<Book>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Bubble sort
-    list->sort(new BubbleSort<TYPE>);
+    list->sort(new BubbleSort<Book>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new BubbleSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new BubbleSort<Book>, new ReverseComparator<Book>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Insertion sort
-    list->sort(new InsertionSort<TYPE>);
+    list->sort(new InsertionSort<Book>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new InsertionSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new InsertionSort<Book>, new ReverseComparator<Book>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Merge sort
-    list->sort(new MergeSort<TYPE>);
+    list->sort(new MergeSort<Book>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new MergeSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new MergeSort<Book>, new ReverseComparator<Book>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Quick sort
-    list->sort(new QuickSort<TYPE>);
+    list->sort(new QuickSort<Book>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new QuickSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new QuickSort<Book>, new ReverseComparator<Book>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
     //--------------------------------------------------------------------------
 
@@ -645,29 +635,27 @@ TEST_CASE ("Book lists") {
 }
 
 TEST_CASE ("Character lists") {
-#define TYPE Character
-
-    List<TYPE> *list;
+    List<Character> *list;
     std::stringstream ss;
 
-    TYPE zero("0Zero");
-    TYPE one("1One");
-    TYPE two("2Two");
-    TYPE three("3Three");
-    TYPE four("4Four");
-    TYPE five("5Five");
-    TYPE six("6Six");
-    TYPE seven("7Seven");
-    TYPE eight("8Eight");
+    Character zero("0Zero");
+    Character one("1One");
+    Character two("2Two");
+    Character three("3Three");
+    Character four("4Four");
+    Character five("5Five");
+    Character six("6Six");
+    Character seven("7Seven");
+    Character eight("8Eight");
 
             SUBCASE("ArrayList") {
-        list = new ArrayList<TYPE>;
+        list = new ArrayList<Character>;
     }
             SUBCASE("LinkedList") {
-        list = new LinkedList<TYPE>;
+        list = new LinkedList<Character>;
     }
             SUBCASE("VectorList") {
-        list = new VectorList<TYPE>;
+        list = new VectorList<Character>;
     }
 
             CHECK(list->get_size() == 0);
@@ -729,35 +717,35 @@ TEST_CASE ("Character lists") {
     list->sort();
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new ReverseComparator<TYPE>);
+    list->sort(new ReverseComparator<Character>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Bubble sort
-    list->sort(new BubbleSort<TYPE>);
+    list->sort(new BubbleSort<Character>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new BubbleSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new BubbleSort<Character>, new ReverseComparator<Character>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Insertion sort
-    list->sort(new InsertionSort<TYPE>);
+    list->sort(new InsertionSort<Character>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new InsertionSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new InsertionSort<Character>, new ReverseComparator<Character>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Merge sort
-    list->sort(new MergeSort<TYPE>);
+    list->sort(new MergeSort<Character>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new MergeSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new MergeSort<Character>, new ReverseComparator<Character>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Quick sort
-    list->sort(new QuickSort<TYPE>);
+    list->sort(new QuickSort<Character>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new QuickSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new QuickSort<Character>, new ReverseComparator<Character>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
     //--------------------------------------------------------------------------
 
@@ -769,9 +757,7 @@ TEST_CASE ("Character lists") {
 }
 
 TEST_CASE ("Series lists") {
-#define TYPE Series
-
-    List<TYPE> *list;
+    List<Series> *list;
     std::stringstream ss;
 
     Book bookZero("0");
@@ -784,35 +770,35 @@ TEST_CASE ("Series lists") {
     Book bookSeven("7Seven", 77);
     Book bookEight("8Eight", 888);
 
-    TYPE zero;
-    TYPE one;
+    Series zero;
+    Series one;
     one.add_book(bookOne);
-    TYPE two;
+    Series two;
     two.add_book(bookOne);
     two.add_book(bookTwo);
-    TYPE three;
+    Series three;
     three.add_book(bookOne);
     three.add_book(bookTwo);
     three.add_book(bookThree);
-    TYPE four;
+    Series four;
     four.add_book(bookOne);
     four.add_book(bookTwo);
     four.add_book(bookThree);
     four.add_book(bookFour);
-    TYPE five;
+    Series five;
     five.add_book(bookOne);
     five.add_book(bookTwo);
     five.add_book(bookThree);
     five.add_book(bookFour);
     five.add_book(bookFive);
-    TYPE six;
+    Series six;
     six.add_book(bookOne);
     six.add_book(bookTwo);
     six.add_book(bookThree);
     six.add_book(bookFour);
     six.add_book(bookFive);
     six.add_book(bookSix);
-    TYPE seven;
+    Series seven;
     seven.add_book(bookOne);
     seven.add_book(bookTwo);
     seven.add_book(bookThree);
@@ -820,7 +806,7 @@ TEST_CASE ("Series lists") {
     seven.add_book(bookFive);
     seven.add_book(bookSix);
     seven.add_book(bookSeven);
-    TYPE eight;
+    Series eight;
     eight.add_book(bookOne);
     eight.add_book(bookTwo);
     eight.add_book(bookThree);
@@ -831,13 +817,13 @@ TEST_CASE ("Series lists") {
     eight.add_book(bookEight);
 
             SUBCASE("ArrayList") {
-        list = new ArrayList<TYPE>;
+        list = new ArrayList<Series>;
     }
             SUBCASE("LinkedList") {
-        list = new LinkedList<TYPE>;
+        list = new LinkedList<Series>;
     }
             SUBCASE("VectorList") {
-        list = new VectorList<TYPE>;
+        list = new VectorList<Series>;
     }
 
             CHECK(list->get_size() == 0);
@@ -892,35 +878,35 @@ TEST_CASE ("Series lists") {
     list->sort();
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new ReverseComparator<TYPE>);
+    list->sort(new ReverseComparator<Series>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Bubble sort
-    list->sort(new BubbleSort<TYPE>);
+    list->sort(new BubbleSort<Series>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new BubbleSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new BubbleSort<Series>, new ReverseComparator<Series>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Insertion sort
-    list->sort(new InsertionSort<TYPE>);
+    list->sort(new InsertionSort<Series>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new InsertionSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new InsertionSort<Series>, new ReverseComparator<Series>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Merge sort
-    list->sort(new MergeSort<TYPE>);
+    list->sort(new MergeSort<Series>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new MergeSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new MergeSort<Series>, new ReverseComparator<Series>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
 
     //Quick sort
-    list->sort(new QuickSort<TYPE>);
+    list->sort(new QuickSort<Series>);
             CHECK( list->to_string() == to_list_string(&one, &two, &three, &four, &five));
 
-    list->sort(new QuickSort<TYPE>, new ReverseComparator<TYPE>);
+    list->sort(new QuickSort<Series>, new ReverseComparator<Series>);
             CHECK( list->to_string() == to_list_string(&five, &four, &three, &two, &one));
     //--------------------------------------------------------------------------
 

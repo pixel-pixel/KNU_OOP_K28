@@ -78,7 +78,7 @@ public:
      * If the pointer on Comparator is not specified or equals 'nullptr', the list must be sorted by object`s relational operators.
      * Method must create array of elements in the list for pass to Sort`s method.
      * Then the method must clear the list and add all elements from array to list.
-     * @param   comparator   The point on Comparator which compare two objects.
+     * @param   comparator   The point on Comparator which compare two objects. DefaultComparator if not init.
      */
     virtual void sort(Comparator<T> *comparator = nullptr) = 0;
 
@@ -90,7 +90,7 @@ public:
      * Method must create array of elements in the list for pass to Sort`s method.
      * Then the method must clear the list and add all elements from array to list.
      * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort list by certain type.
-     * @param   comparator  The point on Comparator which compare two objects.
+     * @param   comparator  The point on Comparator which compare two objects. DefaultComparator if not init.
      */
     virtual void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) = 0;
 

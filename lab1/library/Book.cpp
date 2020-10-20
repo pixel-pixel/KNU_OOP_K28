@@ -2,6 +2,10 @@
 
 #include <utility>
 
+/**
+  * @brief
+  * Constructor without parameters
+  */
 Book::Book() {
     Book::name = "";
     Book::pages = 0;
@@ -10,6 +14,10 @@ Book::Book() {
     Book::authors = new std::vector<std::string>;
 }
 
+/**
+ * Constructor which copy all from pointer on book to this book
+ * @param   pBook   Pointer on book
+ */
 Book::Book(Book *pBook) {
     Book::name = pBook->name;
     Book::pages = pBook->pages;
@@ -18,6 +26,15 @@ Book::Book(Book *pBook) {
     Book::authors = pBook->authors;
 }
 
+/**
+    * @brief
+    * Constructor with original to class`s members
+    * @param   name        Name of book.
+    * @param   pages       Count of pages in book.
+    * @param   annotation  Short book`s annotation.
+    * @param   date        Date of book`s release (yyyy.mm.dd).
+    * @param   authors     Pointer on vector with authors.
+    */
 Book::Book(std::string name,
            int pages,
            std::string annotation,
@@ -29,6 +46,16 @@ Book::Book(std::string name,
         date(std::move(date)),
         authors(authors) {}
 
+/**
+* @brief
+* Simple constructor for compact create book.
+* @param   name        Name of book.
+* @param   pages       Count of pages in book.
+* @param   annotation  Short book`s annotation.
+* @param   author1     First author which will be added to 'authors'.
+* @param   author2     Second author which will be added to 'authors'.
+* @param   author3     Third author which will be added to 'authors'.
+*/
 Book::Book(std::string name,
            int pages,
            std::string annotation,
@@ -41,7 +68,7 @@ Book::Book(std::string name,
         annotation(std::move(annotation)),
         date(std::move(date)) {
     Book::authors = new std::vector<std::string>;
-    if(!author1.empty())
+    if (!author1.empty())
         Book::authors->push_back(author1);
     if (!author2.empty())
         Book::authors->push_back(author2);
@@ -91,33 +118,33 @@ void Book::setAuthors(std::vector<std::string> *authors) {
 
 std::ostream &operator<<(std::ostream &os, const Book &book) {
     os << '(';
-    if(book.name.empty())
+    if (book.name.empty())
         os << "no name, ";
     else
         os << book.name << ", ";
 
-    if(book.pages <= 0)
+    if (book.pages <= 0)
         os << "no pages, ";
     else
         os << book.pages << ", ";
 
-    if(book.annotation.empty())
+    if (book.annotation.empty())
         os << "no annotation, ";
     else
         os << book.annotation << ", ";
 
-    if(book.date.empty())
+    if (book.date.empty())
         os << "no date, ";
     else
         os << book.date << ", ";
 
-    if(book.authors->size() != 0){
+    if (book.authors->size() != 0) {
         os << '{';
         for (int i = 0; i < book.authors->size() - 1; i++) {
             os << book.authors->operator[](i) << ' ';
         }
         os << book.authors->operator[](book.authors->size() - 1) << '}';
-    } else{
+    } else {
         os << "no authors";
     }
     os << ')';

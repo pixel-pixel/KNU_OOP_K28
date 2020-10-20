@@ -199,9 +199,9 @@ public:
      * Method creates array of elements in the LinkedList for pass to Sort`s method.
      * Then the method clears the LinkedList and add all elements from array to LinkedList.
      * Sort`s method is 'QuickSort'.
-     * @param   comparator   The point on Comparator which compare two objects.
+     * @param   comparator   The point on Comparator which compare two objects. DefaultComparator if not init.
      */
-    void sort(Comparator<T> *comparator = nullptr) {
+    void sort(Comparator<T> *comparator = nullptr) override {
         T *arr = new T[size];
 
         tail = head;
@@ -211,13 +211,21 @@ public:
         }
 
         QuickSort<T> quickSort;
-        quickSort.sort(arr, size, comparator);
+
+        if (comparator) {
+            quickSort.sort(arr, size, comparator);
+        } else {
+            DefaultComparator<T> defaultComparator;
+            quickSort.sort(arr, size, &defaultComparator);
+        }
 
         tail = head;
         for (int i = 0; i < size; i++) {
             tail->obj = arr[i];
             tail = tail->next;
         }
+
+        delete [] arr;
     }
 
     /**
@@ -228,7 +236,7 @@ public:
      * Method creates array of elements in the LinkedList for pass to Sort`s method.
      * Then the method clears the LinkedList and add all elements from array to LinkedList.
      * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort LinkedList by certain type.
-     * @param   comparator  The point on Comparator which compare two objects.
+     * @param   comparator  The point on Comparator which compare two objects. DefaultComparator if not init.
      */
     void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) override {
         T *arr = new T[size];
@@ -239,13 +247,20 @@ public:
             tail = tail->next;
         }
 
-        sort->sort(arr, size, comparator);
+        if(comparator) {
+            sort->sort(arr, size, comparator);
+        }else{
+            DefaultComparator<T> defaultComparator;
+            sort->sort(arr, size, &defaultComparator);
+        }
 
         tail = head;
         for (int i = 0; i < size; i++) {
             tail->obj = arr[i];
             tail = tail->next;
         }
+
+        delete [] arr;
     }
 
     /**

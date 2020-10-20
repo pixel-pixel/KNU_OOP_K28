@@ -23,57 +23,73 @@ public:
      * @brief
      * Constructor with main character if it != nullptr you can add all book to series.
      * If not - you can add only books where play this character.
-     * @param   main_character  Pointer on character of series.
      */
     Series(Character *main_character);
 
     /**
      * @brief
      * Add book to series.
-     * If main 'main_character' == nullptr just add.
-     * Else if main character contains this book - add, if not contains - no add.
-     * @param   book    Link on book which we want to add.
-     * @return          0 -> if add, -1 -> else.
      */
     int add_book(Book &book);
 
     /**
      * @brief
      * Remove book from series.
-     * @param   book    Book which we want to remove.
-     * @return          0 -> if remove, -1 -> if book not contains
      */
     int remove_book(Book &book);
 
     /**
      * @brief
      * Before method return vector, it sort all book by date.
-     * @return  Vector of books of series.
      */
     std::vector<Book> *getBooks();
 
+    /**
+     * @brief
+     * Character getter.
+     */
     Character *getMainCharacter();
 
     /**
     * @brief
     * Override operator<< of ostream.
-    * Out look like:
-    * @code
-    * {'book 1', 'book 2', ...}
-    * @endcode
     */
     friend std::ostream &operator<<(std::ostream &os, const Series &series);
 
+    /**
+     * @brief
+     * Equal operator.
+     */
     bool operator==(const Series &rhs) const;
 
+    /**
+     * @brief
+     * Not equal operator.
+     */
     bool operator!=(const Series &rhs) const;
 
+    /**
+     * @brief
+     * Less than operator.
+     */
     bool operator<(const Series &rhs) const;
 
+    /**
+    * @brief
+    * Great than operator.
+    */
     bool operator>(const Series &rhs) const;
 
+    /**
+     * @brief
+     * Less or equal operator.
+     */
     bool operator<=(const Series &rhs) const;
 
+    /**
+     * @brief
+     * Great or equal operator.
+     */
     bool operator>=(const Series &rhs) const;
 };
 

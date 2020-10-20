@@ -1,7 +1,7 @@
 #include "utils/doctest.h"
 #include "utils/utils.h"
 
-#include "lab_classes/Series.h"
+#include "library/Series.h"
 #include "lists/ArrayList.h"
 #include "list_generators/ListGenerator.h"
 

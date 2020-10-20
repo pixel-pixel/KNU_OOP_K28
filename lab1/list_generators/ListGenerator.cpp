@@ -1,5 +1,11 @@
 #include "ListGenerator.h"
 
+/**
+     * @brief
+     * Generate 'count' random integers[0..99] and add everyone to List.
+     * @param   count   Count of integers we want to add.
+     * @param   list    Point on List.
+     */
 void ListGenerator::random_int(int count, List<int> *list) {
     int res;
 
@@ -11,6 +17,12 @@ void ListGenerator::random_int(int count, List<int> *list) {
     }
 }
 
+/**
+     * @brief
+     * Generate 'count' random real numbers[0..99] and add everyone to List.
+     * @param   count   Count of real numbers we want to add.
+     * @param   list    Point on List.
+     */
 void ListGenerator::random_double(int count, List<double> *list) {
     double res;
 
@@ -23,6 +35,12 @@ void ListGenerator::random_double(int count, List<double> *list) {
     }
 }
 
+/**
+     * @brief
+     * Generate 'count' random std::strings(size[0..99]) and add everyone to List.
+     * @param   count   Count of strings we want to add.
+     * @param   list    Point on List.
+     */
 void ListGenerator::random_string(int count, List<std::string> *list) {
     std::string res;
 
@@ -37,6 +55,12 @@ void ListGenerator::random_string(int count, List<std::string> *list) {
     }
 }
 
+/**
+     * @brief
+     * Generate 'count' random std::vector<int>(size[1..20], int[0..99]) and add everyone to List.
+     * @param   count   Count of vectors we want to add.
+     * @param   list    Point on List.
+     */
 void ListGenerator::random_vector_int(int count, List<std::vector<int>> *list) {
     std::vector<int> res;
 
@@ -52,6 +76,12 @@ void ListGenerator::random_vector_int(int count, List<std::vector<int>> *list) {
     }
 }
 
+/**
+     * @brief
+     * Generate 'count' random Books and add everyone to List.
+     * @param   count   Count of Books we want to add.
+     * @param   list    Point on List.
+     */
 void ListGenerator::random_book(int count, List<Book> *list) {
     std::string name;
     int pages;
@@ -98,6 +128,12 @@ void ListGenerator::random_book(int count, List<Book> *list) {
     }
 }
 
+/**
+     * @brief
+     * Generate 'count' random Characters and add everyone to List.
+     * @param   count   Count of Characters we want to add.
+     * @param   list    Point on List.
+     */
 void ListGenerator::random_character(int count, List<Character> *list) {
     std::string str;
 
