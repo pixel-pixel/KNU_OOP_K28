@@ -7,6 +7,8 @@
 #include "../library/Book.h"
 #include "../library/Character.h"
 #include "../lists/List.h"
+#include "../library/Series.h"
+#include <typeinfo>
 
 /**
  * @brief
@@ -49,6 +51,9 @@ public:
      * Generate 'count' random Characters and add everyone to List.
      */
     static void random_character(int count, List<Character> * list);
+
+    template<class T>
+    static void random(int count, List<T> *list);
 };
 
 

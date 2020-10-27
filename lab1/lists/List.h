@@ -4,6 +4,7 @@
 #include "sstream"
 #include "../sorts/Sort.h"
 #include "../sorts/QuickSort.h"
+#include "../utils/utils.h"
 
 /**
  * @brief
@@ -125,7 +126,7 @@ public:
      * @brief
      * Equality operator.
      * @param   rhs     Second List.
-     * @return          If sizes and object in lists are the same -> true, else -> false.
+     * @return          If sizes and objects in lists are the same -> true, else -> false.
      */
     bool operator==(List &rhs) {
         if (get_size() != rhs.get_size()) return false;
@@ -139,7 +140,7 @@ public:
      * @brief
      * Inequality operator.
      * @param   rhs     Second List.
-     * @return          If sizes and object in lists are the same -> false, else -> true.
+     * @return          If sizes or one or more objects in lists are the same -> false, else -> true.
      */
     bool operator!=(List &rhs) {
         return !(rhs == *this);

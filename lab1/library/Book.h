@@ -12,7 +12,7 @@
  * int pages,
  * std::string annotation,
  * std::string date,
- * std::vector<std::string> *authors.
+ * std::vector<std::string> authors.
  */
 class Book {
 private:
@@ -20,7 +20,7 @@ private:
     int pages;                          ///< Count of pages in book.
     std::string annotation;             ///< Short book`s annotation.
     std::string date;                   ///< Date of book`s release (yyyy.mm.dd).
-    std::vector<std::string> *authors;  ///< Pointer on vector with authors.
+    std::vector<std::string> authors;  ///< Vector with authors.
 
 public:
     /**
@@ -42,7 +42,7 @@ public:
          int pages,
          std::string annotation,
          std::string date,
-         std::vector<std::string> *authors);
+         std::vector<std::string> &authors);
 
     /**
      * @brief
@@ -59,53 +59,101 @@ public:
     /**
      * @brief
      * Name getter.
-     * @return  Name.
      */
     const std::string &getName() const;
 
     /**
      * @brief
      * Name setter.
-     * @param   name    New name.
      */
     void setName(const std::string &name);
 
+    /**
+     * @brief
+     * Pages getter.
+     */
     int getPages() const;
 
+    /**
+     * @brief
+     * Pages setter.
+     */
     void setPages(int pages);
 
+    /**
+     * @brief
+     * Annotation getter.
+     */
     const std::string &getAnnotation() const;
 
+    /**
+     * @brief
+     * Annotation setter.
+     */
     void setAnnotation(const std::string &annotation);
 
+    /**
+     * Date getter.
+     */
     const std::string &getDate() const;
 
+    /**
+     * @brief
+     * Date setter.
+     */
     void setDate(const std::string &date);
 
+    /**
+     * Authors` vector getter.
+     */
     const std::vector<std::string> &getAuthors() const;
 
-    void setAuthors(std::vector<std::string> *authors);
+    /**
+     * @brief
+     * Authors` vector setter.
+     */
+    void setAuthors(std::vector<std::string> &authors);
 
     /**
     * @brief
     * Override operator<< of ostream.
-    * Out look like:
-    * @code
-    * ("book name", 'count of pages', "annotation", "date", {"first author", "second author", ...})
-    * @endcode
     */
     friend std::ostream &operator<<(std::ostream &os, const Book &book);
 
+    /**
+     * @brief
+     * Equality operator.
+     */
     bool operator==(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Inequality operator.
+     */
     bool operator!=(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Relation 'less that' operator.
+     */
     bool operator<(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Relation 'great that' operator.
+     */
     bool operator>(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Relation 'less or equal' operator.
+     */
     bool operator<=(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Relation 'great or equal' operator.
+     */
     bool operator>=(const Book &rhs) const;
 };
 

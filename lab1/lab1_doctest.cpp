@@ -140,6 +140,8 @@ TEST_CASE ("Integer Lists") {
     list->clear();
             CHECK(list->get_size() == 0);
             CHECK( list->to_string() == "[]");
+
+    delete list;
 }
 
 TEST_CASE ("Double Lists") {
@@ -263,6 +265,8 @@ TEST_CASE ("Double Lists") {
     list->clear();
             CHECK(list->get_size() == 0);
             CHECK( list->to_string() == "[]");
+
+    delete list;
 }
 
 TEST_CASE ("String lists") {
@@ -386,6 +390,8 @@ TEST_CASE ("String lists") {
     list->clear();
             CHECK(list->get_size() == 0);
             CHECK( list->to_string() == "[]");
+
+    delete list;
 }
 
 TEST_CASE ("Vector Lists") {
@@ -509,6 +515,8 @@ TEST_CASE ("Vector Lists") {
     list->clear();
             CHECK(list->get_size() == 0);
             CHECK( list->to_string() == "[]");
+
+    delete list;
 }
 
 TEST_CASE ("Book lists") {
@@ -632,6 +640,8 @@ TEST_CASE ("Book lists") {
     list->clear();
             CHECK(list->get_size() == 0);
             CHECK( list->to_string() == "[]");
+
+    delete list;
 }
 
 TEST_CASE ("Character lists") {
@@ -754,6 +764,8 @@ TEST_CASE ("Character lists") {
     list->clear();
             CHECK(list->get_size() == 0);
             CHECK( list->to_string() == "[]");
+
+    delete list;
 }
 
 TEST_CASE ("Series lists") {
@@ -916,4 +928,6 @@ TEST_CASE ("Series lists") {
     list->clear();
             CHECK(list->get_size() == 0);
             CHECK( list->to_string() == "[]");
+
+    delete list;
 }

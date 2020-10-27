@@ -11,12 +11,14 @@
  */
 class Series {
 private:
-    Character *main_character = nullptr;    ///< Pointer on character for series.
-    std::vector<Book> *books;                ///< Vector with books from series.
+    Character main_character;                ///< Pointer on character for series.
+    std::vector<Book> books;                ///< Vector with books from series.
 
 public:
-    Series();
-
+    /**
+     * Constructor which copy all from pointer on Series to this Series
+     * @param   pSeries   Pointer on Series
+     */
     Series(Series *pSeries);
 
     /**
@@ -24,7 +26,7 @@ public:
      * Constructor with main character if it != nullptr you can add all book to series.
      * If not - you can add only books where play this character.
      */
-    Series(Character *main_character);
+    Series(Character &main_character);
 
     /**
      * @brief
@@ -42,13 +44,13 @@ public:
      * @brief
      * Before method return vector, it sort all book by date.
      */
-    std::vector<Book> *getBooks();
+    std::vector<Book> &getBooks();
 
     /**
      * @brief
      * Character getter.
      */
-    Character *getMainCharacter();
+    Character &getMainCharacter();
 
     /**
     * @brief
