@@ -12,7 +12,7 @@
  * int pages,
  * std::string annotation,
  * std::string date,
- * std::vector<std::string> *authors.
+ * std::vector<std::string> authors.
  */
 class Book {
 private:
@@ -20,37 +20,33 @@ private:
     int pages;                          ///< Count of pages in book.
     std::string annotation;             ///< Short book`s annotation.
     std::string date;                   ///< Date of book`s release (yyyy.mm.dd).
-    std::vector<std::string> *authors;  ///< Pointer on vector with authors.
+    std::vector<std::string> authors;  ///< Vector with authors.
 
 public:
+    /**
+     * @brief
+     * Constructor without parameters
+     */
     Book();
 
+    /**
+     * Constructor which copy all from pointer on book to this book
+     */
     Book(Book *pBook);
 
     /**
      * @brief
      * Constructor with original to class`s members
-     * @param   name        Name of book.
-     * @param   pages       Count of pages in book.
-     * @param   annotation  Short book`s annotation.
-     * @param   date        Date of book`s release (yyyy.mm.dd).
-     * @param   authors     Pointer on vector with authors.
      */
     Book(std::string name,
          int pages,
          std::string annotation,
          std::string date,
-         std::vector<std::string> *authors);
+         std::vector<std::string> &authors);
 
     /**
      * @brief
      * Simple constructor for compact create book.
-     * @param   name        Name of book.
-     * @param   pages       Count of pages in book.
-     * @param   annotation  Short book`s annotation.
-     * @param   author1     First author which will be added to 'authors'.
-     * @param   author2     Second author which will be added to 'authors'.
-     * @param   author3     Third author which will be added to 'authors'.
      */
     Book(std::string name,
          int pages = 0,
@@ -60,46 +56,104 @@ public:
          const std::string &author2 = "",
          const std::string &author3 = "");
 
+    /**
+     * @brief
+     * Name getter.
+     */
     const std::string &getName() const;
 
+    /**
+     * @brief
+     * Name setter.
+     */
     void setName(const std::string &name);
 
+    /**
+     * @brief
+     * Pages getter.
+     */
     int getPages() const;
 
+    /**
+     * @brief
+     * Pages setter.
+     */
     void setPages(int pages);
 
+    /**
+     * @brief
+     * Annotation getter.
+     */
     const std::string &getAnnotation() const;
 
+    /**
+     * @brief
+     * Annotation setter.
+     */
     void setAnnotation(const std::string &annotation);
 
+    /**
+     * Date getter.
+     */
     const std::string &getDate() const;
 
+    /**
+     * @brief
+     * Date setter.
+     */
     void setDate(const std::string &date);
 
+    /**
+     * Authors` vector getter.
+     */
     const std::vector<std::string> &getAuthors() const;
 
-    void setAuthors(std::vector<std::string> *authors);
+    /**
+     * @brief
+     * Authors` vector setter.
+     */
+    void setAuthors(std::vector<std::string> &authors);
 
     /**
     * @brief
     * Override operator<< of ostream.
-    * Out look like:
-    * @code
-    * ("book name", 'count of pages', "annotation", "date", {"first author", "second author", ...})
-    * @endcode
     */
     friend std::ostream &operator<<(std::ostream &os, const Book &book);
 
+    /**
+     * @brief
+     * Equality operator.
+     */
     bool operator==(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Inequality operator.
+     */
     bool operator!=(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Relation 'less that' operator.
+     */
     bool operator<(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Relation 'great that' operator.
+     */
     bool operator>(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Relation 'less or equal' operator.
+     */
     bool operator<=(const Book &rhs) const;
 
+    /**
+     * @brief
+     * Relation 'great or equal' operator.
+     */
     bool operator>=(const Book &rhs) const;
 };
 

@@ -4,6 +4,7 @@
 #include "sstream"
 #include "../sorts/Sort.h"
 #include "../sorts/QuickSort.h"
+#include "../utils/utils.h"
 
 /**
  * @brief
@@ -78,7 +79,7 @@ public:
      * If the pointer on Comparator is not specified or equals 'nullptr', the list must be sorted by object`s relational operators.
      * Method must create array of elements in the list for pass to Sort`s method.
      * Then the method must clear the list and add all elements from array to list.
-     * @param   comparator   The point on Comparator which compare two objects.
+     * @param   comparator   The point on Comparator which compare two objects. DefaultComparator if not init.
      */
     virtual void sort(Comparator<T> *comparator = nullptr) = 0;
 
@@ -90,7 +91,7 @@ public:
      * Method must create array of elements in the list for pass to Sort`s method.
      * Then the method must clear the list and add all elements from array to list.
      * @param   sort        The pointer on Sort object which have one method - 'sort'. It sort list by certain type.
-     * @param   comparator  The point on Comparator which compare two objects.
+     * @param   comparator  The point on Comparator which compare two objects. DefaultComparator if not init.
      */
     virtual void sort(Sort<T> *sort, Comparator<T> *comparator = nullptr) = 0;
 
@@ -125,7 +126,7 @@ public:
      * @brief
      * Equality operator.
      * @param   rhs     Second List.
-     * @return          If sizes and object in lists are the same -> true, else -> false.
+     * @return          If sizes and objects in lists are the same -> true, else -> false.
      */
     bool operator==(List &rhs) {
         if (get_size() != rhs.get_size()) return false;
@@ -139,7 +140,7 @@ public:
      * @brief
      * Inequality operator.
      * @param   rhs     Second List.
-     * @return          If sizes and object in lists are the same -> false, else -> true.
+     * @return          If sizes or one or more objects in lists are the same -> false, else -> true.
      */
     bool operator!=(List &rhs) {
         return !(rhs == *this);

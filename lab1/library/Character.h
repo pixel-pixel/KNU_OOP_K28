@@ -27,55 +27,87 @@ public:
             NONE        ///< This person not in this book.
         };
     private:
-        Book *book;     ///< Pointer on book where is character.
+        Book book;     ///< Pointer on book where is character.
         Part part;      ///< Part of character in book;
 
     public:
         /**
          * Constructor with all parameters.
-         * @param   book    Pointer on book where play character.
-         * @param   part    Part which plays character in book.
          */
-        Role(Book *book, Part part);
+        Role(Book book, Part part);
 
+        /**
+         * @brief
+         * Book getter.
+         */
         Book &getBook();
 
-        void setBook(Book *book);
+        /**
+         * @brief
+         * Book setter.
+         */
+        void setBook(Book &book);
 
+        /**
+         * @brief
+         * Part getter.
+         */
         Part getPart();
 
+        /**
+         * @brief
+         * Part setter.
+         */
         void setPart(Part part);
-
-        bool operator<(const Role &rhs) const;
-
-        bool operator>(const Role &rhs) const;
-
-        bool operator<=(const Role &rhs) const;
-
-        bool operator>=(const Role &rhs) const;
-
-        bool operator==(const Role &rhs) const;
-
-        bool operator!=(const Role &rhs) const;
 
         /**
         * @brief
         * Override operator<< of ostream.
-        * Out look like:
-        * @code
-        * {'book', 'role'}
-        * @endcode
         */
         friend std::ostream &operator<<(std::ostream &os, const Role &role);
+
+        /**
+         * @brief
+         * Equal operator.
+         */
+        bool operator==(const Role &rhs) const;
+
+        /**
+         * @brief
+         * Unequal operator.
+         */
+        bool operator!=(const Role &rhs) const;
+
+        /**
+         * Less than operator.
+         */
+        bool operator<(const Role &rhs) const;
+
+        /**
+         * Great than operator.
+         */
+        bool operator>(const Role &rhs) const;
+
+        /**
+         * Less or equal operator.
+         */
+        bool operator<=(const Role &rhs) const;
+
+        /**
+         * Great or equal operator.
+         */
+        bool operator>=(const Role &rhs) const;
     };
 
 private:
-    std::vector<std::string> *names;    ///< Pointer on vector where all names of this character.
-    std::vector<Role> *roles;           ///< Pointer on vector where all roles of this character.
+    std::vector<std::string> names;    ///< Pointer on vector where all names of this character.
+    std::vector<Role> roles;           ///< Pointer on vector where all roles of this character.
 
 public:
-    Character();
-
+    /**
+     * Constructor which copy all from pointer on Character to this Character
+     * @param   pCharacter   Pointer on Character
+     */
     Character(Character *pCharacter);
 
     /**
@@ -84,7 +116,7 @@ public:
      * @param   names   Pointer on vector where all names of this character.
      * @param   roles   Pointer on vector where all roles of this character.
      */
-    Character(std::vector<std::string> *names, std::vector<Role> *roles);
+    Character(std::vector<std::string> &names, std::vector<Role> &roles);
 
     /**
      * @brief
@@ -109,34 +141,60 @@ public:
      */
     void add_role(Role role);
 
-    std::vector<std::string> *getNames() const;
+    /**
+     * Names` vector getter.
+     */
+    std::vector<std::string> &getNames();
 
-    void setNames(std::vector<std::string> *names);
+    /**
+     * Names` vector setter.
+     */
+    void setNames(std::vector<std::string> &names);
 
-    std::vector<Role> *getRoles() const;
+    /**
+     * Roles` vector getter.
+     */
+    std::vector<Role> &getRoles();
 
-    void setRoles(std::vector<Role> *roles);
+    /**
+     * Roles` vector setter.
+     */
+    void setRoles(std::vector<Role> &roles);
 
     /**
      * @brief
      * Override operator<< of ostream.
-     * Out look like:
-     * @code
-     * {{'name 1', 'name 2', ...}, {'role 1', 'role 2', ...}}
-     * @endcode
      */
     friend std::ostream &operator<<(std::ostream &os, const Character &character);
 
+    /**
+     * Equal operator.
+     */
     bool operator==(const Character &rhs) const;
 
+    /**
+     * Unequal operator.
+     */
     bool operator!=(const Character &rhs) const;
 
+    /**
+     * Less than operator.
+     */
     bool operator<(const Character &rhs) const;
 
+    /**
+     * Great than operator.
+     */
     bool operator>(const Character &rhs) const;
 
+    /**
+     * Less or equal operator.
+     */
     bool operator<=(const Character &rhs) const;
 
+    /**
+     * Great or equal operator.
+     */
     bool operator>=(const Character &rhs) const;
 };
 

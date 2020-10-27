@@ -1,9 +1,10 @@
 #include "utils/doctest.h"
 #include "utils/utils.h"
 
-#include "lab_classes/Series.h"
+#include "library/Series.h"
 #include "lists/ArrayList.h"
 #include "list_generators/ListGenerator.h"
+#include "UI/TerminalUI.h"
 
 
 namespace lab1 {
@@ -22,6 +23,8 @@ namespace lab1 {
      */
     int main() {
         doctest();
+//        TerminalUI terminalUi;
+//        terminalUi.start();
 
         Book a("War and God", 2000, "about war and Gods", "1995.11.07", "lev Tolstoi");
         Book b("Kozaki", 129, "about us", "2020", "Sergii", "Andrii");
@@ -33,7 +36,7 @@ namespace lab1 {
         andrii.add_role(Character::Role(&c, Character::Role::MINOR));
         andrii.add_role(Character::Role(&d, Character::Role::EPISODIC));
 
-        Series ser0(&andrii);
+        Series ser0(andrii);
         ser0.add_book(d);
         ser0.add_book(b);
         ser0.add_book(c);
@@ -51,7 +54,7 @@ namespace lab1 {
         Series ser3;
         ser3.add_book(d);
 
-        ArrayList<Series> list;
+        LinkedList<Series> list;
         list.add(ser);
         list.add(ser2);
         list.add(ser3, 0);

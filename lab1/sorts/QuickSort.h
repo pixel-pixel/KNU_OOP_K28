@@ -9,26 +9,17 @@
  * Class implements Sort interface. It sort array by Quick sort.
  * @tparam  T   Class or primitive with override relational operators or have it own Comparator.
  */
-template <class T>
-class QuickSort : public Sort<T>{
+template<class T>
+class QuickSort : public Sort<T> {
 private:
     int partition(T *arr, int low, int high, Comparator<T> *comparator) {
         T pivot = arr[high];
         int i = (low - 1);
 
-        if (comparator == nullptr) {
-            for (int j = low; j <= high - 1; j++) {
-                if (arr[j] < pivot) {
-                    i++;
-                    std::swap(arr[i], arr[j]);
-                }
-            }
-        } else {
-            for (int j = low; j <= high - 1; j++) {
-                if (comparator->compare(pivot, arr[j]) == 1) {
-                    i++;
-                    std::swap(arr[i], arr[j]);
-                }
+        for (int j = low; j <= high - 1; j++) {
+            if (comparator->compare(pivot, arr[j]) == 1) {
+                i++;
+                std::swap(arr[i], arr[j]);
             }
         }
 
@@ -52,9 +43,9 @@ public:
      * Method for sort arrays by Quick sort by Comparator or relational operators(if point on Comparator == nullptr);
      * @param   arr         Array which we want to sort.
      * @param   size        Size of our array.
-     * @param   comparator  Functional interface for compare 2 objects.
+     * @param   comparator  Functional interface for compare 2 objects. DefaultComparator if not init.
      */
-    void sort(T *arr, int size, Comparator<T> *comparator) override {
+    void sort(T *arr, int size, Comparator<T> *comparator = new DefaultComparator<T>) override {
         sort_temp(arr, 0, size - 1, comparator);
     }
 };
