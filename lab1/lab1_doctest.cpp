@@ -19,6 +19,8 @@
 #include "library/Character.h"
 #include "library/Series.h"
 
+ListGenerator generator;
+
 TEST_CASE ("Integer Lists") {
     List<int> *list;
     std::stringstream ss;
@@ -44,7 +46,7 @@ TEST_CASE ("Integer Lists") {
     }
 
             CHECK(list->get_size() == 0);
-    ListGenerator::random_int(10, list);
+    generator.random_int(10, list);
 
             CHECK(list->get_size() == 10);
             CHECK( list->to_string() != "[]");
@@ -169,7 +171,7 @@ TEST_CASE ("Double Lists") {
     }
 
             CHECK(list->get_size() == 0);
-    ListGenerator::random_double(10, list);
+    generator.random_double(10, list);
 
             CHECK(list->get_size() == 10);
             CHECK( list->to_string() != "[]");
@@ -294,7 +296,7 @@ TEST_CASE ("String lists") {
     }
 
             CHECK(list->get_size() == 0);
-    ListGenerator::random_string(10, list);
+    generator.random_string(10, list);
 
             CHECK(list->get_size() == 10);
             CHECK( list->to_string() != "[]");
@@ -419,7 +421,7 @@ TEST_CASE ("Vector Lists") {
     }
 
             CHECK(list->get_size() == 0);
-    ListGenerator::random_vector_int(10, list);
+    generator.random_vector_int(10, list);
 
             CHECK(list->get_size() == 10);
             CHECK( list->to_string() != "[]");
@@ -544,7 +546,7 @@ TEST_CASE ("Book lists") {
     }
 
             CHECK(list->get_size() == 0);
-    ListGenerator::random_book(10, list);
+    generator.random_book(10, list);
 
             CHECK(list->get_size() == 10);
             CHECK( list->to_string() != "[]");
@@ -669,7 +671,7 @@ TEST_CASE ("Character lists") {
     }
 
             CHECK(list->get_size() == 0);
-    ListGenerator::random_character(10, list);
+    generator.random_character(10, list);
 
             CHECK(list->get_size() == 10);
             CHECK( list->to_string() != "[]");
