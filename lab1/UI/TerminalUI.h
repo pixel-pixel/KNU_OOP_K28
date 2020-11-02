@@ -16,8 +16,13 @@
 #include "../sorts/QuickSort.h"
 #include "../comparators/ReverseComparator.h"
 
+///Class for demonstrating the Lists` functional.
 class TerminalUI {
 private:
+    ///Generator for generate random object.
+    ListGenerator generator;
+
+    //-----\/--texts-for-communication-with-user--\/-----//
     const char *msg_type_in_list = "---Choose type in List...\n"
                                    "(new List<...>)\n"
                                    "[1] int\n"
@@ -25,8 +30,7 @@ private:
                                    "[3] std::string\n"
                                    "[4] std::vector<int>\n"
                                    "[5] Book\n"
-                                   "[6] Character\n"
-                                   "[7] Series";
+                                   "[6] Character";
 
     const char *msg_list_type = "---Choose type of List---\n"
                                 "(List *list = new ...)\n"
@@ -72,26 +76,47 @@ private:
 
     const char *msg_print = "Your list:";
 
-    ListGenerator generator;
+    const char *msg_vector_size = "Enter the vector`s size:";
 
+    const char *msg_vector_object = "Enter an int by index ";
+
+    const char *msg_book_name = "Enter the name of this book:";
+
+    const char *msg_book_pages = "Enter the count of pages of this book:";
+
+    const char *msg_character_name = "Enter the name of this character:";
+    //-----/\--texts-for-communication-with-user--/\-----//
+
+    ///Demonstrates the operation of the list of int.
     void work_with_int_list();
 
+    ///Demonstrates the operation of the list of double.
     void work_with_double_list();
 
+    ///Demonstrates the operation of the list of std::string.
     void work_with_string_list();
 
+    ///Demonstrates the operation of the list of std::vector of int.
     void work_with_vector_list();
-//
-//    void work_with_Book_list(int list_type);
-//
-//    void work_with_Character_list(int list_type);
 
+    ///Demonstrates the operation of the list of Book.
+    void work_with_Book_list();
 
+    ///Demonstrates the operation of the list of Character.
+    void work_with_Character_list();
+
+    ///Create new std::vector<int> by terminal interface.
+    std::vector<int> *create_int_vector();
+
+    ///Create new Book by terminal interface.
+    Book* create_Book();
+
+    ///Create new Character by terminal interface.
+    Character* create_Character();
 
 public:
+    ///Start the demonstration.
     void start();
-
-
 };
 
 

@@ -19,11 +19,10 @@ void TerminalUI::start() {
             work_with_vector_list();
             break;
         case 5:
-            break;
-        case 6:
+            work_with_Book_list();
             break;
         default:
-            break;
+            work_with_Character_list();
     }
 
 }
@@ -296,7 +295,7 @@ void TerminalUI::work_with_string_list() {
 
             case 2:
                 std::cout << msg_add_object << std::endl;
-                scanf("%s", &beta);
+                scanf("%s", beta);
 
                 std::cout << msg_add_object_index << std::endl;
                 scanf("%d", &alpha);
@@ -320,7 +319,7 @@ void TerminalUI::work_with_string_list() {
 
             case 5:
                 std::cout << msg_find << std::endl;
-                scanf("%s", &beta);
+                scanf("%s", beta);
 
                 std::cout << "index: " << list->find(beta) << std::endl;
                 break;
@@ -397,7 +396,7 @@ void TerminalUI::work_with_vector_list() {
 
     while (true){
         int alpha;
-        double beta;
+        std::vector<int> *beta;
 
         std::cout << msg_what_you_want << std::endl;
         scanf("%d", &command);
@@ -411,13 +410,14 @@ void TerminalUI::work_with_vector_list() {
                 break;
 
             case 2:
-//                std::cout << msg_add_object << std::endl;
-//                scanf("%lf", &beta);
-//
-//                std::cout << msg_add_object_index << std::endl;
-//                scanf("%d", &alpha);
-//
-//                list->add(beta, alpha);
+                std::cout << msg_add_object << std::endl;
+                beta = create_int_vector();
+
+                std::cout << msg_add_object_index << std::endl;
+                scanf("%d", &alpha);
+
+                list->add(*beta, alpha);
+                delete beta;
                 break;
 
             case 3:
@@ -435,10 +435,11 @@ void TerminalUI::work_with_vector_list() {
                 break;
 
             case 5:
-//                std::cout << msg_find << std::endl;
-//                scanf("%lf", &beta);
-//
-//                std::cout << "index: " << list->find(beta) << std::endl;
+                std::cout << msg_find << std::endl;
+                beta = create_int_vector();
+
+                std::cout << "index: " << list->find(*beta) << std::endl;
+                delete beta;
                 break;
 
             case 6:
@@ -490,6 +491,283 @@ void TerminalUI::work_with_vector_list() {
                 return;
         }
     }
+}
+
+void TerminalUI::work_with_Book_list() {
+    List<Book> *list;
+
+    int list_type;
+    std::cout << msg_list_type << std::endl;
+    scanf("%d", &list_type);
+
+    switch (list_type) {
+        case 1:
+            list = new ArrayList<Book>;
+            break;
+        case 2:
+            list = new LinkedList<Book>;
+            break;
+        default:
+            list = new ArrayList<Book>;
+    }
+    int command;
+
+    while (true){
+        int alpha;
+        Book *beta;
+
+        std::cout << msg_what_you_want << std::endl;
+        scanf("%d", &command);
+
+        switch (command) {
+            case 1:
+                std::cout << msg_count_of_random_objects << std::endl;
+                scanf("%d", &alpha);
+
+                generator.random_book(alpha, list);
+                break;
+
+            case 2:
+                std::cout << msg_add_object << std::endl;
+                beta = create_Book();
+
+                std::cout << msg_add_object_index << std::endl;
+                scanf("%d", &alpha);
+
+                list->add(*beta, alpha);
+                delete beta;
+                break;
+
+            case 3:
+                std::cout << msg_remove << std::endl;
+                scanf("%d", &alpha);
+
+                list->remove(alpha);
+                break;
+
+            case 4:
+                std::cout << msg_get_object << std::endl;
+                scanf("%d", &alpha);
+
+                std::cout << "obj: " << list->get(alpha) << std::endl;
+                break;
+
+            case 5:
+                std::cout << msg_find << std::endl;
+                beta = create_Book();
+
+                std::cout << "index: " << list->find(*beta) << std::endl;
+                delete beta;
+                break;
+
+            case 6:
+                std::cout << msg_clear_the_list << std::endl;
+
+                list->clear();
+                break;
+
+            case 7:
+                Sort<Book> *sort;
+                Comparator<Book> *comparator;
+
+                std::cout << msg_sorts << std::endl;
+                scanf("%d", &alpha);
+
+                switch (alpha) {
+                    case 1:
+                        sort = new BubbleSort<Book>;
+                        break;
+                    case 2:
+                        sort = new InsertionSort<Book>;
+                        break;
+                    case 3:
+                        sort = new MergeSort<Book>;
+                        break;
+                    default:
+                        sort = new QuickSort<Book>;
+                }
+
+                std::cout << msg_comparators << std::endl;
+                scanf("%d", &alpha);
+
+                switch (alpha) {
+                    case 1:
+                        comparator = new DefaultComparator<Book>;
+                        break;
+                    default:
+                        comparator = new ReverseComparator<Book>;
+                }
+
+                list->sort(sort, comparator);
+                break;
+
+            case 8:
+                std::cout << msg_print << std::endl << *list << std::endl;
+                break;
+
+            default:
+                delete list;
+                return;
+        }
+    }
+
+}
+
+void TerminalUI::work_with_Character_list() {
+    List<Character> *list;
+
+    int list_type;
+    std::cout << msg_list_type << std::endl;
+    scanf("%d", &list_type);
+
+    switch (list_type) {
+        case 1:
+            list = new ArrayList<Character>;
+            break;
+        case 2:
+            list = new LinkedList<Character>;
+            break;
+        default:
+            list = new ArrayList<Character>;
+    }
+    int command;
+
+    while (true){
+        int alpha;
+        Character *beta;
+
+        std::cout << msg_what_you_want << std::endl;
+        scanf("%d", &command);
+
+        switch (command) {
+            case 1:
+                std::cout << msg_count_of_random_objects << std::endl;
+                scanf("%d", &alpha);
+
+                generator.random_character(alpha, list);
+                break;
+
+            case 2:
+                std::cout << msg_add_object << std::endl;
+                beta = create_Character();
+
+                std::cout << msg_add_object_index << std::endl;
+                scanf("%d", &alpha);
+
+                list->add(*beta, alpha);
+                delete beta;
+                break;
+
+            case 3:
+                std::cout << msg_remove << std::endl;
+                scanf("%d", &alpha);
+
+                list->remove(alpha);
+                break;
+
+            case 4:
+                std::cout << msg_get_object << std::endl;
+                scanf("%d", &alpha);
+
+                std::cout << "obj: " << list->get(alpha) << std::endl;
+                break;
+
+            case 5:
+                std::cout << msg_find << std::endl;
+                beta = create_Character();
+
+                std::cout << "index: " << list->find(*beta) << std::endl;
+                delete beta;
+                break;
+
+            case 6:
+                std::cout << msg_clear_the_list << std::endl;
+
+                list->clear();
+                break;
+
+            case 7:
+                Sort<Character> *sort;
+                Comparator<Character> *comparator;
+
+                std::cout << msg_sorts << std::endl;
+                scanf("%d", &alpha);
+
+                switch (alpha) {
+                    case 1:
+                        sort = new BubbleSort<Character>;
+                        break;
+                    case 2:
+                        sort = new InsertionSort<Character>;
+                        break;
+                    case 3:
+                        sort = new MergeSort<Character>;
+                        break;
+                    default:
+                        sort = new QuickSort<Character>;
+                }
+
+                std::cout << msg_comparators << std::endl;
+                scanf("%d", &alpha);
+
+                switch (alpha) {
+                    case 1:
+                        comparator = new DefaultComparator<Character>;
+                        break;
+                    default:
+                        comparator = new ReverseComparator<Character>;
+                }
+
+                list->sort(sort, comparator);
+                break;
+
+            case 8:
+                std::cout << msg_print << std::endl << *list << std::endl;
+                break;
+
+            default:
+                return;
+        }
+    }
+
+}
+
+std::vector<int> *TerminalUI::create_int_vector() {
+    auto *vector = new std::vector<int>;
+    int count;
+    int temp;
+
+    std::cout << msg_vector_size << std::endl;
+    scanf("%d", &count);
+
+    for(int i = 0; i < count; i++){
+        std::cout << msg_vector_object << i << ":" << std::endl;
+        scanf("%d", &temp);
+        vector->push_back(temp);
+    }
+    return vector;
+}
+
+Book *TerminalUI::create_Book() {
+    char name[20];
+    int pages;
+
+    std::cout << msg_book_name << std::endl;
+    scanf("%s", name);
+
+    std::cout << msg_book_pages << std::endl;
+    scanf("%d", &pages);
+
+    return new Book(name, pages);
+}
+
+Character *TerminalUI::create_Character() {
+    char name[20];
+
+    std::cout << msg_character_name << std::endl;
+    scanf("%s", name);
+
+    return new Character(name);
 }
 
 
