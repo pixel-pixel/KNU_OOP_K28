@@ -16,6 +16,11 @@ private:
 
 public:
     /**
+     * @brief
+     * Constructor without parameters
+     */
+    Series() = default;
+    /**
      * Constructor which copy all from pointer on Series to this Series
      * @param   pSeries   Pointer on Series
      */

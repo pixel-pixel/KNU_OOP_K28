@@ -149,22 +149,3 @@ void ListGenerator::random_character(int count, List<Character> *list) {
         list->add(character);
     }
 }
-
-template<class T>
-void ListGenerator::random(int count, List<T> *list) {
-    if (typeid(T) == typeid(int)) {
-        ListGenerator::random_int(count, list);
-    } else if (typeid(T) == typeid(double)) {
-        ListGenerator::random_double(count, list);
-    } else if (typeid(T) == typeid(std::string)){
-        ListGenerator::random_string(count, list);
-    } else if(typeid(T) == typeid(std::vector<int>)){
-        ListGenerator::random_vector_int(count, list);
-    }else if(typeid(T) == typeid(Book)){
-        ListGenerator::random_book(count, list);
-    }else if(typeid(T) == typeid(Character)){
-        ListGenerator::random_character(count, list);
-    }else if(typeid(T) == typeid(Series)){
-
-    }
-}

@@ -105,6 +105,11 @@ private:
 
 public:
     /**
+     * @brief
+     * Constructor without parameters
+     */
+    Character() = default;
+    /**
      * Constructor which copy all from pointer on Character to this Character
      * @param   pCharacter   Pointer on Character
      */
